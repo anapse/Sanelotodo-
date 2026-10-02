@@ -1,0 +1,17 @@
+name: sabelotodo-applet
+version: 1.0.0
+description: "¿SABELOTODO? - El juego definitivo de trivia y preguntas de cultura general con ruleta de premios, comodines y ranking global."
+runtime: react-vite
+environment:
+  node: ">=18.0.0"
+build:
+  command: "npm run build"
+  output_dir: "dist"
+permissions:
+  - MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API
+features:
+  - trivia_game_engine
+  - roulette_wheel
+  - lifelines_system
+  - sound_synthesizer
+  - top50_leaderboard

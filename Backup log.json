@@ -1,0 +1,15 @@
+{
+  "appName": "¿SABELOTODO?",
+  "version": "1.0.0",
+  "backupTimestamp": "2026-10-01T23:35:00Z",
+  "status": "SUCCESS",
+  "modules": [
+    "GameEngine",
+    "SoundService",
+    "QuestionsBank",
+    "RankingService",
+    "SpriteIconSystem",
+    "RouletteWheel",
+    "HeaderHUD"
+  ]
+}
