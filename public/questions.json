@@ -1,0 +1,115 @@
+{
+  "normalQuestions": [
+    {
+      "id": "q1",
+      "category": "Cultura General",
+      "difficulty": "easy",
+      "question": "¿Cuál es el océano más grande del planeta Tierra?",
+      "options": ["Océano Atlántico", "Océano Pacífico", "Océano Índico", "Océano Ártico"],
+      "correctIndex": 1,
+      "verificationSource": "Geografía básica internacional"
+    },
+    {
+      "id": "q2",
+      "category": "Perú",
+      "region": "Latinoamérica",
+      "difficulty": "medium",
+      "question": "¿En qué departamento del Perú se encuentra la ciudadela de Machu Picchu?",
+      "options": ["Arequipa", "Cusco", "Puno", "Cajamarca"],
+      "correctIndex": 1,
+      "verificationSource": "Patrimonio Cultural de la Humanidad UNESCO"
+    },
+    {
+      "id": "q3",
+      "category": "Historia",
+      "difficulty": "medium",
+      "question": "¿En qué año llegó el ser humano a la Luna por primera vez?",
+      "options": ["1965", "1969", "1972", "1958"],
+      "correctIndex": 1,
+      "verificationSource": "Misión Apolo 11 NASA"
+    },
+    {
+      "id": "q4",
+      "category": "Ciencia Cotidiana",
+      "difficulty": "easy",
+      "question": "¿Cuál es el elemento químico representado por el símbolo 'O'?",
+      "options": ["Oro", "Oxígeno", "Osmiio", "Ozono"],
+      "correctIndex": 1,
+      "verificationSource": "Tabla Periódice de los Elementos"
+    },
+    {
+      "id": "q5",
+      "category": "Geografía",
+      "difficulty": "medium",
+      "question": "¿Cuál es la capital oficial de Australia?",
+      "options": ["Sídney", "Melbourne", "Canberra", "Brisbane"],
+      "correctIndex": 2,
+      "verificationSource": "Geografía Política Internacional"
+    },
+    {
+      "id": "q6",
+      "category": "Latinoamérica",
+      "difficulty": "easy",
+      "question": "¿Cuál es la cordillera que atraviesa América del Sur de norte a sur?",
+      "options": ["Montañas Rocosas", "Cordillera de los Andes", "Los Alpes", "El Himalaya"],
+      "correctIndex": 1,
+      "verificationSource": "Geografía Física de Sudamérica"
+    },
+    {
+      "id": "q7",
+      "category": "Arte y Cultura",
+      "difficulty": "medium",
+      "question": "¿Quién pintó la famosa obra de arte 'La Gioconda' (La Mona Lisa)?",
+      "options": ["Pablo Picasso", "Vincent van Gogh", "Leonardo da Vinci", "Miguel Ángel"],
+      "correctIndex": 2,
+      "verificationSource": "Historia del Arte"
+    },
+    {
+      "id": "q8",
+      "category": "Deportes",
+      "difficulty": "easy",
+      "question": "¿Cada cuántos años se celebran habitualmente los Juegos Olímpicos de Verano?",
+      "options": ["2 años", "3 años", "4 años", "5 años"],
+      "correctIndex": 2,
+      "verificationSource": "Comité Olímpico Internacional"
+    }
+  ],
+  "bonusQuestions": [
+    {
+      "id": "b1",
+      "category": "Bonus Fáciles",
+      "difficulty": "bonus",
+      "question": "¿Cuál es la primera letra del abecedario?",
+      "options": ["Letra Z", "Letra A", "Letra B", "Letra M"],
+      "correctIndex": 1,
+      "verificationSource": "Gramática básica"
+    },
+    {
+      "id": "b2",
+      "category": "Bonus Fáciles",
+      "difficulty": "bonus",
+      "question": "¿Cuánto es 2 + 2?",
+      "options": ["3", "4", "5", "22"],
+      "correctIndex": 1,
+      "verificationSource": "Aritmética básica"
+    },
+    {
+      "id": "b3",
+      "category": "Bonus Fáciles",
+      "difficulty": "bonus",
+      "question": "¿Cuántas letras tiene la palabra 'casa'?",
+      "options": ["2 letras", "3 letras", "4 letras", "5 letras"],
+      "correctIndex": 2,
+      "verificationSource": "Conteo básico"
+    },
+    {
+      "id": "b4",
+      "category": "Bonus Fáciles",
+      "difficulty": "bonus",
+      "question": "¿De qué color es la nieve limpia?",
+      "options": ["Verde", "Azul", "Blanco", "Negro"],
+      "correctIndex": 2,
+      "verificationSource": "Percepción básica"
+    }
+  ]
+}

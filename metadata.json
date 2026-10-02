@@ -1,0 +1,6 @@
+{
+  "name": "¿SABELOTODO?",
+  "description": "¿SABELOTODO? - El juego definitivo de trivia y preguntas de cultura general con ruleta de premios, comodines y ranking global.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@layer utilities {
+  .animate-spin-slow {
+    animation: spin 8s linear infinite;
+  }
+}
+
+/* Identidad Visual Principal: Azul Real, Dorado y Azul Oscuro */
+:root {
+  --color-blue-dominant: #0d1b3e;
+  --color-blue-panel: #11224d;
+  --color-blue-card: #192a56;
+  --color-gold-accent: #f5ba13;
+  --color-gold-glow: rgba(245, 186, 19, 0.4);
+}
+
+/* Fondo global con gradiente Azul Real profundo */
+body {
+  background-color: #080f28;
+  background-image: radial-gradient(circle at 50% 20%, #152c66 0%, #080f28 85%);
+  color: #f8fafc;
+  font-family: 'Fredoka', 'Outfit', sans-serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Personalización de scrollbar limpia */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #080f28;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(245, 186, 19, 0.4);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(245, 186, 19, 0.8);
+}
