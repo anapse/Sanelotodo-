@@ -1,4 +1,5 @@
 import { Question, QuestionsFileStructure } from "../types/question";
+import { resolvePublicAssetPath } from "../config/assetManager";
 
 let cachedQuestions: QuestionsFileStructure | null = null;
 
@@ -11,9 +12,10 @@ export async function loadQuestionsBank(): Promise<QuestionsFileStructure> {
   }
 
   try {
-    const response = await fetch("/questions.json");
+    const questionsUrl = resolvePublicAssetPath("/questions.json");
+    const response = await fetch(questionsUrl);
     if (!response.ok) {
-      throw new Error("No se pudo cargar el archivo questions.json");
+      throw new Error(`No se pudo cargar el archivo questions.json desde ${questionsUrl}`);
     }
     const data: QuestionsFileStructure = await response.json();
     cachedQuestions = data;

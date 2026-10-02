@@ -19,6 +19,19 @@ export interface AssetStatus {
   spritePath: string;
 }
 
+/**
+ * Resuelve la ruta relativa a la base pública de la aplicación (Soporta GitHub Pages subpaths).
+ */
+export function resolvePublicAssetPath(path: string): string {
+  if (!path) return path;
+  if (path.startsWith("http://") || path.startsWith("https://") || path.startsWith("data:")) {
+    return path;
+  }
+  const cleanPath = path.startsWith("/") ? path.slice(1) : path;
+  const baseUrl = import.meta.env.BASE_URL || "/";
+  return baseUrl.endsWith("/") ? `${baseUrl}${cleanPath}` : `${baseUrl}/${cleanPath}`;
+}
+
 export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
   logo: {
     id: "logo",
@@ -26,7 +39,7 @@ export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
     category: "logo",
     description: "Logo oficial tridimensional en dorado y azul con planeta tierra y libro del saber.",
     isProvided: true,
-    spritePath: "/assets/sprites/logo.png",
+    spritePath: resolvePublicAssetPath("/assets/sprites/logo.png"),
   },
   ruleta: {
     id: "ruleta",
@@ -34,7 +47,7 @@ export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
     category: "ruleta",
     description: "Asset e ilustración oficial de la ruleta de premios.",
     isProvided: true,
-    spritePath: "/assets/sprites/ruleta.png",
+    spritePath: resolvePublicAssetPath("/assets/sprites/ruleta.png"),
   },
   iconos1: {
     id: "iconos1",
@@ -42,7 +55,7 @@ export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
     category: "sprite",
     description: "Hoja oficial de iconos para comodines, ruleta, vidas y trofeos.",
     isProvided: true,
-    spritePath: "/assets/sprites/iconos1.png",
+    spritePath: resolvePublicAssetPath("/assets/sprites/iconos1.png"),
   },
   iconos2: {
     id: "iconos2",
@@ -50,7 +63,7 @@ export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
     category: "sprite",
     description: "Segunda hoja oficial de iconos brillantes para la trivia.",
     isProvided: true,
-    spritePath: "/assets/sprites/iconos2.png",
+    spritePath: resolvePublicAssetPath("/assets/sprites/iconos2.png"),
   },
   background: {
     id: "background",
@@ -58,7 +71,7 @@ export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
     category: "fondo",
     description: "Fondo principal de la interfaz con libro del saber, estantes y globos terráqueos.",
     isProvided: true,
-    spritePath: "/assets/sprites/fondo.png",
+    spritePath: resolvePublicAssetPath("/assets/sprites/fondo.png"),
   },
   peinecito: {
     id: "peinecito",
@@ -66,7 +79,7 @@ export const OFFICIAL_SPRITES: Record<string, AssetStatus> = {
     category: "sprite",
     description: "Sprite oficial independiente para el peinecito.",
     isProvided: false,
-    spritePath: "/assets/sprites/peinecito.png",
+    spritePath: resolvePublicAssetPath("/assets/sprites/peinecito.png"),
   },
 };
 
@@ -76,10 +89,10 @@ export const SPRITE_RESOURCES = {
   iconos1: OFFICIAL_SPRITES.iconos1.spritePath,
   iconos2: OFFICIAL_SPRITES.iconos2.spritePath,
   background: OFFICIAL_SPRITES.background.spritePath,
-  fiftyFifty: { name: "50/50", spritePath: "/assets/sprites/iconos1.png" },
-  skip: { name: "SALTAR", spritePath: "/assets/sprites/iconos1.png" },
-  shield: { name: "ESCUDO", spritePath: "/assets/sprites/iconos1.png" },
-  correctAnswer: { name: "RESPUESTA CORRECTA", spritePath: "/assets/sprites/iconos1.png" },
-  extraLife: { name: "VIDA EXTRA", spritePath: "/assets/sprites/iconos1.png" },
-  peinecito: { name: "PEINECITO", spritePath: "/assets/sprites/peinecito.png" },
+  fiftyFifty: { name: "50/50", spritePath: OFFICIAL_SPRITES.iconos1.spritePath },
+  skip: { name: "SALTAR", spritePath: OFFICIAL_SPRITES.iconos1.spritePath },
+  shield: { name: "ESCUDO", spritePath: OFFICIAL_SPRITES.iconos1.spritePath },
+  correctAnswer: { name: "RESPUESTA CORRECTA", spritePath: OFFICIAL_SPRITES.iconos1.spritePath },
+  extraLife: { name: "VIDA EXTRA", spritePath: OFFICIAL_SPRITES.iconos1.spritePath },
+  peinecito: { name: "PEINECITO", spritePath: OFFICIAL_SPRITES.peinecito.spritePath },
 };

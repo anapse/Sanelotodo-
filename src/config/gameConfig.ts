@@ -1,6 +1,7 @@
 /**
  * CONFIGURACIÓN CENTRALIZADA DE ¿SABELOTODO?
  */
+import { resolvePublicAssetPath } from "./assetManager";
 
 export interface GameConfig {
   initialLives: number;
@@ -31,8 +32,8 @@ export const defaultConfig: GameConfig = {
   pointsRouletteMediumPrize: 300,
   pointsRouletteBigPrize: 500,
 
-  officialBackgroundUrl: null, // PENDIENTE: /assets/sprites/bg_official.png
-  officialLogoUrl: "/assets/sprites/logo.png",
+  officialBackgroundUrl: null,
+  officialLogoUrl: resolvePublicAssetPath("/assets/sprites/logo.png"),
 
   adminSecretKey: null,
 };
