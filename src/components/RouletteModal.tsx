@@ -42,18 +42,18 @@ export const RouletteModal: React.FC = () => {
   };
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
-      <div className="w-[420px] bg-blue-950 border-2 border-amber-500 rounded-3xl p-5 shadow-[0_0_50px_rgba(245,186,19,0.3)] text-center relative overflow-hidden flex flex-col justify-between">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-3 bg-slate-950/95 select-none">
+      <div className="w-[410px] max-w-full max-h-[760px] bg-blue-950 border-2 border-amber-500 rounded-3xl p-4 shadow-[0_0_50px_rgba(245,186,19,0.3)] text-center relative overflow-y-auto flex flex-col justify-between my-auto">
         {/* Encabezado */}
         <div>
           <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-500/20 border border-amber-500/50 text-amber-300 font-extrabold text-[10px] uppercase tracking-widest mb-1">
             <Sparkles className="w-3.5 h-3.5 text-amber-400" />
             <span>Mecánica Especial de Ruleta</span>
           </div>
-          <h2 className="text-2xl font-black text-white uppercase tracking-wide">
+          <h2 className="text-xl font-black text-white uppercase tracking-wide">
             RULETA DE PREMIOS
           </h2>
-          <p className="text-xs text-slate-300 mt-0.5">
+          <p className="text-[11px] text-slate-300 mt-0.5 leading-snug">
             ¡Gira el disco oficial de la ruleta y suma comodines, vidas, puntos o la Ronda Bonus!
           </p>
         </div>
@@ -66,28 +66,28 @@ export const RouletteModal: React.FC = () => {
 
         {/* Resultado del Premio */}
         {hasSpun && roulettePrizeMessage && (
-          <div className="p-2.5 bg-amber-500/20 border-2 border-amber-400 rounded-2xl my-1 animate-bounce">
+          <div className="p-2 bg-amber-500/20 border-2 border-amber-400 rounded-2xl my-1 animate-bounce">
             <span className="block text-[10px] font-black text-amber-300 uppercase tracking-widest">
               ¡Premio Obtenido!
             </span>
-            <span className="text-base font-black text-white">{roulettePrizeMessage}</span>
+            <span className="text-sm font-black text-white">{roulettePrizeMessage}</span>
           </div>
         )}
 
         {/* Acciones */}
-        <div className="pt-2">
+        <div className="pt-1.5">
           {!hasSpun ? (
             <button
               onClick={handleSpin}
               disabled={isSpinning}
-              className="w-full py-3.5 px-6 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-base tracking-wider uppercase shadow-xl hover:brightness-110 active:scale-95 transition-all disabled:opacity-50"
+              className="w-full py-3 px-5 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-sm tracking-wider uppercase shadow-xl hover:brightness-110 active:scale-95 transition-all disabled:opacity-50"
             >
               {isSpinning ? "GIRANDO DISCO..." : "¡GIRAR RULETA!"}
             </button>
           ) : (
             <button
               onClick={claimRoulettePrizeAndContinue}
-              className="w-full py-3.5 px-6 rounded-2xl bg-emerald-500 text-slate-950 font-black text-sm tracking-wider uppercase shadow-xl hover:brightness-110 active:scale-95 transition-all"
+              className="w-full py-3 px-5 rounded-2xl bg-emerald-500 text-slate-950 font-black text-sm tracking-wider uppercase shadow-xl hover:brightness-110 active:scale-95 transition-all"
             >
               RECLAMAR PREMIO Y CONTINUAR
             </button>

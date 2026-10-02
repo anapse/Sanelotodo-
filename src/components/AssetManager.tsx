@@ -7,8 +7,8 @@ export const AssetManager: React.FC = () => {
   const { setPhase } = useGame();
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/95 backdrop-blur-md">
-      <div className="w-full max-w-md sm:max-w-lg bg-blue-950 border-2 border-amber-500 rounded-3xl p-6 shadow-2xl text-slate-100 flex flex-col max-h-[85vh]">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/95 select-none">
+      <div className="w-[440px] max-w-full bg-blue-950 border-2 border-amber-500 rounded-3xl p-5 shadow-2xl text-slate-100 flex flex-col max-h-[760px]">
         {/* Header */}
         <div className="flex items-center justify-between border-b border-blue-900 pb-3 mb-4">
           <div className="flex items-center gap-2">

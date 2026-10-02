@@ -24,7 +24,7 @@ export const MainMenuScreen: React.FC = () => {
       <button
         onClick={() => setShowContact(true)}
         style={{ left: "38px", top: "25px", width: "140px", height: "42px" }}
-        className="absolute z-10 flex items-center justify-center gap-2 rounded-2xl bg-slate-950/70 backdrop-blur-md border-2 border-amber-500/80 text-amber-300 font-extrabold text-xs uppercase tracking-wider hover:bg-slate-900/80 active:scale-95 shadow-lg shadow-amber-500/10 transition-all"
+        className="absolute z-10 flex items-center justify-center gap-2 rounded-2xl bg-slate-950/90 border-2 border-amber-500/80 text-amber-300 font-extrabold text-xs uppercase tracking-wider hover:bg-slate-900 active:scale-95 shadow-lg shadow-amber-500/10 transition-all"
       >
         <Mail className="w-4 h-4 text-amber-400" />
         <span>Contacto</span>
@@ -34,7 +34,7 @@ export const MainMenuScreen: React.FC = () => {
       <button
         onClick={() => setIsMuted(!isMuted)}
         style={{ left: "390px", top: "22px", width: "48px", height: "48px" }}
-        className="absolute z-10 flex items-center justify-center rounded-2xl bg-slate-950/70 backdrop-blur-md border-2 border-amber-500/80 text-amber-300 hover:bg-slate-900/80 active:scale-95 shadow-lg shadow-amber-500/10 transition-all"
+        className="absolute z-10 flex items-center justify-center rounded-2xl bg-slate-950/90 border-2 border-amber-500/80 text-amber-300 hover:bg-slate-900 active:scale-95 shadow-lg shadow-amber-500/10 transition-all"
         title={isMuted ? "Activar Sonido" : "Silenciar"}
       >
         {isMuted ? (
@@ -71,7 +71,7 @@ export const MainMenuScreen: React.FC = () => {
       <button
         onClick={startNewGameSession}
         style={{ left: "70px", top: "375px", width: "340px", height: "72px" }}
-        className="absolute z-10 flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-amber-500/90 via-amber-400/85 to-yellow-500/90 backdrop-blur-md text-slate-950 font-black text-2xl uppercase tracking-widest border-2 border-yellow-300/90 shadow-[0_8px_25px_rgba(245,186,19,0.4)] hover:brightness-110 active:scale-95 transition-all"
+        className="absolute z-10 flex items-center justify-center gap-3 rounded-2xl bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 text-slate-950 font-black text-2xl uppercase tracking-widest border-2 border-yellow-300 shadow-[0_8px_25px_rgba(245,186,19,0.4)] hover:brightness-110 active:scale-95 transition-all"
       >
         <Play className="w-8 h-8 fill-slate-950 text-slate-950" />
         <span>JUGAR</span>
@@ -81,30 +81,30 @@ export const MainMenuScreen: React.FC = () => {
       <button
         onClick={() => setShowTop50(true)}
         style={{ left: "70px", top: "462px", width: "340px", height: "54px" }}
-        className="absolute z-10 flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-950/80 via-blue-900/75 to-blue-950/80 backdrop-blur-md border-2 border-amber-500/80 text-amber-300 font-extrabold text-base uppercase tracking-wider hover:border-amber-400 active:scale-95 shadow-lg shadow-black/40 transition-all"
+        className="absolute z-10 flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#173379] via-[#1f4299] to-[#152e6d] border-2 border-amber-400 text-amber-300 font-extrabold text-base uppercase tracking-wider hover:border-yellow-300 hover:brightness-110 active:scale-95 shadow-[0_6px_20px_rgba(0,0,0,0.6)] transition-all cursor-pointer"
       >
-        <Trophy className="w-5 h-5 text-amber-400" />
-        <span>TOP 50 JUGADORES</span>
+        <Trophy className="w-5 h-5 text-amber-300" />
+        <span className="drop-shadow">TOP 50 JUGADORES</span>
       </button>
 
       {/* BOTÓN 3: CÓMO JUGAR (Y ≈ 528px, W = 340px, H = 54px) */}
       <button
         onClick={() => setShowHowToPlay(true)}
         style={{ left: "70px", top: "528px", width: "340px", height: "54px" }}
-        className="absolute z-10 flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-950/80 via-blue-900/75 to-blue-950/80 backdrop-blur-md border-2 border-amber-500/80 text-amber-300 font-extrabold text-base uppercase tracking-wider hover:border-amber-400 active:scale-95 shadow-lg shadow-black/40 transition-all"
+        className="absolute z-10 flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#173379] via-[#1f4299] to-[#152e6d] border-2 border-amber-400 text-amber-300 font-extrabold text-base uppercase tracking-wider hover:border-yellow-300 hover:brightness-110 active:scale-95 shadow-[0_6px_20px_rgba(0,0,0,0.6)] transition-all cursor-pointer"
       >
-        <HelpCircle className="w-5 h-5 text-amber-400" />
-        <span>CÓMO JUGAR</span>
+        <HelpCircle className="w-5 h-5 text-amber-300" />
+        <span className="drop-shadow">CÓMO JUGAR</span>
       </button>
 
       {/* BOTÓN 4: MI RÉCORD PERSONAL (Y ≈ 594px, W = 340px, H = 54px) */}
       <button
         onClick={() => setShowRecordAlert(true)}
         style={{ left: "70px", top: "594px", width: "340px", height: "54px" }}
-        className="absolute z-10 flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-blue-950/80 via-blue-900/75 to-blue-950/80 backdrop-blur-md border-2 border-amber-500/80 text-amber-300 font-extrabold text-base uppercase tracking-wider hover:border-amber-400 active:scale-95 shadow-lg shadow-black/40 transition-all"
+        className="absolute z-10 flex items-center justify-center gap-2.5 rounded-2xl bg-gradient-to-r from-[#173379] via-[#1f4299] to-[#152e6d] border-2 border-amber-400 text-amber-300 font-extrabold text-base uppercase tracking-wider hover:border-yellow-300 hover:brightness-110 active:scale-95 shadow-[0_6px_20px_rgba(0,0,0,0.6)] transition-all cursor-pointer"
       >
-        <Award className="w-5 h-5 text-amber-400" />
-        <span>MI RÉCORD PERSONAL</span>
+        <Award className="w-5 h-5 text-amber-300" />
+        <span className="drop-shadow">MI RÉCORD PERSONAL</span>
       </button>
 
       {/* ----------------------------------------------------------------- */}
@@ -141,8 +141,8 @@ export const MainMenuScreen: React.FC = () => {
 
       {/* Alerta de Record Personal */}
       {showRecordAlert && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm">
-          <div className="w-[380px] bg-blue-950/90 backdrop-blur-md border-2 border-amber-500 rounded-3xl p-6 text-center text-white shadow-2xl">
+        <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/95">
+          <div className="w-[380px] bg-blue-950 border-2 border-amber-500 rounded-3xl p-6 text-center text-white shadow-2xl">
             <Award className="w-12 h-12 text-amber-400 mx-auto mb-2" />
             <h3 className="text-xl font-black uppercase text-amber-300 mb-1">
               Tu Récord Personal

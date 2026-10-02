@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import { GameConfig, defaultConfig } from "../config/gameConfig";
 import { Question } from "../types/question";
 import { loadQuestionsBank, shuffleQuestionOptions } from "../services/questionsService";
@@ -36,7 +36,7 @@ export interface GameContextType {
   setPhase: (phase: GamePhase) => void;
   previousPhase: GamePhase | null;
 
-  // Jugador
+  // Jugador (Nombre obligatorio para comenzar y para el ranking)
   playerName: string;
   setPlayerName: (name: string) => void;
   isNameValid: boolean;
@@ -45,20 +45,21 @@ export interface GameContextType {
   lives: number;
   score: number;
   questionsAnsweredCount: number;
+  correctAnswersForRouletteCount: number; // Cuenta exactamente: 1 -> 2 -> 3 -> Ruleta
 
-  // Pregunta actual
+  // Pregunta actual (Única fuente de verdad)
   currentQuestion: Question | null;
-  hiddenOptionIndices: number[]; // Para comodín 50/50
-  highlightedCorrectOption: number | null; // Para comodín RESPUESTA CORRECTA
-  shieldActive: boolean; // Para comodín ESCUDO
+  hiddenOptionIndices: number[];
+  highlightedCorrectOption: number | null;
+  shieldActive: boolean;
   selectedAnswerIndex: number | null;
   isAnswerSubmitted: boolean;
   isAnswerCorrect: boolean | null;
 
-  // Comodines disponibles
+  // ÚNICOS 5 COMODINES OFICIALES
   lifelines: LifelinesState;
 
-  // Flujo de Ruleta y Bonus
+  // Flujo de Ruleta y Ronda Bonus
   roulettePrizeMessage: string | null;
   bonusQuestionsRemaining: number;
 
@@ -66,11 +67,12 @@ export interface GameContextType {
   startNewGameSession: () => void;
   submitPlayerNameAndBegin: (name: string) => boolean;
   handleAnswerSelection: (optionIndex: number) => void;
+  advanceToNextQuestion: () => void;
   pauseGame: () => void;
   resumeGame: () => void;
   quitGameToMenu: () => void;
 
-  // Uso de Comodines (Únicamente los 5 aprobados)
+  // Uso de los 5 comodines oficiales
   useFiftyFifty: () => boolean;
   useSkip: () => boolean;
   useShield: () => boolean;
@@ -95,9 +97,13 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [playerName, setPlayerNameState] = useState<string>("");
   const [isNameValid, setIsNameValid] = useState<boolean>(false);
 
-  const [lives, setLives] = useState<number>(config.initialLives);
+  // Vidas: Inicio 3, Máximo 5
+  const [lives, setLives] = useState<number>(3);
   const [score, setScore] = useState<number>(0);
   const [questionsAnsweredCount, setQuestionsAnsweredCount] = useState<number>(0);
+
+  // Ruleta: Cuenta exactamente 3 preguntas correctas
+  const [correctAnswersForRouletteCount, setCorrectAnswersForRouletteCount] = useState<number>(0);
 
   // Banco de preguntas
   const [normalQuestions, setNormalQuestions] = useState<Question[]>([]);
@@ -107,7 +113,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const [isLoadingQuestions, setIsLoadingQuestions] = useState<boolean>(true);
 
-  // Estados de comodines y selecciones
+  // Estados de comodines y respuestas
   const [hiddenOptionIndices, setHiddenOptionIndices] = useState<number[]>([]);
   const [highlightedCorrectOption, setHighlightedCorrectOption] = useState<number | null>(null);
   const [shieldActive, setShieldActive] = useState<boolean>(false);
@@ -116,7 +122,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState<boolean>(false);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
 
-  // Cantidad de comodines disponibles
+  // Guard de transición contra congelamiento
+  const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // ÚNICOS 5 COMODINES OFICIALES
   const [lifelines, setLifelines] = useState<LifelinesState>({
     fiftyFiftyCount: 1,
     skipCount: 1,
@@ -130,7 +139,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [currentPrizeEffect, setCurrentPrizeEffect] = useState<(() => void) | null>(null);
   const [bonusQuestionsRemaining, setBonusQuestionsRemaining] = useState<number>(0);
 
-  // Carga inicial del banco de preguntas
+  // Carga inicial del banco de preguntas local
   useEffect(() => {
     async function init() {
       setIsLoadingQuestions(true);
@@ -140,6 +149,15 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setIsLoadingQuestions(false);
     }
     init();
+  }, []);
+
+  // Limpieza al desmontar
+  useEffect(() => {
+    return () => {
+      if (transitionTimeoutRef.current) {
+        clearTimeout(transitionTimeoutRef.current);
+      }
+    };
   }, []);
 
   const setPhase = (newPhase: GamePhase) => {
@@ -156,12 +174,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setIsNameValid(name.trim().length > 0);
   };
 
-  // Prepara una partida nueva
   const startNewGameSession = () => {
     setPhase("NAME_INPUT");
   };
 
-  // Valida e inicia el gameplay
+  // 2. INICIO OBLIGATORIO: Validar nombre antes de comenzar
   const submitPlayerNameAndBegin = (name: string): boolean => {
     const trimmed = name.trim();
     if (trimmed.length === 0) {
@@ -172,10 +189,13 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setPlayerNameState(trimmed);
     setIsNameValid(true);
 
-    // Reiniciar estadísticas de partida
-    setLives(config.initialLives);
+    // Reiniciar estadísticas de partida: 3 vidas iniciales
+    setLives(3);
     setScore(0);
     setQuestionsAnsweredCount(0);
+    setCorrectAnswersForRouletteCount(0);
+
+    // Comodines iniciales
     setLifelines({
       fiftyFiftyCount: 1,
       skipCount: 1,
@@ -184,7 +204,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       extraLifeCount: 1,
     });
 
-    // Preparar cola de preguntas normales sin repetir
+    // 15 y 19: MÍNIMO 30 PREGUNTAS NORMALES sin repetición por partida
     const shuffledPool = [...normalQuestions].sort(() => Math.random() - 0.5);
     setUnusedNormalQuestions(shuffledPool);
 
@@ -202,19 +222,35 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const resetQuestionStates = () => {
+    if (transitionTimeoutRef.current) {
+      clearTimeout(transitionTimeoutRef.current);
+      transitionTimeoutRef.current = null;
+    }
     setHiddenOptionIndices([]);
     setHighlightedCorrectOption(null);
-    setShieldActive(false);
     setSelectedAnswerIndex(null);
     setIsAnswerSubmitted(false);
     setIsAnswerCorrect(null);
   };
 
-  // Carga la siguiente pregunta según corresponda
+  const getNextNormalQuestion = (): { nextQ: Question; remainingPool: Question[] } => {
+    let pool = [...unusedNormalQuestions];
+    if (pool.length === 0) {
+      const freshPool = [...normalQuestions].sort(() => Math.random() - 0.5);
+      pool = freshPool.filter((q) => !currentQuestion || q.id !== currentQuestion.id);
+      if (pool.length === 0) pool = freshPool;
+    }
+
+    const nextRaw = pool[0] || normalQuestions[0];
+    const nextQ = shuffleQuestionOptions(nextRaw);
+    return { nextQ, remainingPool: pool.slice(1) };
+  };
+
+  // Carga la siguiente pregunta
   const advanceToNextQuestion = () => {
     resetQuestionStates();
 
-    // Comprobar si estamos en la ronda bonus
+    // 1. Si estamos en modo BONUS (Ronda de 3 preguntas fáciles)
     if (bonusQuestionsRemaining > 0) {
       const remainingBonus = bonusQuestionsRemaining - 1;
       setBonusQuestionsRemaining(remainingBonus);
@@ -225,153 +261,187 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         setPhase("BONUS_ROUND");
         return;
       } else {
-        // Fin del bonus -> Volver al flujo normal
-        setPhase("PLAYING");
-      }
-    }
-
-    // Comprobar la ruleta cada X preguntas
-    const nextCount = questionsAnsweredCount + 1;
-    setQuestionsAnsweredCount(nextCount);
-
-    if (nextCount > 0 && nextCount % config.rouletteFrequencyQuestions === 0) {
-      setPhase("ROULETTE");
-      return;
-    }
-
-    // Pregunta normal
-    if (unusedNormalQuestions.length > 0) {
-      const nextQ = shuffleQuestionOptions(unusedNormalQuestions[0]);
-      setCurrentQuestion(nextQ);
-      setUnusedNormalQuestions((prev) => prev.slice(1));
-      setPhase("PLAYING");
-    } else {
-      // Si se acabaron las preguntas normales, re-mezclar el banco
-      const reshuffled = [...normalQuestions].sort(() => Math.random() - 0.5);
-      if (reshuffled.length > 0) {
-        const nextQ = shuffleQuestionOptions(reshuffled[0]);
+        // Fin del bonus: volver al juego normal
+        const { nextQ, remainingPool } = getNextNormalQuestion();
         setCurrentQuestion(nextQ);
-        setUnusedNormalQuestions(reshuffled.slice(1));
+        setUnusedNormalQuestions(remainingPool);
+        setPhase("PLAYING");
+        return;
       }
-      setPhase("PLAYING");
     }
+
+    // 2. Incrementar contador de progreso
+    setQuestionsAnsweredCount((prev) => prev + 1);
+
+    // 3. Cargar la siguiente pregunta normal sin repetir
+    const { nextQ, remainingPool } = getNextNormalQuestion();
+    setCurrentQuestion(nextQ);
+    setUnusedNormalQuestions(remainingPool);
+    setPhase("PLAYING");
   };
 
-  // Maneja la respuesta del usuario
+  // MANEJA LA RESPUESTA
   const handleAnswerSelection = (optionIndex: number) => {
     if (isAnswerSubmitted || !currentQuestion) return;
 
     setSelectedAnswerIndex(optionIndex);
-    const isCorrect = optionIndex === currentQuestion.correctIndex;
     setIsAnswerSubmitted(true);
+
+    const isCorrect = optionIndex === currentQuestion.correctIndex;
     setIsAnswerCorrect(isCorrect);
 
     if (isCorrect) {
       soundService.playCorrectSound();
-      // Suma puntos centralizados según tipo de ronda
-      const addedPoints =
+      const pointsToAdd =
         bonusQuestionsRemaining > 0 ? config.pointsBonusQuestionCorrect : config.pointsNormalQuestionCorrect;
+      setScore((prev) => prev + pointsToAdd);
 
-      setScore((prev) => prev + addedPoints);
+      // Si no estamos en ronda bonus, verificar la regla de las 3 respuestas correctas para la ruleta
+      if (bonusQuestionsRemaining <= 0) {
+        const nextCorrectCount = correctAnswersForRouletteCount + 1;
 
-      setTimeout(() => {
+        if (nextCorrectCount >= 3) {
+          // ¡3 PREGUNTAS CORRECTAS ALCANZADAS! → RULETA
+          setCorrectAnswersForRouletteCount(0);
+
+          // Pre-cargar la siguiente pregunta para cuando finalice la ruleta
+          const { nextQ, remainingPool } = getNextNormalQuestion();
+          setCurrentQuestion(nextQ);
+          setUnusedNormalQuestions(remainingPool);
+
+          transitionTimeoutRef.current = setTimeout(() => {
+            resetQuestionStates();
+            setPhase("ROULETTE");
+          }, 1200);
+          return;
+        } else {
+          setCorrectAnswersForRouletteCount(nextCorrectCount);
+        }
+      }
+
+      transitionTimeoutRef.current = setTimeout(() => {
         advanceToNextQuestion();
-      }, 1500);
+      }, 1200);
     } else {
       soundService.playIncorrectSound();
-      // Respuesta Incorrecta
+
+      // Regla 7: Una respuesta incorrecta NO debe incrementar el contador de ruleta
+      // (el contador correctAnswersForRouletteCount se mantiene intacto sin sumar)
+
+      // Regla 4: ESCUDO ACTIVO
+      // "Si el jugador responde incorrectamente con ESCUDO activo:
+      //  - la respuesta sigue siendo incorrecta
+      //  - no pierde la vida protegida
+      //  - puede volver a responder la MISMA pregunta
+      //  - no cambiar la pregunta"
       if (shieldActive) {
-        // ESCUDO ACTIVO: Se pierde el escudo, pero NO se pierde la vida y puede elegir otra opción
-        setShieldActive(false);
-        setIsAnswerSubmitted(false);
-        setSelectedAnswerIndex(null);
-        setIsAnswerCorrect(null);
-        // Ocultar la opción incorrecta intentada
-        setHiddenOptionIndices((prev) => [...prev, optionIndex]);
+        transitionTimeoutRef.current = setTimeout(() => {
+          setShieldActive(false); // Se consume el escudo
+          setIsAnswerSubmitted(false);
+          setSelectedAnswerIndex(null);
+          setIsAnswerCorrect(null);
+          if (optionIndex >= 0) {
+            setHiddenOptionIndices((prev) => [...prev, optionIndex]); // Ocultar opción errónea intentada
+          }
+        }, 800);
         return;
       }
 
-      // Restar vida
+      // Pérdida de 1 corazón
       const newLives = lives - 1;
       setLives(newLives);
 
       if (newLives <= 0) {
-        // GAME OVER
-        setTimeout(() => {
+        // Regla 3: Cuando las vidas llegan a 0: GAME OVER. No continuar la partida.
+        transitionTimeoutRef.current = setTimeout(() => {
           saveGameScore({
             playerName,
             score,
             questionsAnswered: questionsAnsweredCount,
           });
           setPhase("GAME_OVER");
-        }, 1800);
+        }, 1400);
       } else {
-        setTimeout(() => {
+        transitionTimeoutRef.current = setTimeout(() => {
           advanceToNextQuestion();
-        }, 1800);
+        }, 1400);
       }
     }
   };
 
-  // COMODÍN 1: 50/50 (Elimina 2 incorrectas)
+  // ==========================================
+  // ÚNICAMENTE LOS 5 COMODINES OFICIALES
+  // ==========================================
+
+  // 1. 50/50: Elimina 2 opciones incorrectas. Quedan 2 respuestas.
   const useFiftyFifty = (): boolean => {
-    if (lifelines.fiftyFiftyCount <= 0 || !currentQuestion || isAnswerSubmitted) return false;
-
+    if (lifelines.fiftyFiftyCount <= 0 || !currentQuestion || isAnswerSubmitted || hiddenOptionIndices.length >= 2) {
+      return false;
+    }
     soundService.playLifelineSound();
-    const wrongIndices = [0, 1, 2, 3].filter((idx) => idx !== currentQuestion.correctIndex);
-
-    // Seleccionar 2 aleatorios
-    const shuffledWrong = [...wrongIndices].sort(() => Math.random() - 0.5);
-    const toHide = shuffledWrong.slice(0, 2);
-
-    setHiddenOptionIndices(toHide);
+    const wrongIndices = [0, 1, 2, 3].filter(
+      (idx) => idx !== currentQuestion.correctIndex && !hiddenOptionIndices.includes(idx)
+    );
+    const shuffled = [...wrongIndices].sort(() => Math.random() - 0.5);
+    setHiddenOptionIndices((prev) => [...prev, ...shuffled.slice(0, 2)]);
     setLifelines((prev) => ({ ...prev, fiftyFiftyCount: prev.fiftyFiftyCount - 1 }));
     return true;
   };
 
-  // COMODÍN 2: SALTAR
+  // 2. SALTAR: Saltar la pregunta actual. No perder vida. Continuar con otra pregunta.
+  // Regla 7: SALTAR NO cuenta como respuesta correcta para la ruleta.
   const useSkip = (): boolean => {
-    if (lifelines.skipCount <= 0 || !currentQuestion || isAnswerSubmitted) return false;
-
+    if (lifelines.skipCount <= 0 || !currentQuestion || isAnswerSubmitted) {
+      return false;
+    }
     soundService.playLifelineSound();
     setLifelines((prev) => ({ ...prev, skipCount: prev.skipCount - 1 }));
     advanceToNextQuestion();
     return true;
   };
 
-  // COMODÍN 3: ESCUDO
+  // 3. ESCUDO: Protege contra el próximo fallo permitiendo reintentar la MISMA pregunta sin perder vida.
   const useShield = (): boolean => {
-    if (lifelines.shieldCount <= 0 || !currentQuestion || isAnswerSubmitted || shieldActive) return false;
-
+    if (lifelines.shieldCount <= 0 || !currentQuestion || isAnswerSubmitted || shieldActive) {
+      return false;
+    }
     soundService.playLifelineSound();
     setShieldActive(true);
     setLifelines((prev) => ({ ...prev, shieldCount: prev.shieldCount - 1 }));
     return true;
   };
 
-  // COMODÍN 4: RESPUESTA CORRECTA
+  // 4. RESPUESTA CORRECTA: Marca visualmente cuál de las 4 opciones es correcta. El jugador debe pulsarla.
   const useCorrectAnswerHighlight = (): boolean => {
-    if (lifelines.correctAnswerCount <= 0 || !currentQuestion || isAnswerSubmitted) return false;
-
+    if (lifelines.correctAnswerCount <= 0 || !currentQuestion || isAnswerSubmitted || highlightedCorrectOption !== null) {
+      return false;
+    }
     soundService.playLifelineSound();
     setHighlightedCorrectOption(currentQuestion.correctIndex);
     setLifelines((prev) => ({ ...prev, correctAnswerCount: prev.correctAnswerCount - 1 }));
     return true;
   };
 
-  // COMODÍN 5: VIDA EXTRA
+  // 5. VIDA EXTRA: Añadir +1 corazón. Nunca superar 5.
   const useExtraLife = (): boolean => {
-    if (lifelines.extraLifeCount <= 0 || lives >= config.maxLives) return false;
-
+    if (lifelines.extraLifeCount <= 0 || lives >= 5 || isAnswerSubmitted) {
+      return false;
+    }
     soundService.playLifelineSound();
-    setLives((prev) => Math.min(prev + 1, config.maxLives));
+    setLives((prev) => Math.min(prev + 1, 5));
     setLifelines((prev) => ({ ...prev, extraLifeCount: prev.extraLifeCount - 1 }));
     return true;
   };
 
-  // RULETA DE PREMIOS
+  // ==========================================
+  // RULETA Y PREMIOS OFICIALES
+  // ==========================================
   const spinRoulette = () => {
-    // Posibles premios definidos estrictamente en el prompt maestro
+    // Premios permitidos según especificación:
+    // - comodines
+    // - vida extra
+    // - puntos
+    // - RONDA DE PREGUNTAS FÁCILES
     const possiblePrizes = [
       {
         type: "POINTS_SMALL",
@@ -386,7 +456,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       {
         type: "EXTRA_LIFE",
         label: "+1 Vida Extra",
-        effect: () => setLives((l) => Math.min(l + 1, config.maxLives)),
+        effect: () => setLives((l) => Math.min(l + 1, 5)),
       },
       {
         type: "FIFTY_FIFTY",
@@ -397,6 +467,16 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         type: "SHIELD",
         label: "Comodín Escudo",
         effect: () => setLifelines((prev) => ({ ...prev, shieldCount: prev.shieldCount + 1 })),
+      },
+      {
+        type: "CORRECT_ANSWER",
+        label: "Comodín Respuesta Correcta",
+        effect: () => setLifelines((prev) => ({ ...prev, correctAnswerCount: prev.correctAnswerCount + 1 })),
+      },
+      {
+        type: "SKIP",
+        label: "Comodín Saltar Pregunta",
+        effect: () => setLifelines((prev) => ({ ...prev, skipCount: prev.skipCount + 1 })),
       },
       {
         type: "BONUS_ROUND",
@@ -425,7 +505,8 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setCurrentQuestion(shuffleQuestionOptions(randomBonus));
       setPhase("BONUS_ROUND");
     } else {
-      advanceToNextQuestion();
+      resetQuestionStates();
+      setPhase("PLAYING");
     }
   };
 
@@ -442,6 +523,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const quitGameToMenu = () => {
+    if (transitionTimeoutRef.current) {
+      clearTimeout(transitionTimeoutRef.current);
+      transitionTimeoutRef.current = null;
+    }
     setPhase("MENU");
   };
 
@@ -459,6 +544,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         lives,
         score,
         questionsAnsweredCount,
+        correctAnswersForRouletteCount,
         currentQuestion,
         hiddenOptionIndices,
         highlightedCorrectOption,
@@ -472,6 +558,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         startNewGameSession,
         submitPlayerNameAndBegin,
         handleAnswerSelection,
+        advanceToNextQuestion,
         pauseGame,
         resumeGame,
         quitGameToMenu,

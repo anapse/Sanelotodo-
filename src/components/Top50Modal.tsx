@@ -33,8 +33,8 @@ export const Top50Modal: React.FC<Top50ModalProps> = ({ isOpen = true, onClose }
   };
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
-      <div className="w-[420px] h-[620px] bg-blue-950 border-2 border-amber-500 rounded-3xl p-5 shadow-[0_0_50px_rgba(245,186,19,0.3)] text-white text-center relative overflow-hidden flex flex-col justify-between">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/95 select-none">
+      <div className="w-[420px] max-w-full h-[620px] max-h-[740px] bg-blue-950 border-2 border-amber-500 rounded-3xl p-5 shadow-[0_0_50px_rgba(245,186,19,0.3)] text-white text-center relative overflow-hidden flex flex-col justify-between">
         {/* Botón cerrar X */}
         <button
           onClick={handleClose}

@@ -8,8 +8,8 @@ export const PauseModal: React.FC = () => {
   if (phase !== "PAUSED") return null;
 
   return (
-    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/85 backdrop-blur-md">
-      <div className="w-[380px] bg-blue-950 border-2 border-amber-500 rounded-3xl p-6 shadow-[0_0_50px_rgba(245,186,19,0.3)] text-center text-white relative overflow-hidden">
+    <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/95 select-none">
+      <div className="w-[380px] max-w-full bg-blue-950 border-2 border-amber-500 rounded-3xl p-6 shadow-[0_0_50px_rgba(245,186,19,0.3)] text-center text-white relative overflow-hidden">
         {/* Título Pausa */}
         <div className="mb-6">
           <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-500/20 border border-amber-500/50 text-amber-300 font-extrabold text-xs uppercase tracking-widest mb-2">
