@@ -1,0 +1,42 @@
+{
+  "entities": {
+    "RankingEntry": {
+      "title": "RankingEntry",
+      "description": "Un registro de puntuación del juego Sabelotodo para el ranking global Top 50.",
+      "type": "object",
+      "properties": {
+        "playerName": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 50,
+          "description": "Nombre del jugador"
+        },
+        "score": {
+          "type": "number",
+          "description": "Puntuación acumulada"
+        },
+        "questionsAnswered": {
+          "type": "number",
+          "description": "Cantidad de preguntas respondidas"
+        },
+        "timestamp": {
+          "type": "number",
+          "description": "Marca temporal en ms"
+        },
+        "dateFormatted": {
+          "type": "string",
+          "description": "Fecha legible"
+        }
+      },
+      "required": ["playerName", "score", "timestamp"]
+    }
+  },
+  "firestore": {
+    "sabelotodo_top50_ranking/{rankingId}": {
+      "schema": {
+        "$ref": "#/entities/RankingEntry"
+      },
+      "description": "Colección global del ranking Top 50 de Sabelotodo"
+    }
+  }
+}

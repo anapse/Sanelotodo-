@@ -1,3 +1,15 @@
+import {
+  collection,
+  getDocs,
+  addDoc,
+  query,
+  orderBy,
+  limit,
+  QueryDocumentSnapshot,
+  DocumentData,
+} from "firebase/firestore";
+import { db, auth } from "../config/firebase";
+
 export interface RankingEntry {
   id?: string;
   playerName: string;
@@ -7,51 +19,91 @@ export interface RankingEntry {
   questionsAnswered?: number;
 }
 
-const LOCAL_STORAGE_RANKING_KEY = "sabelotodo_top50_ranking";
+const RANKING_COLLECTION_NAME = "sabelotodo_top50_ranking";
+const LOCAL_STORAGE_RANKING_KEY = "sabelotodo_top50_ranking_cache";
+
+enum OperationType {
+  CREATE = "create",
+  GET = "get",
+  LIST = "list",
+}
+
+interface FirestoreErrorInfo {
+  error: string;
+  operationType: OperationType;
+  path: string | null;
+  authInfo: {
+    userId?: string | null;
+    email?: string | null;
+  };
+}
+
+function handleFirestoreError(error: unknown, operationType: OperationType, path: string | null) {
+  const errInfo: FirestoreErrorInfo = {
+    error: error instanceof Error ? error.message : String(error),
+    authInfo: {
+      userId: auth.currentUser?.uid,
+      email: auth.currentUser?.email,
+    },
+    operationType,
+    path,
+  };
+  console.error("Firestore Ranking Error: ", JSON.stringify(errInfo));
+}
 
 /**
- * Puntuaciones de demostración iniciales para que el Top 50 nunca se muestre vacío.
- */
-const DEFAULT_INITIAL_RANKING: RankingEntry[] = [
-  { playerName: "ProfesorSaber", score: 4850, timestamp: Date.now() - 86400000, questionsAnswered: 28 },
-  { playerName: "AstroMaestro", score: 4200, timestamp: Date.now() - 172800000, questionsAnswered: 24 },
-  { playerName: "MenteBrillante", score: 3900, timestamp: Date.now() - 259200000, questionsAnswered: 22 },
-  { playerName: "GenioGaláctico", score: 3450, timestamp: Date.now() - 345600000, questionsAnswered: 19 },
-  { playerName: "SabioCósmico", score: 3100, timestamp: Date.now() - 432000000, questionsAnswered: 17 },
-  { playerName: "TriviaKing", score: 2850, timestamp: Date.now() - 518400000, questionsAnswered: 15 },
-  { playerName: "CuriosoPro", score: 2500, timestamp: Date.now() - 604800000, questionsAnswered: 13 },
-  { playerName: "SuperCerebro", score: 2200, timestamp: Date.now() - 691200000, questionsAnswered: 11 },
-  { playerName: "NovatoAudaz", score: 1800, timestamp: Date.now() - 777600000, questionsAnswered: 9 },
-  { playerName: "Explorador", score: 1400, timestamp: Date.now() - 864000000, questionsAnswered: 7 },
-];
-
-/**
- * Obtiene las 50 mejores puntuaciones globales.
+ * Obtiene las 50 mejores puntuaciones globales directamente desde Firebase Firestore.
  */
 export async function fetchTop50Ranking(): Promise<RankingEntry[]> {
   try {
-    const localData = localStorage.getItem(LOCAL_STORAGE_RANKING_KEY);
-    let ranking: RankingEntry[] = localData ? JSON.parse(localData) : [];
+    const rankingRef = collection(db, RANKING_COLLECTION_NAME);
+    const q = query(rankingRef, orderBy("score", "desc"), limit(50));
 
-    if (ranking.length === 0) {
-      ranking = [...DEFAULT_INITIAL_RANKING];
-      localStorage.setItem(LOCAL_STORAGE_RANKING_KEY, JSON.stringify(ranking));
+    const snapshot = await getDocs(q);
+
+    const rankingData: RankingEntry[] = snapshot.docs.map((docSnap: QueryDocumentSnapshot<DocumentData>) => {
+      const data = docSnap.data();
+      return {
+        id: docSnap.id,
+        playerName: data.playerName || "Jugador",
+        score: Number(data.score) || 0,
+        timestamp: Number(data.timestamp) || Date.now(),
+        dateFormatted: data.dateFormatted || "",
+        questionsAnswered: Number(data.questionsAnswered) || 0,
+      };
+    });
+
+    // Guardar en caché local para acceso síncrono secundario
+    localStorage.setItem(LOCAL_STORAGE_RANKING_KEY, JSON.stringify(rankingData));
+
+    return rankingData;
+  } catch (error) {
+    handleFirestoreError(error, OperationType.LIST, RANKING_COLLECTION_NAME);
+
+    // Fallback a caché local en caso de desconexión
+    try {
+      const cached = localStorage.getItem(LOCAL_STORAGE_RANKING_KEY);
+      if (cached) {
+        return JSON.parse(cached);
+      }
+    } catch {
+      // ignorar
     }
 
-    ranking.sort((a, b) => b.score - a.score);
-    return ranking.slice(0, 50);
-  } catch (error) {
-    console.error("Error al obtener ranking:", error);
-    return DEFAULT_INITIAL_RANKING;
+    return [];
   }
 }
 
 /**
- * Guarda el resultado de una partida en el ranking global.
+ * Guarda el resultado de una partida en Firebase Firestore.
  */
-export async function saveGameScore(entry: Omit<RankingEntry, "timestamp" | "dateFormatted">): Promise<RankingEntry[]> {
-  const newEntry: RankingEntry = {
-    ...entry,
+export async function saveGameScore(
+  entry: Omit<RankingEntry, "timestamp" | "dateFormatted">
+): Promise<RankingEntry[]> {
+  const newEntry: Omit<RankingEntry, "id"> = {
+    playerName: entry.playerName.trim() || "Jugador",
+    score: entry.score,
+    questionsAnswered: entry.questionsAnswered || 0,
     timestamp: Date.now(),
     dateFormatted: new Date().toLocaleDateString("es-ES", {
       year: "numeric",
@@ -63,15 +115,24 @@ export async function saveGameScore(entry: Omit<RankingEntry, "timestamp" | "dat
   };
 
   try {
-    const current = await fetchTop50Ranking();
-    current.push(newEntry);
-    current.sort((a, b) => b.score - a.score);
+    const rankingRef = collection(db, RANKING_COLLECTION_NAME);
+    await addDoc(rankingRef, newEntry);
 
-    const top50 = current.slice(0, 50);
-    localStorage.setItem(LOCAL_STORAGE_RANKING_KEY, JSON.stringify(top50));
-    return top50;
+    // Retornar la lista actualizada de los mejores 50 desde Firestore
+    return await fetchTop50Ranking();
   } catch (error) {
-    console.error("Error al guardar puntuación:", error);
-    return [];
+    handleFirestoreError(error, OperationType.CREATE, RANKING_COLLECTION_NAME);
+
+    // Fallback de guardado local en caso de falla de red
+    try {
+      const current = await fetchTop50Ranking();
+      current.push({ ...newEntry, id: `local_${Date.now()}` });
+      current.sort((a, b) => b.score - a.score);
+      const top50 = current.slice(0, 50);
+      localStorage.setItem(LOCAL_STORAGE_RANKING_KEY, JSON.stringify(top50));
+      return top50;
+    } catch {
+      return [];
+    }
   }
 }
