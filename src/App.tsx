@@ -51,6 +51,11 @@ const GameApp: React.FC = () => {
     return () => window.removeEventListener("popstate", handlePopState);
   }, [phase, setPhase]);
 
+  // Si estamos en la ruta /admin, renderizar la interfaz administrativa independiente a Ancho Completo (100% Viewport Width)
+  if (phase === "ADMIN") {
+    return <AdminPanel />;
+  }
+
   return (
     <GameViewport>
       {phase === "MENU" && <MainMenuScreen />}
@@ -85,8 +90,6 @@ const GameApp: React.FC = () => {
       {phase === "TOP50" && <Top50Modal />}
 
       {phase === "HOW_TO_PLAY" && <HowToPlayModal />}
-
-      {phase === "ADMIN" && <AdminPanel />}
 
       {phase === "ASSET_MANAGER" && <AssetManager />}
     </GameViewport>
