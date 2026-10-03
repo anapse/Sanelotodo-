@@ -10,7 +10,7 @@ export type QuestionCategory =
   | "Vida Cotidiana"
   | string;
 
-export type QuestionDifficulty = "easy" | "medium" | "hard" | "bonus";
+export type QuestionDifficulty = "easy" | "medium" | "hard" | "expert" | "bonus";
 
 export interface Question {
   id: string;

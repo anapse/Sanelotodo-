@@ -4,11 +4,13 @@ import { OFFICIAL_SPRITES } from "../config/assetManager";
 interface RuletaSpriteWheelProps {
   rotationDegrees: number;
   isSpinning: boolean;
+  size?: number;
 }
 
 export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
   rotationDegrees,
   isSpinning,
+  size = 280,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
@@ -23,13 +25,7 @@ export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
     img.src = OFFICIAL_SPRITES.ruleta.spritePath;
 
     img.onload = () => {
-      // El sprite sheet oficial es de 2172x724 px (3 fotogramas de 724x724 px):
-      // - Frame 0 (x: 0..724): Disco de Colores Giratorio con Premios.
-      // - Frame 1 (x: 724..1448): Indicador / Flecha Pin Rojo y Dorado.
-      // - Frame 2 (x: 1448..2172): Mueble / Base con Hueco Circular y Pedestal.
-
       // Medidas lógicas del canvas
-      const size = 300;
       const dpr = 2;
       canvas.width = size * dpr;
       canvas.height = size * dpr;
@@ -52,14 +48,11 @@ export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
       const discOriginalRadius = 335.02;
 
       // Escala del disco para encajar holgadamente dentro de la apertura (192px vs 198.9px)
-      // dejando una separación visual uniforme y sin rozar la base
       const targetDiscRadius = 192;
       const discScale = targetDiscRadius / discOriginalRadius;
       const finalDiscRadiusOnCanvas = targetDiscRadius * scale;
 
-      // Medidas del indicador en Frame 1:
-      // minX=155, maxX=566 (ancho: 411), minY=94, maxY=634 (alto: 540)
-      // Eje de simetría en x=358 (local: 203), punta inferior en y=634 (local: 540)
+      // Medidas del indicador en Frame 1
       const pinSrcX = 155;
       const pinSrcY = 94;
       const pinSrcW = 411;
@@ -80,10 +73,7 @@ export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
       const render = () => {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-        // -------------------------------------------------------------
-        // CAPA 1: DISCO DE COLORES GIRATORIO (Frame 0: x=0)
-        // Gira ÚNICAMENTE el disco sobre su centro geométrico exacto
-        // -------------------------------------------------------------
+        // CAPA 1: DISCO DE COLORES GIRATORIO
         ctx.save();
         ctx.translate(pivotX, pivotY);
         ctx.rotate((rotationDegrees * Math.PI) / 180);
@@ -106,10 +96,7 @@ export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
         );
         ctx.restore();
 
-        // -------------------------------------------------------------
-        // CAPA 2: BASE / MUEBLE FIJO (Frame 2: x=1448)
-        // Permanece 100% INMÓVIL
-        // -------------------------------------------------------------
+        // CAPA 2: BASE / MUEBLE FIJO
         ctx.save();
         ctx.drawImage(
           img,
@@ -124,10 +111,7 @@ export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
         );
         ctx.restore();
 
-        // -------------------------------------------------------------
-        // CAPA 3: INDICADOR SUPERIOR FIJO (Frame 1: x=724)
-        // Permanece 100% INMÓVIL en el eje vertical pivotX
-        // -------------------------------------------------------------
+        // CAPA 3: INDICADOR SUPERIOR FIJO
         ctx.save();
         ctx.drawImage(
           img,
@@ -153,14 +137,17 @@ export const RuletaSpriteWheel: React.FC<RuletaSpriteWheelProps> = ({
         if (animationFrameId) cancelAnimationFrame(animationFrameId);
       };
     };
-  }, [rotationDegrees, isSpinning]);
+  }, [rotationDegrees, isSpinning, size]);
 
   return (
-    <div className="relative w-[300px] h-[300px] mx-auto my-1 flex items-center justify-center filter drop-shadow-[0_12px_28px_rgba(0,0,0,0.85)] shrink-0">
+    <div
+      style={{ width: `${size}px`, height: `${size}px` }}
+      className="relative mx-auto my-1 flex items-center justify-center filter drop-shadow-[0_12px_28px_rgba(0,0,0,0.85)] shrink-0"
+    >
       <canvas
         ref={canvasRef}
-        style={{ width: "300px", height: "300px" }}
-        className="w-[300px] h-[300px] object-contain select-none"
+        style={{ width: `${size}px`, height: `${size}px` }}
+        className="object-contain select-none"
       />
     </div>
   );

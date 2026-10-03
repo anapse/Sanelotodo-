@@ -1,0 +1,2602 @@
+[
+  {
+    "id": "starter_001",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal es conocido como el mejor amigo del hombre?",
+    "options": [
+      "Perro",
+      "Gato",
+      "Caballo",
+      "Loro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_002",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué sonido característico hace un gato?",
+    "options": [
+      "Guau",
+      "Miau",
+      "Cua-cua",
+      "Muu"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_003",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal tiene una trompa larga y grandes orejas?",
+    "options": [
+      "León",
+      "Rinoceronte",
+      "Elefante",
+      "Jirafa"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_004",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal es famoso por tener el cuello extremadamente largo?",
+    "options": [
+      "Cebra",
+      "Canguro",
+      "Camello",
+      "Jirafa"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_005",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal tiene rayas blancas y negras en su pelaje?",
+    "options": [
+      "Cebra",
+      "Leopardo",
+      "Tigre",
+      "Oso panda"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_006",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal es conocido tradicionalmente como el rey de la selva?",
+    "options": [
+      "Tigre",
+      "León",
+      "Oso",
+      "Gorila"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_007",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Cuál de estos animales es un ave que no puede volar?",
+    "options": [
+      "Águila",
+      "Paloma",
+      "Pingüino",
+      "Loro"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_008",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal produce miel en las colmenas?",
+    "options": [
+      "Mosca",
+      "Avispa",
+      "Hormiga",
+      "Abeja"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_009",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal salta llevando a su cría dentro de una bolsa o marsupio?",
+    "options": [
+      "Canguro",
+      "Mono",
+      "Conejo",
+      "Koala"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_010",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal vive en el agua y tiene ocho tentáculos?",
+    "options": [
+      "Tiburón",
+      "Pulpo",
+      "Delfín",
+      "Medusa"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_011",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal produce lana para confeccionar ropa?",
+    "options": [
+      "Vaca",
+      "Cerdo",
+      "Oveja",
+      "Caballo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_012",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Cuál es el animal más grande del planeta Tierra?",
+    "options": [
+      "Elefante africano",
+      "Tiburón blanco",
+      "Jirafa",
+      "Ballena azul"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_013",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal de granja dice tradicionalmente \"Muu\" y da leche?",
+    "options": [
+      "Vaca",
+      "Oveja",
+      "Cabra",
+      "Yegua"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_014",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal blanco y negro adora comer ramas de bambú?",
+    "options": [
+      "Oso polar",
+      "Oso panda",
+      "Mapache",
+      "Perezoso"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_015",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué reptil camina lentamente y lleva un caparazón duro en su espalda?",
+    "options": [
+      "Lagarto",
+      "Cocodrilo",
+      "Tortuga",
+      "Serpiente"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_016",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal nocturno tiene alas y duerme colgado boca abajo?",
+    "options": [
+      "Búho",
+      "Águila",
+      "Mariposa",
+      "Murciélago"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_017",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal es conocido por cambiar de color para camuflarse?",
+    "options": [
+      "Camaleón",
+      "Rana",
+      "Iguana",
+      "Serpiente"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_018",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal nada en el mar y es famoso por sus saltos inteligentes y amigables?",
+    "options": [
+      "Tiburón",
+      "Delfín",
+      "Piraña",
+      "Pez espada"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_019",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal tiene jorobas y puede pasar días en el desierto sin agua?",
+    "options": [
+      "Cebra",
+      "Caballo",
+      "Camello",
+      "Elefante"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_020",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué insecto pasa por una metamorfosis desde oruga hasta tener alas coloridas?",
+    "options": [
+      "Mosquito",
+      "Grillo",
+      "Escarabajo",
+      "Mariposa"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_021",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal de granja tiene plumas y pone huevos comestibles?",
+    "options": [
+      "Gallina",
+      "Vaca",
+      "Conejo",
+      "Oveja"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_022",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué roedor pequeño suele asociarse popularmente con el queso?",
+    "options": [
+      "Ardilla",
+      "Ratón",
+      "Castor",
+      "Conejo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_023",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal blanco vive en el frío Polo Norte rodeado de hielo?",
+    "options": [
+      "Oso pardo",
+      "Pingüino",
+      "Oso polar",
+      "Foca monje"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_024",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal salta en los estanques y comienza su vida como renacuajo?",
+    "options": [
+      "Pez",
+      "Tortuga",
+      "Pato",
+      "Rana"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_025",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal veloz tiene un pelaje con manchas redondas en la sabana?",
+    "options": [
+      "Guepardo",
+      "Leopardo",
+      "Cebra",
+      "Hiena"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_026",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué ave marina blanca y gris suele volar cerca de las playas y costas?",
+    "options": [
+      "Paloma",
+      "Gaviota",
+      "Canario",
+      "Colibrí"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_027",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal con grandes colmillos y aletas vive en las aguas árticas?",
+    "options": [
+      "Delfín",
+      "Pulpo",
+      "Morsa",
+      "Nutria"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_028",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal pequeño construye presas de madera en los ríos con sus dientes?",
+    "options": [
+      "Nutria",
+      "Ardilla",
+      "Conejo",
+      "Castor"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_029",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué animal de orejas largas adora comer zanahorias?",
+    "options": [
+      "Conejo",
+      "Ratón",
+      "Perro",
+      "Gato"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_030",
+    "difficulty": "starter",
+    "category": "Animales",
+    "question": "¿Qué ave nocturna es famosa por girar mucho su cabeza y hacer \"uh-uh\"?",
+    "options": [
+      "Águila",
+      "Búho",
+      "Loro",
+      "Pelícano"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_031",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superhéroe trepa paredes y lanza telarañas en Nueva York?",
+    "options": [
+      "Batman",
+      "Iron Man",
+      "Spider-Man",
+      "Thor"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_032",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superhéroe viene del planeta Krypton y vuela con capa roja?",
+    "options": [
+      "Batman",
+      "Flash",
+      "Aquaman",
+      "Superman"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_033",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué héroe multimillonario utiliza una armadura roja y dorada de alta tecnología?",
+    "options": [
+      "Iron Man",
+      "Capitán América",
+      "Hulk",
+      "Hawkeye"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_034",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superhéroe protege Ciudad Gótica vestido de murciélago?",
+    "options": [
+      "Superman",
+      "Batman",
+      "Robin Hood",
+      "Flash"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_035",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué gigante verde se vuelve más fuerte cuanto más se enfada?",
+    "options": [
+      "Thanos",
+      "Thor",
+      "Hulk",
+      "Groot"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_036",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué dios del trueno empuña un poderoso martillo mágico llamado Mjolnir?",
+    "options": [
+      "Loki",
+      "Odin",
+      "Hércules",
+      "Thor"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_037",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superhéroe lleva un traje con barras, estrellas y un escudo indestructible?",
+    "options": [
+      "Capitán América",
+      "Iron Man",
+      "Ant-Man",
+      "Falcon"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_038",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superheroína amazona utiliza un Lazo de la Verdad y brazaletes mágicos?",
+    "options": [
+      "Batgirl",
+      "Mujer Maravilla",
+      "Supergirl",
+      "Gatúbela"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_039",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superhéroe es conocido como el hombre más rápido del mundo con traje rojo?",
+    "options": [
+      "Superman",
+      "Green Arrow",
+      "Flash",
+      "Cyborg"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_040",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué héroe mutante tiene garras de adamantium que salen de sus puños?",
+    "options": [
+      "Cíclope",
+      "Magneto",
+      "Bestia",
+      "Wolverine"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_041",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué rey de la Atlántida puede respirar bajo el agua y comunicarse con peces?",
+    "options": [
+      "Aquaman",
+      "Namor",
+      "Poseidón",
+      "Thor"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_042",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué supervillano payaso con pelo verde es el gran enemigo de Batman?",
+    "options": [
+      "El Pingüino",
+      "El Joker",
+      "El Acertijo",
+      "Dos Caras"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_043",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué superhéroe puede encogerse hasta el tamaño de un insecto?",
+    "options": [
+      "Spider-Man",
+      "Iron Man",
+      "Ant-Man",
+      "Wasp"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_044",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué grupo de superhéroes incluye a Iron Man, Capitán América y Thor?",
+    "options": [
+      "Los 4 Fantásticos",
+      "Liga de la Justicia",
+      "X-Men",
+      "Los Vengadores"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_045",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué personaje con forma de árbol solo sabe decir \"Yo soy Groot\"?",
+    "options": [
+      "Groot",
+      "Rocket",
+      "Drax",
+      "Star-Lord"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_046",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué villano con piel morada reunió las 6 Gemas del Infinito?",
+    "options": [
+      "Ultron",
+      "Thanos",
+      "Loki",
+      "Venom"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_047",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué antihéroe vestido de rojo y negro habla directamente con el espectador y hace bromas?",
+    "options": [
+      "Daredevil",
+      "Punisher",
+      "Deadpool",
+      "Robin"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_048",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué reina guerrera felina protege el reino tecnológico de Wakanda?",
+    "options": [
+      "Tigra",
+      "Tormenta",
+      "Gatúbela",
+      "Pantera Negra"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_049",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué héroe ciego vestido de rojo es abogado de día y vigilante nocturno?",
+    "options": [
+      "Daredevil",
+      "Deadpool",
+      "Doctor Strange",
+      "Hawkeye"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_050",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué hechicero supremo utiliza la Capa de Levitación y artes místicas?",
+    "options": [
+      "Harry Potter",
+      "Doctor Strange",
+      "Loki",
+      "Magneto"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_051",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué villano simbionte negro con grandes colmillos es rival de Spider-Man?",
+    "options": [
+      "Duende Verde",
+      "Electro",
+      "Venom",
+      "Mysterio"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_052",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué heroína viste traje de gato y le gusta robar joyas en Gotham?",
+    "options": [
+      "Harley Quinn",
+      "Hiedra Venenosa",
+      "Raven",
+      "Gatúbela"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_053",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Quién es el joven compañero clásico de Batman con capa amarilla?",
+    "options": [
+      "Robin",
+      "Flash",
+      "Aquaman",
+      "Cyborg"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_054",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Qué villano con casco metálico puede controlar los campos magnéticos y el metal?",
+    "options": [
+      "Doctor Doom",
+      "Magneto",
+      "Loki",
+      "Juggernaut"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_055",
+    "difficulty": "starter",
+    "category": "Superhéroes",
+    "question": "¿Cuál de estos personajes forma parte de los Cuatro Fantásticos y está hecho de roca?",
+    "options": [
+      "Hulk",
+      "Groot",
+      "La Mole",
+      "Coloso"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_056",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué película animada trata sobre un pez payaso naranja que se pierde en el océano?",
+    "options": [
+      "El Rey León",
+      "Madagascar",
+      "Shark Tale",
+      "Buscando a Nemo"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_057",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué ogro verde vive en un pantano y tiene como amigo a un burro parlante?",
+    "options": [
+      "Shrek",
+      "Sulley",
+      "Hulk",
+      "Grinch"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_058",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué película de Disney está protagonizada por un leoncito llamado Simba?",
+    "options": [
+      "Tarzán",
+      "El Rey León",
+      "El libro de la selva",
+      "Madagascar"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_059",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué princesa de hielo canta la famosa canción \"Libre soy\" (Let It Go)?",
+    "options": [
+      "Ariel",
+      "Cenicienta",
+      "Elsa",
+      "Rapunzel"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_060",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué muñeco vaquero lidera a los juguetes en la película Toy Story?",
+    "options": [
+      "Buzz Lightyear",
+      "Rex",
+      "Slinky",
+      "Woody"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_061",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué juguete espacial cree que puede volar al infinito y más allá en Toy Story?",
+    "options": [
+      "Buzz Lightyear",
+      "Woody",
+      "Sr. Cara de Papa",
+      "Zurg"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_062",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué joven mago estudia en el colegio Hogwarts con varita y lechuza?",
+    "options": [
+      "Frodo",
+      "Harry Potter",
+      "Luke Skywalker",
+      "Peter Pan"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_063",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué villano galáctico con casco negro respira profundamente y dice \"Yo soy tu padre\"?",
+    "options": [
+      "Voldemort",
+      "Sauron",
+      "Darth Vader",
+      "Thanos"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_064",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué criatura pequeña y verde es un sabio maestro Jedi en Star Wars?",
+    "options": [
+      "Chewbacca",
+      "Ewok",
+      "Jabba",
+      "Yoda"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_065",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué gran transatlántico choca contra un iceberg en una de las películas más famosas de la historia?",
+    "options": [
+      "Titanic",
+      "Poseidón",
+      "Perla Negra",
+      "Nautilus"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_066",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué famoso barco pirata capitanea Jack Sparrow en Piratas del Caribe?",
+    "options": [
+      "El Holandés Errante",
+      "El Perla Negra",
+      "Titanic",
+      "Santa María"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_067",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué dinosaurios gigantes son clonados en un parque temático en una famosa saga?",
+    "options": [
+      "Avatar",
+      "Godzilla",
+      "Jurassic Park",
+      "King Kong"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_068",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué adorable criatura alienígena quiere \"llamar a casa\" con su dedo iluminado?",
+    "options": [
+      "Stitch",
+      "Alien",
+      "Yoda",
+      "E.T."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_069",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué monstruo azul peludo trabaja asustando niños junto a su amigo verde de un solo ojo Mike Wazowski?",
+    "options": [
+      "Sulley",
+      "Shrek",
+      "Pie Grande",
+      "Chewbacca"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_070",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué personaje de cuento pierde una zapatilla de cristal en el baile real?",
+    "options": [
+      "Blancanieves",
+      "Cenicienta",
+      "Aurora",
+      "Bella"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_071",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué sirena de cabello rojo sueña con caminar en el mundo de los humanos?",
+    "options": [
+      "Bella",
+      "Jasmine",
+      "Ariel",
+      "Mulan"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_072",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué joven de madera sueña con convertirse en un niño de verdad y le crece la nariz si miente?",
+    "options": [
+      "Peter Pan",
+      "Aladdín",
+      "Dumbo",
+      "Pinocho"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_073",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué elefante de circo tiene orejas enormes que le permiten volar?",
+    "options": [
+      "Dumbo",
+      "Bambi",
+      "Simba",
+      "Mowgli"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_074",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué muñeco de nieve adora los abrazos cálidos en la película Frozen?",
+    "options": [
+      "Sven",
+      "Olaf",
+      "Kristoff",
+      "Frosty"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_075",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué guerrero panda aprende kung fu y adora comer fideos y albóndigas?",
+    "options": [
+      "Shifu",
+      "Tigresa",
+      "Po",
+      "Tai Lung"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_076",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué coche de carreras rojo con el número 95 protagoniza la película Cars?",
+    "options": [
+      "Mate",
+      "Sally",
+      "Doc Hudson",
+      "Rayo McQueen"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_077",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué ratoncito sueña con convertirse en un gran chef de cocina en París?",
+    "options": [
+      "Remy",
+      "Mickey",
+      "Stuart Little",
+      "Jerry"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_078",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué robot recolector de basura se enamora de la robot blanca EVA?",
+    "options": [
+      "Baymax",
+      "WALL-E",
+      "R2-D2",
+      "Optimus Prime"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_079",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué robot inflable blanco y tierno cuida de la salud de sus amigos en Grandes Héroes?",
+    "options": [
+      "WALL-E",
+      "Iron Man",
+      "Baymax",
+      "Bumblebee"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_080",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué extraterrestre azul y travieso es adoptado como mascota en Hawái?",
+    "options": [
+      "E.T.",
+      "Baby Yoda",
+      "Minion",
+      "Stitch"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_081",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué vehículo viaja en el tiempo cuando alcanza las 88 millas por hora en Volver al Futuro?",
+    "options": [
+      "DeLorean",
+      "Batimóvil",
+      "Ecto-1",
+      "Herbie"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_082",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué científico con bata blanca inventa la máquina del tiempo en Volver al Futuro?",
+    "options": [
+      "Tony Stark",
+      "Doc Brown",
+      "Einstein",
+      "Doctor Strange"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_083",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué pequeños seres amarillos con gafas y overol azul adoran las bananas y sirven a Gru?",
+    "options": [
+      "Pitufos",
+      "Goblins",
+      "Minions",
+      "Trolls"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_084",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué joven viaja a la Tierra de los Muertos en México tocando una guitarra blanca en la película Coco?",
+    "options": [
+      "Héctor",
+      "Ernesto",
+      "Dante",
+      "Miguel"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_085",
+    "difficulty": "starter",
+    "category": "Películas",
+    "question": "¿Qué criatura mágica sale de una lámpara maravillosa y concede tres deseos a Aladdín?",
+    "options": [
+      "El Genio",
+      "Jafar",
+      "Abu",
+      "Iago"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_086",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué fontanero de bigote y gorra roja rescata a la Princesa Peach?",
+    "options": [
+      "Luigi",
+      "Mario",
+      "Sonic",
+      "Pac-Man"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_087",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Quién es el hermano de Mario que viste de verde y usa una aspiradora para cazar fantasmas?",
+    "options": [
+      "Wario",
+      "Toad",
+      "Luigi",
+      "Bowser"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_088",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué erizo azul corre a supervelocidad recogiendo anillos dorados?",
+    "options": [
+      "Shadow",
+      "Knuckles",
+      "Tails",
+      "Sonic"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_089",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué criatura amarilla lanza rayos eléctricos y dice su propio nombre en Pokémon?",
+    "options": [
+      "Pikachu",
+      "Charmander",
+      "Bulbasaur",
+      "Squirtle"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_090",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego consiste en colocar y romper bloques cúbicos en un mundo infinito?",
+    "options": [
+      "Tetris",
+      "Minecraft",
+      "Roblox",
+      "Fortnite"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_091",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué monstruo verde silencioso se acerca y explota en Minecraft?",
+    "options": [
+      "Zombie",
+      "Esqueleto",
+      "Creeper",
+      "Enderman"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_092",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué personaje amarillo con forma de círculo come puntos en un laberinto evitando fantasmas?",
+    "options": [
+      "Kirby",
+      "Sonic",
+      "Q*bert",
+      "Pac-Man"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_093",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego clásico de puzzle consiste en encajar piezas geométricas que caen desde arriba?",
+    "options": [
+      "Tetris",
+      "Candy Crush",
+      "Sudoku",
+      "Pac-Man"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_094",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué personaje rosado y redondo absorbe enemigos y copia sus habilidades?",
+    "options": [
+      "Jigglypuff",
+      "Kirby",
+      "Toad",
+      "Yoshi"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_095",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué dinosaurio verde transporta a Mario en su espalda y come fruta con su larga lengua?",
+    "options": [
+      "Bowser",
+      "Koopa",
+      "Yoshi",
+      "Donkey Kong"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_096",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué gorila con corbata roja lanza barriles y adora los plátanos en Nintendo?",
+    "options": [
+      "King Kong",
+      "Gorila Grodd",
+      "Diddy Kong",
+      "Donkey Kong"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_097",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué joven guerrero con túnica verde y espada maestra rescata a la princesa Zelda?",
+    "options": [
+      "Link",
+      "Mario",
+      "Cloud",
+      "Ganon"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_098",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego de carreras de karts incluye objetos como plátanos y caparazones?",
+    "options": [
+      "Need for Speed",
+      "Mario Kart",
+      "Gran Turismo",
+      "Crash Team Racing"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_099",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué objeto de Mario Kart persigue automáticamente al jugador que va en primer lugar?",
+    "options": [
+      "Plátano",
+      "Hongo rojo",
+      "Caparazón azul",
+      "Estrella"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_100",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué dragón morado escupe fuego y rescata a sus amigos dragones?",
+    "options": [
+      "Charizard",
+      "Yoshi",
+      "Bowser",
+      "Spyro"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_101",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué marsupial naranja gira como un torbellino rompiendo cajas de fruta Wumpa?",
+    "options": [
+      "Crash Bandicoot",
+      "Sonic",
+      "Fox McCloud",
+      "Rayman"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_102",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué objeto de Mario Bros le hace crecer el doble de tamaño al tocarlo?",
+    "options": [
+      "Moneda",
+      "Hongo rojo",
+      "Flor de fuego",
+      "Pluma"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_103",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué objeto otorga invencibilidad temporal y música rápida en Mario Bros?",
+    "options": [
+      "Hongo verde",
+      "Caparazón verde",
+      "Estrella dorada",
+      "Flor de hielo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_104",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué esfera roja y blanca se utiliza para capturar criaturas en Pokémon?",
+    "options": [
+      "Piedra trueno",
+      "Super estrella",
+      "Esfera del dragón",
+      "Pokébola"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_105",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Cuál es el lagarto de fuego inicial de color naranja en la primera generación de Pokémon?",
+    "options": [
+      "Charmander",
+      "Squirtle",
+      "Bulbasaur",
+      "Pikachu"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_106",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego popular de teléfonos móviles consiste en alinear 3 o más caramelos del mismo color?",
+    "options": [
+      "Tetris",
+      "Candy Crush",
+      "Flappy Bird",
+      "Angry Birds"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_107",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego para móvil consiste en lanzar pájaros con una resortera contra cerditos verdes?",
+    "options": [
+      "Plants vs Zombies",
+      "Fruit Ninja",
+      "Angry Birds",
+      "Cut the Rope"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_108",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego consiste en deslizar el dedo por la pantalla para cortar sandías, plátanos y manzanas?",
+    "options": [
+      "Subway Surfers",
+      "Temple Run",
+      "Flappy Bird",
+      "Fruit Ninja"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_109",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego móvil consiste en correr sobre vías de tren esquivando trenes y al guardia con su perro?",
+    "options": [
+      "Subway Surfers",
+      "Temple Run",
+      "Sonic Dash",
+      "Crossy Road"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_110",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿En qué juego espacial de deducción los tripulantes deben descubrir quién es el impostor?",
+    "options": [
+      "Fortnite",
+      "Among Us",
+      "Minecraft",
+      "Fall Guys"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_111",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿En qué juego multijugador docenas de personajes con forma de frijol compiten en carreras de obstáculos?",
+    "options": [
+      "Among Us",
+      "Roblox",
+      "Fall Guys",
+      "Rocket League"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_112",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego combina partidos de fútbol jugados con autos propulsados por cohetes?",
+    "options": [
+      "FIFA",
+      "Mario Strikers",
+      "Need for Speed",
+      "Rocket League"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_113",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué juego de supervivencia de 100 jugadores tiene un autobús volador y tormenta morada?",
+    "options": [
+      "Fortnite",
+      "Call of Duty",
+      "Minecraft",
+      "Overwatch"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_114",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué personaje con espada y armadura azul rescata a aldeanos como el skin predeterminado masculino en Minecraft?",
+    "options": [
+      "Alex",
+      "Steve",
+      "Herobrine",
+      "Notch"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_115",
+    "difficulty": "starter",
+    "category": "Videojuegos",
+    "question": "¿Qué villano tortuga con caparazón con pinchos secuestra constantemente a la Princesa Peach?",
+    "options": [
+      "Wario",
+      "King Boo",
+      "Bowser",
+      "Donkey Kong"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_116",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Quién vive en una piña debajo del mar en Fondo de Bikini?",
+    "options": [
+      "Patricio",
+      "Calamardo",
+      "Don Cangrejo",
+      "Bob Esponja"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_117",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Quién es la estrella de mar rosada y mejor amigo de Bob Esponja?",
+    "options": [
+      "Patricio Estrella",
+      "Calamardo",
+      "Arenita",
+      "Gary"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_118",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué ratón con pantalones rojos y orejas redondas es el símbolo icónico de Disney?",
+    "options": [
+      "Donald",
+      "Mickey Mouse",
+      "Goofy",
+      "Pluto"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_119",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué pato blanco viste traje de marinero azul y tiene voz divertida en Disney?",
+    "options": [
+      "Pato Lucas",
+      "Mickey",
+      "Pato Donald",
+      "Rico McPato"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_120",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué conejo gris come zanahorias y pregunta \"¿Qué hay de nuevo, viejo?\"?",
+    "options": [
+      "Pato Lucas",
+      "Piolín",
+      "Silvestre",
+      "Bugs Bunny"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_121",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué gato gris intenta siempre atrapar al ratón Jerry en una famosa caricatura?",
+    "options": [
+      "Tom",
+      "Garfield",
+      "Silvestre",
+      "Félix"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_122",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué gato naranja es perezoso, adora comer lasaña y odia los lunes?",
+    "options": [
+      "Tom",
+      "Garfield",
+      "Félix",
+      "Silvestre"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_123",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué perro cobarde y parlante viaja en la Máquina del Misterio resolviendo casos con Shaggy?",
+    "options": [
+      "Pluto",
+      "Snoopy",
+      "Scooby-Doo",
+      "Goofy"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_124",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué canario amarillo dice \"Me parece que vi un lindo gatito\"?",
+    "options": [
+      "Pato Donald",
+      "Woody Woodpecker",
+      "Claudio",
+      "Piolín"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_125",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué perro blanco de orejas negras duerme encima del techo de su caseta roja?",
+    "options": [
+      "Snoopy",
+      "Pluto",
+      "Scooby-Doo",
+      "Droopy"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_126",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué padre de familia con sobrepeso adora las rosquillas y vive en Springfield?",
+    "options": [
+      "Peter Griffin",
+      "Homero Simpson",
+      "Stan Smith",
+      "Ned Flanders"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_127",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué niño de 10 años con pelo puntiagudo anda en patineta y hace travesuras en Los Simpson?",
+    "options": [
+      "Milhouse",
+      "Nelson",
+      "Bart Simpson",
+      "Ralph"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_128",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué bebé tiene chupón rojo y nunca habla en la familia Simpson?",
+    "options": [
+      "Lisa",
+      "Bart",
+      "Marge",
+      "Maggie"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_129",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué niño genio con cabello castaño inventa cosas en su laboratorio secreto?",
+    "options": [
+      "Dexter",
+      "Jimmy Neutrón",
+      "Ben 10",
+      "Timmy Turner"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_130",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué niño con gorra rosa tiene dos padrinos mágicos llamados Cosmo y Wanda?",
+    "options": [
+      "Danny Phantom",
+      "Timmy Turner",
+      "Dexter",
+      "Phineas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_131",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué trío de niñas con superpoderes fueron creadas con azúcar, flores y muchos colores?",
+    "options": [
+      "Las Winx",
+      "Sailor Moon",
+      "Las Chicas Superpoderosas",
+      "Monster High"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_132",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué joven guerrero con cola de mono busca las 7 Esferas del Dragón y hace el Kamehameha?",
+    "options": [
+      "Vegeta",
+      "Naruto",
+      "Luffy",
+      "Goku"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_133",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué ninja rubio de traje naranja adora el ramen y sueña con ser Hokage?",
+    "options": [
+      "Naruto",
+      "Sasuke",
+      "Kakashi",
+      "Goku"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_134",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué pirata con sombrero de paja tiene un cuerpo elástico de goma en One Piece?",
+    "options": [
+      "Zoro",
+      "Monkey D. Luffy",
+      "Sanji",
+      "Usopp"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_135",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué gato cósmico azul del siglo XXII saca inventos mágicos de su bolsillo infinito?",
+    "options": [
+      "Hello Kitty",
+      "Pikachu",
+      "Doraemon",
+      "Totoro"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_136",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué osito de peluche amarillo adora comer miel de sus tarros en el Bosque de los Cien Acres?",
+    "options": [
+      "Paddington",
+      "Ted",
+      "Yogi",
+      "Winnie the Pooh"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_137",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué niño cavernícola y su amigo Pedro viven en la edad de piedra en Rocadura?",
+    "options": [
+      "Los Picapiedra",
+      "Los Supersónicos",
+      "Scooby-Doo",
+      "Los Simpson"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_138",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué veloz correcaminos escapa siempre de las trampas de la marca ACME puestas por el Coyote?",
+    "options": [
+      "Bugs Bunny",
+      "El Correcaminos",
+      "Speedy Gonzales",
+      "Taz"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_139",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué ratón mexicano es conocido como el más veloz de todo México?",
+    "options": [
+      "Mickey Mouse",
+      "Jerry",
+      "Speedy Gonzales",
+      "Stuart Little"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_140",
+    "difficulty": "starter",
+    "category": "Animación",
+    "question": "¿Qué niño utiliza un reloj alienígena llamado Omnitrix para transformarse en 10 héroes distintos?",
+    "options": [
+      "Danny Phantom",
+      "Generator Rex",
+      "Max Steel",
+      "Ben 10"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_141",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué plataforma de videos por internet utiliza el botón rojo de \"Play\" como logotipo?",
+    "options": [
+      "YouTube",
+      "Twitch",
+      "Netflix",
+      "Spotify"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_142",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué red social de videos cortos en formato vertical tiene como logo una nota musical?",
+    "options": [
+      "Facebook",
+      "TikTok",
+      "Twitter",
+      "Pinterest"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_143",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué aplicación de música en streaming tiene un círculo verde con tres ondas negras?",
+    "options": [
+      "Apple Music",
+      "YouTube Music",
+      "Spotify",
+      "SoundCloud"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_144",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué empresa de tecnología fabrica los teléfonos iPhone y las computadoras Mac?",
+    "options": [
+      "Samsung",
+      "Sony",
+      "Microsoft",
+      "Apple"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_145",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué juguete clásico de plástico consiste en encajar ladrillos de colores para construir figuras?",
+    "options": [
+      "LEGO",
+      "Playmobil",
+      "Hot Wheels",
+      "Barbie"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_146",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué famosa muñeca rubia ha tenido profesiones como astronauta, médica y veterinaria?",
+    "options": [
+      "Bratz",
+      "Barbie",
+      "Polly Pocket",
+      "Monster High"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_147",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué marca de autitos de metal a escala es famosa por sus pistas naranjas y acrobacias?",
+    "options": [
+      "LEGO",
+      "Nerf",
+      "Hot Wheels",
+      "Transformers"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_148",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué juguete es un cubo de 6 caras de colores que se debe resolver girando sus piezas?",
+    "options": [
+      "Yoyo",
+      "Trompo",
+      "Tetris",
+      "Cubo de Rubik"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_149",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué juego de mesa de cartas consiste en quedarse sin cartas diciendo el nombre del juego al tener una sola?",
+    "options": [
+      "UNO",
+      "Monopoly",
+      "Jenga",
+      "Ajedrez"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_150",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué juego de mesa inmobiliario consiste en comprar calles, casas y hoteles usando billetes de juego?",
+    "options": [
+      "UNO",
+      "Monopoly",
+      "Scrabble",
+      "Pictionary"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_151",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué juego de habilidad física consiste en retirar bloques de madera de una torre sin que caiga?",
+    "options": [
+      "Monopoly",
+      "Twister",
+      "Jenga",
+      "Ajedrez"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_152",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué bebida gaseosa negra en botella con etiqueta roja es la más famosa del mundo?",
+    "options": [
+      "Pepsi",
+      "Fanta",
+      "Sprite",
+      "Coca-Cola"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_153",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué cadena de comida rápida tiene como logotipo unos grandes arcos dorados en forma de \"M\"?",
+    "options": [
+      "McDonald's",
+      "Burger King",
+      "KFC",
+      "Subway"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_154",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué plato de origen italiano consiste en una base circular de masa con salsa de tomate y queso fundido?",
+    "options": [
+      "Hamburguesa",
+      "Pizza",
+      "Tacos",
+      "Sushi"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_155",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué alimento tradicional japonés se prepara con arroz avinagrado y pescado?",
+    "options": [
+      "Pizza",
+      "Tacos",
+      "Sushi",
+      "Hamburguesa"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_156",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué plataforma de series y películas por internet tiene un famoso sonido característico de inicio \"Ta-dum\"?",
+    "options": [
+      "Disney+",
+      "HBO",
+      "Prime Video",
+      "Netflix"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_157",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué famoso festival de cine entrega una estatuilla dorada con forma de hombre?",
+    "options": [
+      "Premios Óscar",
+      "Grammys",
+      "Emmys",
+      "Globos de Oro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_158",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué objeto con forma de disco volador de plástico se lanza con la mano en la playa o parques?",
+    "options": [
+      "Bumerán",
+      "Frisbee",
+      "Pelota",
+      "Yoyo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_159",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué personaje con traje rojo y barba blanca reparte regalos en Nochebuena a los niños?",
+    "options": [
+      "Conejo de Pascua",
+      "Reyes Magos",
+      "Papá Noel / Santa Claus",
+      "Elfo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_160",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué figura de nieve con nariz de zanahoria y sombrero se arma tradicionalmente en invierno?",
+    "options": [
+      "Espantapájaros",
+      "Robot",
+      "Estatua",
+      "Muñeco de nieve"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_161",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué dulce frío elaborado con leche o crema se sirve habitualmente en barquillos de galleta?",
+    "options": [
+      "Helado",
+      "Flan",
+      "Gelatina",
+      "Pastel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_162",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué prenda deportiva de abrigo tiene una capucha cosida para cubrir la cabeza?",
+    "options": [
+      "Camisa",
+      "Sudadera / Polera",
+      "Corbata",
+      "Chaleco"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_163",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué dulce hecho a base de cacao tostado puede ser con leche, blanco o negro?",
+    "options": [
+      "Caramelo",
+      "Chicle",
+      "Chocolate",
+      "Malvavisco"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_164",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué dulce elástico se mastica durante horas para hacer bombas de aire?",
+    "options": [
+      "Caramelo",
+      "Galleta",
+      "Chocolate",
+      "Chicle / Goma de mascar"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_165",
+    "difficulty": "starter",
+    "category": "Cultura Pop",
+    "question": "¿Qué alimento hecho de maíz inflado por calor se come habitualmente en las salas de cine?",
+    "options": [
+      "Palomitas de maíz / Popcorn",
+      "Nachos",
+      "Papas fritas",
+      "Maní"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_166",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué grupo de 6 amigos vive en Nueva York y se reúne siempre en el café Central Perk?",
+    "options": [
+      "How I Met Your Mother",
+      "Friends",
+      "The Big Bang Theory",
+      "Glee"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_167",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué científico loco viaja entre dimensiones con su nieto tímido en una nave espacial casera?",
+    "options": [
+      "Futurama",
+      "Gravity Falls",
+      "Rick y Morty",
+      "Padre de Familia"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_168",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie muestra a niños en los años 80 enfrentando al monstruo Demogorgon y al Mundo del Revés?",
+    "options": [
+      "Dark",
+      "Wednesday / Merlina",
+      "Umbrella Academy",
+      "Stranger Things"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_169",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué personaje de la familia Addams viste de negro, tiene trenzas y toca el violonchelo en la serie de Netflix?",
+    "options": [
+      "Merlina / Wednesday",
+      "Morticia",
+      "Enid",
+      "Sabrina"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_170",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie coreana de supervivencia muestra a jugadores compitiendo en juegos infantiles con trajes verdes?",
+    "options": [
+      "Alice in Borderland",
+      "El juego del calamar",
+      "All of Us Are Dead",
+      "Kingdom"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_171",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué cuarteto de científicos frikis incluye a Sheldon Cooper y Leonard en su apartamento?",
+    "options": [
+      "Friends",
+      "Silicon Valley",
+      "The Big Bang Theory",
+      "Modern Family"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_172",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie animada sobre el futuro está protagonizada por el repartidor Fry y el robot doblador Bender?",
+    "options": [
+      "Rick y Morty",
+      "Los Simpson",
+      "Padre de Familia",
+      "Futurama"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_173",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie animada muestra a un niño con gorro azul con orejeras llamado Stan en un pueblo nevado de Colorado?",
+    "options": [
+      "South Park",
+      "Padre de Familia",
+      "Los Simpson",
+      "Rick y Morty"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_174",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué familia de superhéroes disfuncionales nacidos el mismo día tiene como líder al Número Uno y a Cinco?",
+    "options": [
+      "Los Vengadores",
+      "The Umbrella Academy",
+      "The Boys",
+      "Titans"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_175",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué misteriosa serie trata sobre los gemelos Dipper y Mabel pasando el verano en la Cabaña del Misterio?",
+    "options": [
+      "Star vs Las Fuerzas del Mal",
+      "Hora de Aventura",
+      "Gravity Falls",
+      "Steven Universe"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_176",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie animada sigue las aventuras del perro mágico Jake y el humano Finn en la Tierra de Ooo?",
+    "options": [
+      "Un Show Más",
+      "El Maravilloso Mundo de Gumball",
+      "Clarence",
+      "Hora de Aventura"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_177",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué dos amigos, un arrendajo azul y un mapache, trabajan de cuidadores de parque en una comedia animada?",
+    "options": [
+      "Un Show Más",
+      "Hora de Aventura",
+      "Gumball",
+      "Bob Esponja"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_178",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie británica trata sobre un androide con cabina telefónica azul de policía que viaja por el tiempo?",
+    "options": [
+      "Sherlock",
+      "Doctor Who",
+      "Black Mirror",
+      "Peaky Blinders"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_179",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué profesor de química de secundaria con sombrero negro entra al negocio ilegal con su exalumno Jesse?",
+    "options": [
+      "Better Call Saul",
+      "Ozark",
+      "Breaking Bad",
+      "Narcos"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_180",
+    "difficulty": "starter",
+    "category": "Series",
+    "question": "¿Qué serie medieval de dragones y familias reales compite por el Trono de Hierro?",
+    "options": [
+      "Vikingos",
+      "The Witcher",
+      "El Señor de los Anillos",
+      "Juego de Tronos"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_181",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué cantante es conocido mundialmente como el Rey del Pop y por su paso de baile \"Moonwalk\"?",
+    "options": [
+      "Michael Jackson",
+      "Elvis Presley",
+      "Freddie Mercury",
+      "Prince"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_182",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué cantante es conocido como el Rey del Rock and Roll y por su peinado tupé en los años 50?",
+    "options": [
+      "Michael Jackson",
+      "Elvis Presley",
+      "John Lennon",
+      "Bob Dylan"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_183",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué famoso grupo británico de rock compuso canciones como \"Bohemian Rhapsody\" con Freddie Mercury?",
+    "options": [
+      "The Beatles",
+      "The Rolling Stones",
+      "Queen",
+      "Pink Floyd"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_184",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué legendario cuarteto de Liverpool estaba integrado por John, Paul, George y Ringo?",
+    "options": [
+      "Queen",
+      "The Rolling Stones",
+      "The Police",
+      "The Beatles"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_185",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué instrumento musical de cuerda se toca rasgueando o punteando con los dedos y tiene 6 cuerdas?",
+    "options": [
+      "Guitarra",
+      "Piano",
+      "Trompeta",
+      "Batería"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_186",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué instrumento de percusión se toca golpeando tambores y platillos con baquetas de madera?",
+    "options": [
+      "Guitarra",
+      "Batería",
+      "Piano",
+      "Flauta"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_187",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué instrumento de teclado tiene teclas blancas y negras y cuerdas internas que suenan con martillos?",
+    "options": [
+      "Acordeón",
+      "Trompeta",
+      "Piano",
+      "Violín"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_188",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué cantante pop femenina estadounidense tiene legiones de fanáticos llamados \"Swifties\"?",
+    "options": [
+      "Beyoncé",
+      "Lady Gaga",
+      "Ariana Grande",
+      "Taylor Swift"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_189",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué cantante pop femenina es famosa por sus trajes extravagantes y canciones como \"Bad Romance\"?",
+    "options": [
+      "Lady Gaga",
+      "Katy Perry",
+      "Rihanna",
+      "Madonna"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_190",
+    "difficulty": "starter",
+    "category": "Música",
+    "question": "¿Qué estrella del reguetón puertorriqueño es apodado \"El Conejo Malo\"?",
+    "options": [
+      "J Balvin",
+      "Bad Bunny",
+      "Daddy Yankee",
+      "Maluma"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_191",
+    "difficulty": "starter",
+    "category": "Deportes",
+    "question": "¿En qué deporte los jugadores deben meter un balón con los pies en la portería contraria?",
+    "options": [
+      "Baloncesto",
+      "Tenis",
+      "Fútbol",
+      "Béisbol"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_192",
+    "difficulty": "starter",
+    "category": "Deportes",
+    "question": "¿En qué deporte se lanza un balón naranja con las manos para encestarlo en un aro elevado?",
+    "options": [
+      "Fútbol",
+      "Voleibol",
+      "Tenis",
+      "Baloncesto"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_193",
+    "difficulty": "starter",
+    "category": "Deportes",
+    "question": "¿En qué deporte con raqueta dos jugadores pasan una pelota amarilla por encima de una red central?",
+    "options": [
+      "Tenis",
+      "Fútbol",
+      "Béisbol",
+      "Golf"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_194",
+    "difficulty": "starter",
+    "category": "Deportes",
+    "question": "¿En qué deporte se utiliza un palo para golpear una pequeña bola blanca e introducirla en un hoyo?",
+    "options": [
+      "Tenis",
+      "Golf",
+      "Baloncesto",
+      "Natación"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_195",
+    "difficulty": "starter",
+    "category": "Deportes",
+    "question": "¿En qué deporte acuático los competidores avanzan nadando en una piscina a toda velocidad?",
+    "options": [
+      "Atletismo",
+      "Ciclismo",
+      "Natación",
+      "Boxeo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_196",
+    "difficulty": "starter",
+    "category": "Cotidiano",
+    "question": "¿Cuántos días tiene una semana normal de lunes a domingo?",
+    "options": [
+      "5 días",
+      "10 días",
+      "12 días",
+      "7 días"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "starter_197",
+    "difficulty": "starter",
+    "category": "Cotidiano",
+    "question": "¿De qué color es la hierba y las hojas frescas de la mayoría de los árboles?",
+    "options": [
+      "Verde",
+      "Azul",
+      "Morado",
+      "Rojo"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "starter_198",
+    "difficulty": "starter",
+    "category": "Cotidiano",
+    "question": "¿Qué astro brillante ilumina el cielo de día y nos da calor en la Tierra?",
+    "options": [
+      "La Luna",
+      "El Sol",
+      "Marte",
+      "La Estrella Polar"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "starter_199",
+    "difficulty": "starter",
+    "category": "Cotidiano",
+    "question": "¿Qué elemento congelado cae del cielo en invierno en forma de copos blancos?",
+    "options": [
+      "Arena",
+      "Lava",
+      "Nieve",
+      "Ceniza"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "starter_200",
+    "difficulty": "starter",
+    "category": "Cotidiano",
+    "question": "¿Qué objeto con dos ruedas se impulsa pedaleando con los pies?",
+    "options": [
+      "Automóvil",
+      "Avión",
+      "Barco",
+      "Bicicleta"
+    ],
+    "correctIndex": 3
+  }
+]

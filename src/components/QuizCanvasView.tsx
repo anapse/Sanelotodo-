@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useGame } from "../context/GameContext";
+import { useGame, MYSTERY_SLOTS_DEFINITIONS, MysterySlotDef } from "../context/GameContext";
+import { useStageDimensions } from "../context/StageContext";
 import { HeaderHUD } from "./HeaderHUD";
 import { SpriteIcon, IconName } from "./SpriteIcon";
 import { soundService } from "../services/soundService";
-import { Clock, Sparkles, Gift, Shield, Info, X } from "lucide-react";
+import { Clock, Sparkles, Gift, Shield, Info, X, Lock, HelpCircle } from "lucide-react";
 
 interface ComodinInfo {
   key: string;
@@ -14,7 +15,7 @@ interface ComodinInfo {
   whenToUse: string;
 }
 
-const COMODINES_INFO_LIST: ComodinInfo[] = [
+const OFFICIAL_COMODINES_INFO: ComodinInfo[] = [
   {
     key: "fiftyFifty",
     name: "50 / 50",
@@ -41,19 +42,19 @@ const COMODINES_INFO_LIST: ComodinInfo[] = [
   },
   {
     key: "correctAnswer",
-    name: "RESPUESTA CORRECTA",
+    name: "RESPUESTA CORRECTA (PISTA)",
     shortName: "PISTA",
     icon: "correctAnswer",
     whatItDoes: "Marca visualmente con resplandor dorado cuál de las 4 opciones es la correcta. El jugador debe pulsarla.",
-    whenToUse: "En preguntas de alta dificultad o cuando te quede solo 1 vida.",
+    whenToUse: "En preguntas de alta dificultad o cuando te quede solo 1 vida. Se desbloquea en la Ruleta.",
   },
   {
     key: "extraLife",
-    name: "VIDA EXTRA",
+    name: "VIDA EXTRA (+1 CORAZÓN)",
     shortName: "+1 VIDA",
     icon: "extraLife",
     whatItDoes: "Añade +1 corazón a tu contador de vidas. Nunca puede superar el límite máximo de 5 corazones.",
-    whenToUse: "En cualquier momento que tengas menos de 5 corazones para prolongar tu partida.",
+    whenToUse: "En cualquier momento que tengas menos de 5 corazones. Se desbloquea en la Ruleta.",
   },
 ];
 
@@ -67,19 +68,41 @@ export const QuizCanvasView: React.FC = () => {
     isAnswerSubmitted,
     isAnswerCorrect,
     lifelines,
+    unlockedMysteryIndices,
     useFiftyFifty,
     useSkip,
     useShield,
     useCorrectAnswerHighlight,
     useExtraLife,
+    useMysteryBooster,
     hiddenOptionIndices,
     highlightedCorrectOption,
     shieldActive,
   } = useGame();
 
+  const {
+    stageWidth,
+    stageHeight,
+    timerHeight,
+    contentHeight,
+    contentQuestionHeight,
+    contentAnswersHeight,
+    contentGapQuestionAnswers,
+    contentGapAnswersJokers,
+    answersSideInset,
+    answersGapX,
+    answersGapY,
+    jokerAreaHeight,
+    jokerCardHeight,
+    jokerGap,
+    jokerPaddingX,
+    fontScale,
+    iconScale,
+  } = useStageDimensions();
+
   const [timeLeft, setTimeLeft] = useState<number>(20);
   const [showParticles, setShowParticles] = useState<boolean>(false);
-  const [activeInfoModal, setActiveInfoModal] = useState<ComodinInfo | null>(null);
+  const [activeInfoModal, setActiveInfoModal] = useState<ComodinInfo | MysterySlotDef | null>(null);
 
   // Reiniciar temporizador al cambiar la pregunta
   useEffect(() => {
@@ -164,67 +187,90 @@ export const QuizCanvasView: React.FC = () => {
     timerBarGradient = "bg-gradient-to-r from-red-600 via-rose-500 to-red-500 animate-pulse";
   }
 
-  // Ajuste tipográfico dinámico de la pregunta
-  const qLen = currentQuestion.question.length;
-  let qFontSize = "text-lg";
-  if (qLen > 110) {
-    qFontSize = "text-xs";
-  } else if (qLen > 65) {
-    qFontSize = "text-sm";
-  } else if (qLen > 40) {
-    qFontSize = "text-base";
-  }
-
-  // Tipografía grande y dinámica para las opciones de respuesta
-  const getOptionTypography = (text: string) => {
+  // Tipografía adaptativa precisa para la tarjeta de pregunta
+  const getQuestionFontSize = (text: string) => {
     const len = text.trim().length;
-    if (len <= 8) return "text-2xl font-black tracking-wide";
-    if (len <= 16) return "text-lg font-black tracking-normal";
-    if (len <= 28) return "text-base font-extrabold leading-tight";
-    return "text-sm font-bold leading-snug line-clamp-2";
+    if (len <= 45) return Math.max(Math.round(20 * fontScale), 15);
+    if (len <= 80) return Math.max(Math.round(17 * fontScale), 13);
+    if (len <= 120) return Math.max(Math.round(15 * fontScale), 12);
+    return Math.max(Math.round(13.5 * fontScale), 11.5);
   };
 
-  // Mapeo de los 5 comodines oficiales
-  const comodinesData = [
+  // Tipografía adaptativa precisa para las opciones de respuesta
+  const getOptionFontSize = (text: string) => {
+    const len = text.trim().length;
+    if (len <= 8) return Math.max(Math.round(20 * fontScale), 15);
+    if (len <= 16) return Math.max(Math.round(16 * fontScale), 13);
+    if (len <= 26) return Math.max(Math.round(14 * fontScale), 12);
+    if (len <= 40) return Math.max(Math.round(12.5 * fontScale), 11);
+    return Math.max(Math.round(11.5 * fontScale), 10);
+  };
+
+  const qFontSize = getQuestionFontSize(currentQuestion.question);
+  const jokerIconSize = Math.max(Math.round(24 * iconScale), 16);
+
+  // -----------------------------------------------------------------
+  // FILA 1: 5 COMODINES (3 desbloqueados iniciales, 2 bloqueados visibles)
+  // -----------------------------------------------------------------
+  const row1Slots = [
     {
-      info: COMODINES_INFO_LIST[0],
+      info: OFFICIAL_COMODINES_INFO[0], // 50/50
       count: lifelines.fiftyFiftyCount,
       action: useFiftyFifty,
+      isUnlocked: true,
       isAvailable: lifelines.fiftyFiftyCount > 0 && !isInteractionDisabled,
     },
     {
-      info: COMODINES_INFO_LIST[1],
+      info: OFFICIAL_COMODINES_INFO[1], // SALTAR
       count: lifelines.skipCount,
       action: useSkip,
+      isUnlocked: true,
       isAvailable: lifelines.skipCount > 0 && !isInteractionDisabled,
     },
     {
-      info: COMODINES_INFO_LIST[2],
+      info: OFFICIAL_COMODINES_INFO[2], // ESCUDO
       count: lifelines.shieldCount,
       action: useShield,
+      isUnlocked: true,
       isAvailable: lifelines.shieldCount > 0 && !isInteractionDisabled && !shieldActive,
     },
     {
-      info: COMODINES_INFO_LIST[3],
+      info: OFFICIAL_COMODINES_INFO[3], // PISTA (Bloqueado visible)
       count: lifelines.correctAnswerCount,
       action: useCorrectAnswerHighlight,
+      isUnlocked: lifelines.correctAnswerCount > 0,
       isAvailable: lifelines.correctAnswerCount > 0 && !isInteractionDisabled && highlightedCorrectOption === null,
     },
     {
-      info: COMODINES_INFO_LIST[4],
+      info: OFFICIAL_COMODINES_INFO[4], // +1 VIDA (Bloqueado visible)
       count: lifelines.extraLifeCount,
       action: useExtraLife,
+      isUnlocked: lifelines.extraLifeCount > 0,
       isAvailable: lifelines.extraLifeCount > 0 && !isInteractionDisabled,
     },
   ];
 
+  // -----------------------------------------------------------------
+  // FILA 2: 5 COMODINES MISTERIOSOS (Bloqueados inicialmente, identidad oculta '?')
+  // -----------------------------------------------------------------
+  const row2Slots = MYSTERY_SLOTS_DEFINITIONS.map((def, idx) => {
+    const isUnlocked = unlockedMysteryIndices.includes(idx);
+    return {
+      def,
+      idx,
+      isUnlocked,
+      action: () => useMysteryBooster(idx),
+      isAvailable: isUnlocked && !isInteractionDisabled,
+    };
+  });
+
   return (
     <div
-      style={{ width: "480px", height: "800px" }}
-      className="absolute inset-0 overflow-hidden text-white font-sans select-none"
+      style={{ width: `${stageWidth}px`, height: `${stageHeight}px` }}
+      className="relative overflow-hidden text-white font-sans select-none flex flex-col justify-between"
     >
       {/* ------------------------------------------------------------- */}
-      {/* OVERLAYS VISUALES LIGEROS                                     */}
+      {/* OVERLAYS VISUALES                                             */}
       {/* ------------------------------------------------------------- */}
       {isTimeCritical && (
         <div className="absolute inset-0 pointer-events-none z-30 bg-red-600/15 animate-pulse border-4 border-red-500 rounded-3xl" />
@@ -233,56 +279,69 @@ export const QuizCanvasView: React.FC = () => {
       {showParticles && (
         <div className="absolute inset-0 pointer-events-none z-40 overflow-hidden flex items-center justify-center bg-emerald-500/15">
           <div className="relative z-50 flex items-center justify-center gap-2 animate-bounce">
-            <Sparkles className="w-9 h-9 text-yellow-300 animate-spin" />
-            <span className="text-3xl font-black text-amber-300 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] tracking-widest uppercase">
+            <Sparkles size={Math.round(32 * iconScale)} className="text-yellow-300 animate-spin" />
+            <span
+              style={{ fontSize: `${Math.round(28 * fontScale)}px` }}
+              className="font-black text-amber-300 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] tracking-widest uppercase"
+            >
               ¡CORRECTO!
             </span>
-            <Sparkles className="w-9 h-9 text-yellow-300 animate-spin" />
+            <Sparkles size={Math.round(32 * iconScale)} className="text-yellow-300 animate-spin" />
           </div>
         </div>
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* CARTEL INFORMATIVO DEL COMODÍN (Regla 6)                      */}
+      {/* CARTEL INFORMATIVO DEL COMODÍN                                */}
       {/* ------------------------------------------------------------- */}
       {activeInfoModal && (
         <div className="absolute inset-0 z-50 bg-slate-950/90 flex items-center justify-center p-4">
-          <div className="w-[380px] bg-blue-950 border-2 border-amber-400 rounded-3xl p-5 shadow-2xl relative text-center">
+          <div
+            style={{ width: `${Math.min(Math.round(stageWidth * 0.88), 380)}px` }}
+            className="bg-blue-950 border-2 border-amber-400 rounded-3xl p-4 sm:p-5 shadow-2xl relative text-center"
+          >
             <button
               onClick={() => setActiveInfoModal(null)}
               className="absolute top-3 right-3 text-slate-400 hover:text-white p-1 cursor-pointer"
               aria-label="Cerrar Cartel"
             >
-              <X className="w-5 h-5" />
+              <X size={18} />
             </button>
 
-            <div className="w-16 h-16 bg-[#132352] border-2 border-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md">
-              <SpriteIcon name={activeInfoModal.icon} size={42} />
+            <div
+              style={{ width: `${Math.round(52 * iconScale)}px`, height: `${Math.round(52 * iconScale)}px` }}
+              className="bg-[#132352] border-2 border-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-2.5 shadow-md"
+            >
+              <SpriteIcon name={activeInfoModal.icon} size={Math.round(34 * iconScale)} />
             </div>
 
-            <h3 className="text-xl font-black text-amber-300 uppercase tracking-wide mb-3">
+            <h3
+              style={{ fontSize: `${Math.max(Math.round(18 * fontScale), 14)}px` }}
+              className="font-black text-amber-300 uppercase tracking-wide mb-2.5"
+            >
               {activeInfoModal.name}
             </h3>
 
-            <div className="space-y-3 text-left bg-blue-900/60 p-3.5 rounded-2xl border border-blue-700/60 text-xs">
+            <div className="space-y-2 text-left bg-blue-900/60 p-3 rounded-2xl border border-blue-700/60 text-xs">
               <div>
                 <span className="block font-black text-amber-400 uppercase tracking-wider text-[11px] mb-0.5">
                   📌 ¿Qué hace?
                 </span>
-                <p className="text-slate-200 leading-relaxed">{activeInfoModal.whatItDoes}</p>
+                <p className="text-slate-200 leading-relaxed text-[11px] sm:text-xs">{activeInfoModal.whatItDoes}</p>
               </div>
 
               <div>
                 <span className="block font-black text-amber-400 uppercase tracking-wider text-[11px] mb-0.5">
                   ⚡ ¿Cuándo se puede utilizar?
                 </span>
-                <p className="text-slate-200 leading-relaxed">{activeInfoModal.whenToUse}</p>
+                <p className="text-slate-200 leading-relaxed text-[11px] sm:text-xs">{activeInfoModal.whenToUse}</p>
               </div>
             </div>
 
             <button
               onClick={() => setActiveInfoModal(null)}
-              className="mt-4 w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black text-xs uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+              style={{ fontSize: `${Math.max(Math.round(12 * fontScale), 11)}px` }}
+              className="mt-3 w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all cursor-pointer"
             >
               Entendido
             </button>
@@ -291,56 +350,66 @@ export const QuizCanvasView: React.FC = () => {
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* 1. HUD SUPERIOR (Regla 10: Vidas Izq / Puntos Der)           */}
+      {/* 1. HUD SUPERIOR (Aprox 13% de stageHeight)                   */}
       {/* ------------------------------------------------------------- */}
       <HeaderHUD />
 
       {/* ------------------------------------------------------------- */}
-      {/* FRANJA DE RONDA BONUS (Solo en BONUS_ROUND, Y: 80px - 104px)  */}
+      {/* FRANJA DE RONDA BONUS (Solo si activa)                       */}
       {/* ------------------------------------------------------------- */}
       {phase === "BONUS_ROUND" && (
         <div
-          style={{ top: "80px", left: "0px", width: "480px", height: "24px" }}
-          className="absolute z-20 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 font-black text-[11px] tracking-wider uppercase flex items-center justify-center gap-2 shadow-md border-b border-amber-600 animate-pulse"
+          style={{ height: `${Math.round(stageHeight * 0.035)}px`, fontSize: `${Math.max(10 * fontScale, 8)}px` }}
+          className="w-full shrink-0 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 font-black tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-md border-b border-amber-600 animate-pulse z-10"
         >
-          <Gift className="w-3.5 h-3.5" />
-          <span>¡RONDA BONUS DE PREGUNTAS FÁCILES DE REGALO!</span>
-          <Sparkles className="w-3.5 h-3.5" />
+          <Gift size={12} />
+          <span>¡RONDA BONUS DE PREGUNTAS FÁCILES!</span>
+          <Sparkles size={12} />
         </div>
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* 2. TEMPORIZADOR RÍGIDO (Regla 11: Ancho fijo y tabular)        */}
+      {/* 2. BARRA DE TIEMPO (Aprox 7% de stageHeight)                 */}
       {/* ------------------------------------------------------------- */}
       <div
-        style={{ left: "20px", top: "106px", width: "440px", height: "42px" }}
-        className="absolute z-10 flex items-center gap-3"
+        style={{ height: `${timerHeight}px` }}
+        className="w-full px-3 sm:px-4 shrink-0 flex items-center gap-2.5 z-10"
       >
-        {/* Contenedor rígido de 58px con números tabulares */}
+        {/* Contador numérico */}
         <div
-          style={{ width: "58px", height: "38px" }}
-          className={`shrink-0 rounded-xl flex items-center justify-center font-mono font-black text-base tabular-nums text-center transition-colors duration-300 ${timerBadgeColor}`}
+          style={{
+            width: `${Math.round(52 * fontScale)}px`,
+            height: `${Math.round(timerHeight * 0.72)}px`,
+            fontSize: `${Math.max(15 * fontScale, 12)}px`,
+          }}
+          className={`shrink-0 rounded-xl flex items-center justify-center font-mono font-black tabular-nums text-center transition-colors duration-300 ${timerBadgeColor}`}
         >
           <span>{timeLeft}s</span>
         </div>
 
         {/* Barra de progreso */}
         <div className="flex-1 flex flex-col justify-center">
-          <div className="flex items-center justify-between text-[11px] font-extrabold uppercase text-amber-200 mb-0.5 drop-shadow">
+          <div
+            style={{ fontSize: `${Math.max(10 * fontScale, 8)}px` }}
+            className="flex items-center justify-between font-extrabold uppercase text-amber-200 mb-0.5 drop-shadow"
+          >
             <span className="flex items-center gap-1">
-              <Clock className={`w-3.5 h-3.5 ${timeLeft <= 5 ? "text-red-400" : "text-amber-400"}`} />
-              Tiempo de Respuesta {!isPlayingPhase && "(EN PAUSA)"}
+              <Clock size={Math.round(12 * iconScale)} className={timeLeft <= 5 ? "text-red-400" : "text-amber-400"} />
+              Tiempo {!isPlayingPhase && "(EN PAUSA)"}
             </span>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-1.5">
               {shieldActive && (
-                <span className="text-[10px] text-blue-300 font-bold flex items-center gap-0.5 bg-blue-900/90 px-1.5 py-0.5 rounded-full border border-blue-400 animate-pulse">
-                  <Shield className="w-2.5 h-2.5" /> Escudo Activo
+                <span className="text-[9px] text-blue-300 font-bold flex items-center gap-0.5 bg-blue-900/90 px-1.5 py-0.2 rounded-full border border-blue-400 animate-pulse">
+                  <Shield size={10} /> Escudo Activo
                 </span>
               )}
-              <span className="text-[10px] text-slate-300 font-bold tabular-nums font-mono">20s máx</span>
+              <span className="text-slate-300 font-bold tabular-nums font-mono">20s máx</span>
             </div>
           </div>
-          <div className="w-full h-2.5 bg-slate-950/90 rounded-full overflow-hidden border border-amber-500/60 shadow-inner">
+          <div
+            style={{ height: `${Math.max(Math.round(timerHeight * 0.16), 6)}px` }}
+            className="w-full bg-slate-950/90 rounded-full overflow-hidden border border-amber-500/60 shadow-inner"
+          >
             <div
               style={{ width: `${(timeLeft / 20) * 100}%` }}
               className={`h-full transition-all duration-1000 ${timerBarGradient}`}
@@ -350,160 +419,312 @@ export const QuizCanvasView: React.FC = () => {
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* 3. TARJETA DE PREGUNTA (Y: 156px - 318px, Alto: 162px)        */}
+      {/* 3. ÁREA CENTRAL: PREGUNTA + GAP + RESPUESTAS (contentHeight)  */}
+      {/* Con separación vertical clara y insets laterales en respuestas*/}
       {/* ------------------------------------------------------------- */}
       <div
-        style={{ left: "20px", top: "156px", width: "440px", height: "162px" }}
-        className="absolute z-10 bg-gradient-to-b from-[#142a63] to-[#0d1c44] border-2 border-amber-400 rounded-3xl p-4 shadow-[0_8px_24px_rgba(0,0,0,0.7)] text-center flex flex-col justify-center items-center overflow-hidden"
+        style={{ height: `${contentHeight}px` }}
+        className="w-full flex flex-col justify-between shrink-0 z-10"
       >
-        <span className="text-xs font-black uppercase tracking-widest text-amber-300 mb-1.5 shrink-0 drop-shadow">
-          Categoría: {currentQuestion.category || "Cultura General"}
-        </span>
-        <div className="w-full max-h-[115px] overflow-hidden flex items-center justify-center">
-          <h2 className={`${qFontSize} font-extrabold text-white leading-snug drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] line-clamp-4 text-center`}>
-            {currentQuestion.question}
-          </h2>
-        </div>
-      </div>
-
-      {/* ------------------------------------------------------------- */}
-      {/* 4. RESPUESTAS: 2 COLUMNAS × 2 FILAS (Y: 330px - 504px, Alto: 174px) */}
-      {/* ------------------------------------------------------------- */}
-      <div
-        style={{ left: "20px", top: "330px", width: "440px", height: "174px" }}
-        className="absolute z-10 grid grid-cols-2 grid-rows-2 gap-3"
-      >
-        {currentQuestion.options.map((option, idx) => {
-          const isDisabled = hiddenOptionIndices.includes(idx) || isInteractionDisabled;
-          const isSelected = selectedAnswerIndex === idx;
-          const isCorrect = isAnswerSubmitted && idx === currentQuestion.correctIndex;
-          const isWrong = isAnswerSubmitted && isSelected && idx !== currentQuestion.correctIndex;
-          const isHighlightedByLifeline = highlightedCorrectOption === idx;
-
-          let btnStyle = "bg-gradient-to-b from-[#173072] via-[#1c3a88] to-[#142962] border-2 border-amber-400 text-white shadow-[0_6px_16px_rgba(0,0,0,0.6)] hover:border-yellow-300 hover:brightness-110 active:scale-95";
-          
-          // Regla 4 (RESPUESTA CORRECTA): Marcar visualmente cuál de las 4 opciones es correcta
-          if (isHighlightedByLifeline && !isAnswerSubmitted) {
-            btnStyle = "bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 border-2 border-yellow-200 text-slate-950 font-black shadow-[0_0_25px_rgba(245,186,19,0.95)] animate-pulse scale-[1.02]";
-          }
-          if (isCorrect) {
-            btnStyle = "bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 border-2 border-emerald-300 text-white font-black shadow-[0_0_25px_rgba(16,185,129,0.85)] scale-[1.02]";
-          }
-          if (isWrong) {
-            btnStyle = "bg-gradient-to-r from-red-600 via-rose-600 to-red-500 border-2 border-red-300 text-white font-black shadow-[0_0_25px_rgba(239,68,68,0.85)]";
-          }
-          if (isDisabled && !isCorrect && !isWrong) {
-            btnStyle = "opacity-20 pointer-events-none bg-[#091433] border border-slate-700/60 text-slate-500";
-          }
-
-          const typographyClass = getOptionTypography(option);
-
-          return (
-            <button
-              key={idx}
-              onClick={() => handleSelectOption(idx)}
-              disabled={isDisabled}
-              className={`w-full h-full px-3 py-1.5 rounded-2xl flex flex-col items-center justify-center text-center transition-all relative overflow-hidden cursor-pointer ${btnStyle}`}
+        {/* TARJETA DE PREGUNTA (COMPACTA Y SIN ESPACIOS VACÍOS INNECESARIOS) */}
+        <div
+          style={{
+            height: `${contentQuestionHeight}px`,
+            marginLeft: `${Math.max(Math.floor(stageWidth * 0.035), 10)}px`,
+            marginRight: `${Math.max(Math.floor(stageWidth * 0.035), 10)}px`,
+          }}
+          className="bg-gradient-to-b from-[#142a63] to-[#0d1c44] border-2 border-amber-400 rounded-2xl px-2.5 py-1.5 shadow-[0_8px_24px_rgba(0,0,0,0.7)] text-center flex flex-col justify-center items-center overflow-hidden shrink-0"
+        >
+          <span
+            style={{ fontSize: `${Math.max(9.5 * fontScale, 8)}px` }}
+            className="font-black uppercase tracking-widest text-amber-300 mb-0.5 shrink-0 drop-shadow"
+          >
+            Categoría: {currentQuestion.category || "Cultura General"}
+          </span>
+          <div className="w-full overflow-hidden flex items-center justify-center flex-1 px-1">
+            <h2
+              style={{ fontSize: `${qFontSize}px`, lineHeight: 1.25 }}
+              className="font-extrabold text-white drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] text-center break-words max-h-full overflow-hidden"
             >
-              <span className={`relative z-10 drop-shadow ${typographyClass}`}>
-                {option}
-              </span>
+              {currentQuestion.question}
+            </h2>
+          </div>
+        </div>
 
-              {/* Indicador visual de comodín de Respuesta Correcta */}
-              {isHighlightedByLifeline && !isAnswerSubmitted && (
-                <span className="absolute top-1.5 left-1.5 bg-slate-950 text-amber-300 px-1.5 py-0.5 rounded-full text-[9px] font-black shadow z-20">
-                  ★ PISTA
-                </span>
-              )}
+        {/* GAP VISUAL CLARO ENTRE PREGUNTA Y RESPUESTAS */}
+        <div style={{ height: `${contentGapQuestionAnswers}px` }} className="shrink-0" />
 
-              {isCorrect && (
-                <span className="absolute top-1.5 right-1.5 bg-yellow-400 text-slate-950 p-1 rounded-full text-xs font-black shadow z-20">
-                  ✓
+        {/* CUADRÍCULA DE RESPUESTAS 2x2 (CON INSET LATERAL, GAPS Y PADDING OPTIMIZADO) */}
+        <div
+          style={{
+            height: `${contentAnswersHeight}px`,
+            marginLeft: `${answersSideInset}px`,
+            marginRight: `${answersSideInset}px`,
+            display: "grid",
+            gridTemplateColumns: "repeat(2, minmax(0, 1fr))",
+            gridTemplateRows: "repeat(2, minmax(0, 1fr))",
+            columnGap: `${answersGapX}px`,
+            rowGap: `${answersGapY}px`,
+          }}
+          className="shrink-0"
+        >
+          {currentQuestion.options.map((option, idx) => {
+            const isDisabled = hiddenOptionIndices.includes(idx) || isInteractionDisabled;
+            const isSelected = selectedAnswerIndex === idx;
+            const isCorrect = isAnswerSubmitted && idx === currentQuestion.correctIndex;
+            const isWrong = isAnswerSubmitted && isSelected && idx !== currentQuestion.correctIndex;
+            const isHighlightedByLifeline = highlightedCorrectOption === idx;
+
+            let btnStyle = "bg-gradient-to-b from-[#173072] via-[#1c3a88] to-[#142962] border-2 border-amber-400 text-white shadow-[0_6px_16px_rgba(0,0,0,0.6)] hover:border-yellow-300 hover:brightness-110 active:scale-95";
+
+            if (isHighlightedByLifeline && !isAnswerSubmitted) {
+              btnStyle = "bg-gradient-to-r from-amber-500 via-amber-400 to-yellow-500 border-2 border-yellow-200 text-slate-950 font-black shadow-[0_0_25px_rgba(245,186,19,0.95)] animate-pulse scale-[1.02]";
+            }
+            if (isCorrect) {
+              btnStyle = "bg-gradient-to-r from-emerald-600 via-emerald-500 to-green-500 border-2 border-emerald-300 text-white font-black shadow-[0_0_25px_rgba(16,185,129,0.85)] scale-[1.02]";
+            }
+            if (isWrong) {
+              btnStyle = "bg-gradient-to-r from-red-600 via-rose-600 to-red-500 border-2 border-red-300 text-white font-black shadow-[0_0_25px_rgba(239,68,68,0.85)]";
+            }
+            if (isDisabled && !isCorrect && !isWrong) {
+              btnStyle = "opacity-20 pointer-events-none bg-[#091433] border border-slate-700/60 text-slate-500";
+            }
+
+            const optFontSize = getOptionFontSize(option);
+
+            return (
+              <button
+                key={idx}
+                onClick={() => handleSelectOption(idx)}
+                disabled={isDisabled}
+                className={`w-full h-full px-2 py-1 rounded-2xl flex items-center justify-center text-center transition-all relative overflow-hidden cursor-pointer ${btnStyle}`}
+              >
+                <span
+                  style={{ fontSize: `${optFontSize}px`, lineHeight: 1.2 }}
+                  className="relative z-10 drop-shadow font-extrabold text-center break-words px-1 max-h-full overflow-hidden"
+                >
+                  {option}
                 </span>
-              )}
-              {isWrong && (
-                <span className="absolute top-1.5 right-1.5 bg-red-950 text-red-400 p-1 rounded-full text-xs font-black shadow z-20">
-                  ✕
-                </span>
-              )}
-            </button>
-          );
-        })}
+
+                {isHighlightedByLifeline && !isAnswerSubmitted && (
+                  <span className="absolute top-1 left-1 bg-slate-950 text-amber-300 px-1.5 py-0.2 rounded-full text-[8px] font-black shadow z-20">
+                    ★ PISTA
+                  </span>
+                )}
+
+                {isCorrect && (
+                  <span className="absolute top-1 right-1 bg-yellow-400 text-slate-950 p-0.5 rounded-full text-[10px] font-black shadow z-20">
+                    ✓
+                  </span>
+                )}
+                {isWrong && (
+                  <span className="absolute top-1 right-1 bg-red-950 text-red-400 p-0.5 rounded-full text-[10px] font-black shadow z-20">
+                    ✕
+                  </span>
+                )}
+              </button>
+            );
+          })}
+        </div>
+
+        {/* GAP VISUAL CLARO ENTRE RESPUESTAS Y COMODINES */}
+        <div style={{ height: `${contentGapAnswersJokers}px` }} className="shrink-0" />
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* 5. PANEL DE LOS 5 COMODINES OFICIALES (Reglas 4, 5 y 6)       */}
-      {/* 50/50, SALTAR, ESCUDO, RESPUESTA CORRECTA, VIDA EXTRA         */}
-      {/* Estado permanente: color completo / apagado reconocible      */}
+      {/* 4. ZONA DE COMODINES: 10 ESPACIOS EN 5 COLUMNAS × 2 FILAS      */}
+      {/* ANCLADA AL FONDO (Aprox 25% de stageHeight)                  */}
       {/* ------------------------------------------------------------- */}
       <div
-        style={{ left: "20px", top: "540px", width: "440px", height: "230px" }}
-        className="absolute z-10 p-3 bg-gradient-to-b from-[#112456] to-[#0c193c] border-2 border-amber-400/90 rounded-3xl flex flex-col justify-between shadow-2xl"
+        style={{
+          height: `${jokerAreaHeight}px`,
+          paddingLeft: `${jokerPaddingX}px`,
+          paddingRight: `${jokerPaddingX}px`,
+          paddingBottom: `${jokerPaddingX}px`,
+        }}
+        className="w-full shrink-0 bg-gradient-to-t from-[#08122d] via-[#0b183a] to-transparent border-t border-amber-500/30 z-20 flex flex-col justify-between"
       >
-        {/* Encabezado del panel */}
-        <div className="flex items-center justify-between px-1 text-[11px] font-black uppercase text-amber-300 tracking-wider">
-          <span>Comodines Oficiales (5 Disponibles)</span>
-          <span className="text-[10px] text-amber-400/80 font-normal">
-            Toca <span className="font-bold">ℹ️</span> para ver cartel
+        {/* Encabezado */}
+        <div
+          style={{ height: `${Math.round(stageHeight * 0.026)}px`, fontSize: `${Math.max(10 * fontScale, 8)}px` }}
+          className="flex items-center justify-between px-1 font-black uppercase text-amber-300 tracking-wider shrink-0"
+        >
+          <span>Zona de Comodines (10 Espacios)</span>
+          <span style={{ fontSize: `${Math.max(9 * fontScale, 7)}px` }} className="text-amber-400/80 font-normal">
+            Toca ℹ️ para detalles
           </span>
         </div>
 
-        {/* Cuadrícula de los 5 comodines oficiales en 1 fila de 5 botones equilibrados */}
-        <div className="grid grid-cols-5 gap-2 h-[180px] items-stretch">
-          {comodinesData.map((c) => {
+        {/* FILA 1: 5 ESPACIOS (3 DESBLOQUEADOS / 2 BLOQUEADOS VISIBLES) */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+            gap: `${jokerGap}px`,
+            height: `${jokerCardHeight}px`,
+          }}
+          className="w-full shrink-0"
+        >
+          {row1Slots.map((c) => {
+            const isUnlocked = c.isUnlocked;
             const isAvailable = c.isAvailable;
-            const isExhausted = c.count <= 0;
+            const isLocked = !isUnlocked || c.count <= 0;
 
-            let btnStyle = "bg-gradient-to-b from-[#1c377d] to-[#132759] border-2 border-amber-400 text-amber-300 hover:border-yellow-300 hover:brightness-110 active:scale-95 shadow-md cursor-pointer";
-            if (isExhausted) {
-              // Regla 5: Comodines no disponibles: mismo icono oficial, apagado, sombra, baja saturación, reconocible
-              btnStyle = "bg-[#0f1e44] border-2 border-slate-600 text-slate-300 opacity-60 cursor-not-allowed";
+            let cardStyle = "bg-gradient-to-b from-[#1c377d] to-[#132759] border-2 border-amber-400 text-amber-300 shadow-md hover:border-yellow-300 hover:brightness-110 active:scale-95 cursor-pointer";
+            if (isLocked) {
+              cardStyle = "bg-[#091533]/90 border border-slate-700/80 text-slate-400 opacity-60 shadow-inner";
             }
 
             return (
               <div
                 key={c.info.key}
-                className={`w-full h-full rounded-2xl flex flex-col items-center justify-between p-2 relative overflow-hidden transition-all border-2 ${btnStyle}`}
+                style={{ height: `${jokerCardHeight}px` }}
+                className={`w-full rounded-xl flex flex-col items-center justify-between p-1 relative overflow-hidden transition-all ${cardStyle}`}
               >
-                {/* Botón Cartel Informativo ℹ️ en esquina superior izquierda */}
+                {/* Botón Cartel Informativo ℹ️ */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
                     setActiveInfoModal(c.info);
                   }}
-                  className="absolute top-1 left-1 w-5 h-5 rounded-full bg-blue-950/80 border border-amber-400/60 text-amber-300 flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
-                  title={`Ver cartel informativo de ${c.info.name}`}
+                  className="absolute top-0.5 left-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-950/90 border border-amber-400/60 text-amber-300 flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
+                  title={`Información de ${c.info.name}`}
                   aria-label={`Información de ${c.info.name}`}
                 >
-                  <Info className="w-3 h-3" />
+                  <Info size={9} />
                 </button>
 
-                {/* Badge de cantidad x1 / x0 en esquina superior derecha */}
-                <span
-                  className={`absolute top-1 right-1 font-mono font-black text-[10px] px-1.5 py-0.2 rounded-full shadow border z-20 ${
-                    c.count > 0
-                      ? "bg-amber-400 text-slate-950 border-amber-200"
-                      : "bg-slate-700 text-slate-300 border-slate-600"
-                  }`}
-                >
-                  x{c.count}
-                </span>
+                {/* Badge de estado */}
+                <div className="absolute top-0.5 right-0.5 z-20">
+                  {isUnlocked && c.count > 0 ? (
+                    <span
+                      style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
+                      className="font-mono font-black px-1 py-0.2 rounded-full bg-amber-400 text-slate-950 border border-amber-200 shadow"
+                    >
+                      x{c.count}
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-800/90 text-amber-300/80 border border-slate-600 shadow" title="Bloqueado (Consíguelo en la Ruleta)">
+                      <Lock size={9} />
+                    </span>
+                  )}
+                </div>
 
-                {/* Área clickeable para activar el comodín */}
+                {/* Área clickeable */}
                 <button
                   onClick={c.action}
                   disabled={!isAvailable}
-                  className="w-full flex-1 flex flex-col items-center justify-center mt-3 cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none"
+                  className="w-full flex-1 flex flex-col items-center justify-center mt-1 cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none"
                   title={c.info.name}
                 >
                   <SpriteIcon
                     name={c.info.icon}
-                    size={40}
-                    className={`relative z-10 ${isExhausted ? "grayscale opacity-50" : ""}`}
+                    size={jokerIconSize}
+                    className={`relative z-10 ${isLocked ? "grayscale opacity-50" : ""}`}
                   />
-                  <span className="text-[10px] font-black uppercase mt-1 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full">
+                  <span
+                    style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
+                    className={`font-black uppercase mt-0.5 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full ${isLocked ? "text-slate-400" : "text-amber-200"}`}
+                  >
                     {c.info.shortName}
                   </span>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* FILA 2: 5 ESPACIOS MISTERIOSOS (IDENTIDAD OCULTA '?') */}
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "repeat(5, minmax(0, 1fr))",
+            gap: `${jokerGap}px`,
+            height: `${jokerCardHeight}px`,
+          }}
+          className="w-full shrink-0"
+        >
+          {row2Slots.map((m) => {
+            const isUnlocked = m.isUnlocked;
+
+            let cardStyle = "bg-[#060e22]/90 border border-dashed border-amber-500/40 text-amber-300/60 shadow-inner";
+            if (isUnlocked) {
+              cardStyle = "bg-gradient-to-b from-[#1b3d73] to-[#122852] border-2 border-yellow-300 text-yellow-300 shadow-md hover:brightness-110 active:scale-95 cursor-pointer animate-pulse";
+            }
+
+            return (
+              <div
+                key={m.def.id}
+                style={{ height: `${jokerCardHeight}px` }}
+                className={`w-full rounded-xl flex flex-col items-center justify-between p-1 relative overflow-hidden transition-all ${cardStyle}`}
+              >
+                {/* Botón Info si desbloqueado */}
+                {isUnlocked ? (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setActiveInfoModal(m.def);
+                    }}
+                    className="absolute top-0.5 left-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-950/90 border border-yellow-400/80 text-yellow-300 flex items-center justify-center hover:bg-yellow-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
+                    title={`Información de ${m.def.name}`}
+                  >
+                    <Info size={9} />
+                  </button>
+                ) : (
+                  <span
+                    style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
+                    className="absolute top-0.5 left-0.5 text-amber-400/40 font-mono font-bold"
+                  >
+                    #{m.idx + 6}
+                  </span>
+                )}
+
+                {/* Badge de estado */}
+                <div className="absolute top-0.5 right-0.5 z-20">
+                  {isUnlocked ? (
+                    <span
+                      style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
+                      className="font-mono font-black px-1 py-0.2 rounded-full bg-yellow-400 text-slate-950 border border-yellow-200 shadow"
+                    >
+                      x1
+                    </span>
+                  ) : (
+                    <span className="flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-900/90 text-slate-500 border border-slate-700 shadow" title="Comodín Misterioso Bloqueado">
+                      <Lock size={9} />
+                    </span>
+                  )}
+                </div>
+
+                {/* Contenido / Botón */}
+                <button
+                  onClick={m.action}
+                  disabled={!m.isAvailable}
+                  className="w-full flex-1 flex flex-col items-center justify-center mt-1 cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none"
+                  title={isUnlocked ? m.def.name : "Comodín Misterioso"}
+                >
+                  {isUnlocked ? (
+                    <>
+                      <SpriteIcon name={m.def.icon} size={jokerIconSize} className="relative z-10" />
+                      <span
+                        style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
+                        className="font-black uppercase mt-0.5 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full text-yellow-200"
+                      >
+                        {m.def.shortName}
+                      </span>
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center justify-center rounded-lg text-amber-400/70">
+                        <HelpCircle size={jokerIconSize} className="text-amber-400/70 animate-pulse" />
+                      </div>
+                      <span
+                        style={{ fontSize: `${Math.max(7 * fontScale, 6)}px` }}
+                        className="font-black uppercase mt-0.5 tracking-tight text-center leading-none text-slate-400"
+                      >
+                        MISTERIO
+                      </span>
+                    </>
+                  )}
                 </button>
               </div>
             );

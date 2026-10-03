@@ -1,5 +1,6 @@
 import React from "react";
 import { GameProvider, useGame } from "./context/GameContext";
+import { StageProvider } from "./context/StageContext";
 import { GameViewport } from "./components/GameViewport";
 import { MainMenuScreen } from "./components/MainMenuScreen";
 import { NameEntryModal } from "./components/NameEntryModal";
@@ -60,8 +61,11 @@ const GameApp: React.FC = () => {
 
 export default function App() {
   return (
-    <GameProvider>
-      <GameApp />
-    </GameProvider>
+    <StageProvider>
+      <GameProvider>
+        <GameApp />
+      </GameProvider>
+    </StageProvider>
   );
 }
+

@@ -2,9 +2,10 @@ import { Question, QuestionsFileStructure } from "../types/question";
 import { resolvePublicAssetPath } from "../config/assetManager";
 
 let cachedQuestions: QuestionsFileStructure | null = null;
+let cachedStarterQuestions: Question[] | null = null;
 
 /**
- * Carga el banco de preguntas desde el archivo JSON de preguntas.
+ * Carga el banco de preguntas desde el archivo JSON de preguntas principales.
  */
 export async function loadQuestionsBank(): Promise<QuestionsFileStructure> {
   if (cachedQuestions) {
@@ -31,6 +32,29 @@ export async function loadQuestionsBank(): Promise<QuestionsFileStructure> {
 }
 
 /**
+ * Carga el banco de preguntas STARTER desde el archivo starterQuestions.json.
+ */
+export async function loadStarterQuestionsBank(): Promise<Question[]> {
+  if (cachedStarterQuestions) {
+    return cachedStarterQuestions;
+  }
+
+  try {
+    const starterUrl = resolvePublicAssetPath("/starterQuestions.json");
+    const response = await fetch(starterUrl);
+    if (!response.ok) {
+      throw new Error(`No se pudo cargar el archivo starterQuestions.json desde ${starterUrl}`);
+    }
+    const data: Question[] = await response.json();
+    cachedStarterQuestions = data;
+    return data;
+  } catch (error) {
+    console.error("Error al cargar banco de preguntas starter:", error);
+    return [];
+  }
+}
+
+/**
  * Mezcla las 4 opciones de una pregunta sin perder el rastreo de la respuesta correcta.
  */
 export function shuffleQuestionOptions(question: Question): Question {
@@ -52,3 +76,4 @@ export function shuffleQuestionOptions(question: Question): Question {
     correctIndex: newCorrectIndex >= 0 ? newCorrectIndex : 0,
   };
 }
+
