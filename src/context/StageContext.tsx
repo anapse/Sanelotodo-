@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from "react";
+import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 
 export interface StageDimensions {
   viewportWidth: number;
@@ -14,7 +14,7 @@ export interface StageDimensions {
   contentHeight: number;
   jokerAreaHeight: number;
 
-  // Distribución interna del Área Central (Pregunta + Respuestas con Gaps proporcionados)
+  // Distribución interna del Área Central
   contentQuestionHeight: number;
   contentAnswersHeight: number;
   contentGapQuestionAnswers: number;
@@ -38,9 +38,8 @@ const StageContext = createContext<StageDimensions | undefined>(undefined);
 
 const TARGET_ASPECT = 9 / 16; // 0.5625
 
-function computeStageDimensions(): StageDimensions {
+function computeStageDimensions(customVw?: number, customVh?: number): StageDimensions {
   if (typeof window === "undefined") {
-    // Dimensiones de contingencia para SSR / inicialización
     const defW = 450;
     const defH = 800;
     return {
@@ -70,10 +69,10 @@ function computeStageDimensions(): StageDimensions {
     };
   }
 
-  // 1. Obtener altura y ancho visibles reales del viewport
+  // 1. Obtener altura y ancho visibles del viewport
   const vv = window.visualViewport;
-  const vw = vv ? vv.width : window.innerWidth;
-  const vh = vv ? vv.height : window.innerHeight;
+  const vw = customVw ?? (vv ? vv.width : window.innerWidth);
+  const vh = customVh ?? (vv ? vv.height : window.innerHeight);
 
   // Márgenes de respiración sutiles en pantallas grandes (0 en móviles)
   const isSmallMobile = vw < 500 || vh < 700;
@@ -84,11 +83,9 @@ function computeStageDimensions(): StageDimensions {
   const availW = Math.max(vw - marginX, 240);
 
   // 2. Calcular stageHeight y stageWidth aplicando la relación estricta 9:16
-  // La referencia principal es la altura disponible del viewport
   let stageHeight = availH;
   let stageWidth = stageHeight * TARGET_ASPECT;
 
-  // Si el ancho calculado excede el ancho disponible de la pantalla, acotar por ancho
   if (stageWidth > availW) {
     stageWidth = availW;
     stageHeight = stageWidth / TARGET_ASPECT;
@@ -102,34 +99,25 @@ function computeStageDimensions(): StageDimensions {
   const fontScale = Math.max(scale, 0.65);
   const iconScale = Math.max(scale, 0.65);
 
-  // 3. Distribución vertical funcional proporcional (Suma total = stageHeight)
-  // HUD: ~13% de stageHeight
+  // 3. Distribución vertical funcional proporcional
   const hudHeight = Math.floor(stageHeight * 0.13);
-  // Timer: ~7% de stageHeight
   const timerHeight = Math.floor(stageHeight * 0.07);
-  // Zona de comodines: ~25% de stageHeight (anclada al fondo, 10 espacios: 5×2)
   const jokerAreaHeight = Math.floor(stageHeight * 0.25);
-  // Contenido central flexible (Pregunta + Gaps + Respuestas): espacio restante exacto (~55%)
   const contentHeight = stageHeight - hudHeight - timerHeight - jokerAreaHeight;
 
-  // 4. Sub-distribución matemática del Área Central:
-  // - Gap visual claro entre Pregunta y Respuestas: ~6% de contentHeight
-  // - Gap visual claro entre Respuestas y Comodines: ~6% de contentHeight
+  // 4. Sub-distribución matemática del Área Central
   const contentGapQuestionAnswers = Math.max(Math.floor(contentHeight * 0.065), 14);
   const contentGapAnswersJokers = Math.max(Math.floor(contentHeight * 0.065), 14);
 
-  // Espacio restante para la tarjeta de pregunta y cuadrícula de respuestas
   const availableForCards = contentHeight - contentGapQuestionAnswers - contentGapAnswersJokers;
   const contentQuestionHeight = Math.floor(availableForCards * 0.38);
   const contentAnswersHeight = availableForCards - contentQuestionHeight;
 
-  // Insets laterales y gaps de la cuadrícula de respuestas (2x2)
-  // Inset horizontal: ~5% de stageWidth a cada lado para evitar tocar los bordes
   const answersSideInset = Math.max(Math.floor(stageWidth * 0.05), 12);
   const answersGapX = Math.max(Math.floor(stageWidth * 0.03), 8);
   const answersGapY = Math.max(Math.floor(contentAnswersHeight * 0.05), 8);
 
-  // 5. Cálculo matemático para las 5 columnas × 2 filas de comodines
+  // 5. Cálculo para las 5 columnas × 2 filas de comodines
   const jokerPaddingX = Math.floor(stageWidth * 0.025);
   const jokerGap = Math.max(Math.floor(stageWidth * 0.015), 4);
   const availableJokerWidth = stageWidth - jokerPaddingX * 2;
@@ -167,20 +155,77 @@ function computeStageDimensions(): StageDimensions {
 }
 
 export const StageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [dims, setDims] = useState<StageDimensions>(computeStageDimensions);
+  // Guardar las dimensiones base del viewport antes de que se abra ningún teclado virtual
+  const baseViewportRef = useRef<{ width: number; height: number }>({
+    width: typeof window !== "undefined" ? window.innerWidth : 450,
+    height: typeof window !== "undefined" ? window.innerHeight : 800,
+  });
+
+  const [dims, setDims] = useState<StageDimensions>(() => computeStageDimensions());
 
   useEffect(() => {
     let animFrameId: number;
 
+    const getIsInputFocused = (): boolean => {
+      if (typeof document === "undefined") return false;
+      const activeEl = document.activeElement;
+      if (!activeEl) return false;
+      const tag = activeEl.tagName;
+      return tag === "INPUT" || tag === "TEXTAREA" || (activeEl as HTMLElement).isContentEditable;
+    };
+
+    const updateDimensions = (forceReset = false) => {
+      if (typeof window === "undefined") return;
+
+      const vv = window.visualViewport;
+      const rawVw = vv ? vv.width : window.innerWidth;
+      const rawVh = vv ? vv.height : window.innerHeight;
+
+      const activeBase = baseViewportRef.current;
+      const isInputFocused = getIsInputFocused();
+
+      // Detección precisa de teclado virtual en dispositivos móviles:
+      // Se detecta si hay un campo de texto enfocado O si el ancho permanece prácticamente idéntico (<25px) y la altura cae drásticamente (>100px o <82% de la base)
+      const widthIsSame = Math.abs(rawVw - activeBase.width) < 25;
+      const heightDroppedSignificantly = rawVh < activeBase.height * 0.82 || (activeBase.height - rawVh) > 100;
+      const isVirtualKeyboardOpen = isInputFocused || (widthIsSame && heightDroppedSignificantly);
+
+      if (isVirtualKeyboardOpen && !forceReset) {
+        // MANTENER DIMENSIONES BASE DEL ESCENARIO SIN COMPRIMIR NI REDUCIR EL TAMAÑO
+        return;
+      }
+
+      // Si es un cambio real de pantalla o rotación de orientación sin teclado abierto:
+      baseViewportRef.current = { width: rawVw, height: rawVh };
+      setDims(computeStageDimensions(rawVw, rawVh));
+    };
+
     const handleResize = () => {
       cancelAnimationFrame(animFrameId);
       animFrameId = requestAnimationFrame(() => {
-        setDims(computeStageDimensions());
+        updateDimensions(false);
       });
     };
 
+    const handleOrientationChange = () => {
+      cancelAnimationFrame(animFrameId);
+      setTimeout(() => {
+        updateDimensions(true);
+      }, 150);
+    };
+
+    const handleFocusOut = (e: FocusEvent) => {
+      const target = e.target as HTMLElement;
+      if (target && (target.tagName === "INPUT" || target.tagName === "TEXTAREA")) {
+        setTimeout(() => {
+          updateDimensions(true);
+        }, 150);
+      }
+    };
+
     window.addEventListener("resize", handleResize, { passive: true });
-    window.addEventListener("orientationchange", handleResize, { passive: true });
+    window.addEventListener("orientationchange", handleOrientationChange, { passive: true });
+    document.addEventListener("focusout", handleFocusOut, { passive: true });
 
     if (window.visualViewport) {
       window.visualViewport.addEventListener("resize", handleResize, { passive: true });
@@ -189,7 +234,8 @@ export const StageProvider: React.FC<{ children: React.ReactNode }> = ({ childre
     return () => {
       cancelAnimationFrame(animFrameId);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener("orientationchange", handleResize);
+      window.removeEventListener("orientationchange", handleOrientationChange);
+      document.removeEventListener("focusout", handleFocusOut);
       if (window.visualViewport) {
         window.visualViewport.removeEventListener("resize", handleResize);
       }
