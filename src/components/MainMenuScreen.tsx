@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useGame } from "../context/GameContext";
 import { useStageDimensions } from "../context/StageContext";
 import { OFFICIAL_SPRITES } from "../config/assetManager";
 import { ContactModal } from "./ContactModal";
 import { Top50Modal } from "./Top50Modal";
 import { HowToPlayModal } from "./HowToPlayModal";
+import { logAppVisit } from "../services/analyticsService";
 import { Volume2, VolumeX, Mail, Trophy, HelpCircle, Play, Award } from "lucide-react";
 
 export const MainMenuScreen: React.FC = () => {
@@ -15,6 +16,10 @@ export const MainMenuScreen: React.FC = () => {
   const [showTop50, setShowTop50] = useState<boolean>(false);
   const [showHowToPlay, setShowHowToPlay] = useState<boolean>(false);
   const [showRecordAlert, setShowRecordAlert] = useState<boolean>(false);
+
+  useEffect(() => {
+    logAppVisit();
+  }, []);
 
   const btnWidth = Math.min(Math.round(stageWidth * 0.82), 360);
 

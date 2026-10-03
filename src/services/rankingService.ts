@@ -9,6 +9,7 @@ import {
   DocumentData,
 } from "firebase/firestore";
 import { db, auth } from "../config/firebase";
+import { logMatchRecord } from "./analyticsService";
 
 export interface RankingEntry {
   id?: string;
@@ -17,6 +18,8 @@ export interface RankingEntry {
   timestamp: number;
   dateFormatted?: string;
   questionsAnswered?: number;
+  characterId?: string;
+  characterName?: string;
 }
 
 const RANKING_COLLECTION_NAME = "sabelotodo_top50_ranking";
@@ -70,17 +73,16 @@ export async function fetchTop50Ranking(): Promise<RankingEntry[]> {
         timestamp: Number(data.timestamp) || Date.now(),
         dateFormatted: data.dateFormatted || "",
         questionsAnswered: Number(data.questionsAnswered) || 0,
+        characterId: data.characterId || "sabelotodo",
+        characterName: data.characterName || "Sabelotodo",
       };
     });
 
-    // Guardar en caché local para acceso síncrono secundario
     localStorage.setItem(LOCAL_STORAGE_RANKING_KEY, JSON.stringify(rankingData));
-
     return rankingData;
   } catch (error) {
     handleFirestoreError(error, OperationType.LIST, RANKING_COLLECTION_NAME);
 
-    // Fallback a caché local en caso de desconexión
     try {
       const cached = localStorage.getItem(LOCAL_STORAGE_RANKING_KEY);
       if (cached) {
@@ -95,15 +97,21 @@ export async function fetchTop50Ranking(): Promise<RankingEntry[]> {
 }
 
 /**
- * Guarda el resultado de una partida en Firebase Firestore.
+ * Guarda el resultado de una partida en Firebase Firestore y actualiza analítica.
  */
 export async function saveGameScore(
   entry: Omit<RankingEntry, "timestamp" | "dateFormatted">
 ): Promise<RankingEntry[]> {
+  const qAnswered = entry.questionsAnswered || 0;
+  const charId = entry.characterId || "sabelotodo";
+  const charName = entry.characterName || "Sabelotodo";
+
   const newEntry: Omit<RankingEntry, "id"> = {
     playerName: entry.playerName.trim() || "Jugador",
     score: entry.score,
-    questionsAnswered: entry.questionsAnswered || 0,
+    questionsAnswered: qAnswered,
+    characterId: charId,
+    characterName: charName,
     timestamp: Date.now(),
     dateFormatted: new Date().toLocaleDateString("es-ES", {
       year: "numeric",
@@ -114,16 +122,25 @@ export async function saveGameScore(
     }),
   };
 
+  // 1. Registrar partida en la colección analítica general
+  logMatchRecord({
+    playerName: newEntry.playerName,
+    characterId: charId,
+    characterName: charName,
+    score: newEntry.score,
+    questionsAnswered: qAnswered,
+    status: newEntry.score >= 1000 ? "completed" : "failed",
+  });
+
+  // 2. Registrar en ranking general
   try {
     const rankingRef = collection(db, RANKING_COLLECTION_NAME);
     await addDoc(rankingRef, newEntry);
 
-    // Retornar la lista actualizada de los mejores 50 desde Firestore
     return await fetchTop50Ranking();
   } catch (error) {
     handleFirestoreError(error, OperationType.CREATE, RANKING_COLLECTION_NAME);
 
-    // Fallback de guardado local en caso de falla de red
     try {
       const current = await fetchTop50Ranking();
       current.push({ ...newEntry, id: `local_${Date.now()}` });
