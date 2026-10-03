@@ -1,0 +1,3252 @@
+[
+  {
+    "id": "easy_001",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué planeta del sistema solar es conocido popularmente como el planeta rojo?",
+    "options": [
+      "Marte",
+      "Venus",
+      "Júpiter",
+      "Saturno"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_002",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué gas imprescindible respiran los seres humanos del aire?",
+    "options": [
+      "Helio",
+      "Oxígeno",
+      "Metano",
+      "Dióxido de carbono"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_003",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿En qué estado se encuentra el agua cuando se congela en un témpano de hielo?",
+    "options": [
+      "Líquido",
+      "Gaseoso",
+      "Sólido",
+      "Plasma"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_004",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuántas patas tiene una araña común?",
+    "options": [
+      "6",
+      "10",
+      "4",
+      "8"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_005",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué astro brillante es el centro de nuestro sistema solar?",
+    "options": [
+      "El Sol",
+      "La Luna",
+      "Sirio",
+      "La Estrella Polar"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_006",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué líquido vital bombea el corazón a través de todo el cuerpo humano?",
+    "options": [
+      "Saliva",
+      "Sangre",
+      "Agua",
+      "Bilis"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_007",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cómo se llama el proceso por el cual las plantas fabrican su propio alimento usando la luz solar?",
+    "options": [
+      "Evaporación",
+      "Germinación",
+      "Fotosíntesis",
+      "Respiración"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_008",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuál es el animal terrestre vivo más grande del planeta?",
+    "options": [
+      "La jirafa",
+      "El oso polar",
+      "El rinoceronte",
+      "El elefante africano"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_009",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué órgano del cuerpo humano es el encargado principal de procesar los pensamientos y recuerdos?",
+    "options": [
+      "El cerebro",
+      "El estómago",
+      "El hígado",
+      "El pulmón"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_010",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿A qué temperatura hierve el agua a nivel del mar en grados Celsius?",
+    "options": [
+      "50 °C",
+      "100 °C",
+      "0 °C",
+      "200 °C"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_011",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué animal marino tiene ocho tentáculos y puede expulsar tinta?",
+    "options": [
+      "El tiburón",
+      "El delfín",
+      "El pulpo",
+      "La ballena"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_012",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuántos huesos forman aproximadamente el esqueleto de un ser humano adulto?",
+    "options": [
+      "105",
+      "350",
+      "150",
+      "206"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_013",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué fuerza natural atrae los objetos hacia el centro de la Tierra?",
+    "options": [
+      "La gravedad",
+      "El magnetismo",
+      "La fricción",
+      "La inercia"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_014",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué animal es conocido por ser el ave más rápida corriendo en tierra pero que no puede volar?",
+    "options": [
+      "El pingüino",
+      "El avestruz",
+      "El águila",
+      "El kiwi"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_015",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿De qué están hechas principalmente las nubes que vemos en el cielo?",
+    "options": [
+      "De gas helio puro",
+      "De humo de fábricas",
+      "De gotas de agua y cristales de hielo",
+      "De algodón espacial"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_016",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué órgano humano usamos principalmente para el sentido de la visión?",
+    "options": [
+      "La nariz",
+      "Las orejas",
+      "La lengua",
+      "Los ojos"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_017",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué tipo de animal es una rana?",
+    "options": [
+      "Un anfibio",
+      "Un reptil",
+      "Un mamífero",
+      "Un pez"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_018",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuál es el planeta más grande de todo el sistema solar?",
+    "options": [
+      "Saturno",
+      "Júpiter",
+      "Neptuno",
+      "La Tierra"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_019",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué metal es comúnmente atraído por los imanes?",
+    "options": [
+      "El oro",
+      "El plástico",
+      "El hierro",
+      "La madera"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_020",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cómo se llama el satélite natural que orbita alrededor de la Tierra?",
+    "options": [
+      "Titán",
+      "Fobos",
+      "Europa",
+      "La Luna"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_021",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué tipo de sangre u organismo tienen los mamíferos?",
+    "options": [
+      "Sangre caliente",
+      "Sangre fría",
+      "Sangre azul",
+      "Sin sangre"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_022",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué insecto laborioso produce miel en colmenas?",
+    "options": [
+      "La avispa",
+      "La abeja",
+      "La hormiga",
+      "El saltamontes"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_023",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuántos dientes de leche suele tener un niño antes de mudarlos?",
+    "options": [
+      "32",
+      "10",
+      "20",
+      "16"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_024",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué tipo de animal es un cocodrilo?",
+    "options": [
+      "Un anfibio",
+      "Un mamífero",
+      "Un pez",
+      "Un reptil"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_025",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué órgano utilizamos principalmente para bombear sangre?",
+    "options": [
+      "El corazón",
+      "El páncreas",
+      "El riñón",
+      "La vejiga"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_026",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué felino rayado es el más grande del mundo salvaje?",
+    "options": [
+      "El león",
+      "El tigre",
+      "El guepardo",
+      "El leopardo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_027",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué mineral blanco es esencial para tener huesos y dientes fuertes?",
+    "options": [
+      "Hierro",
+      "Cobre",
+      "Calcio",
+      "Plata"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_028",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué parte de la planta se encuentra habitualmente bajo tierra y absorbe agua?",
+    "options": [
+      "La hoja",
+      "La flor",
+      "El fruto",
+      "La raíz"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_029",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuál es el mamífero más alto del mundo gracias a su largo cuello?",
+    "options": [
+      "La jirafa",
+      "El camello",
+      "El alce",
+      "El canguro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_030",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué órgano del cuerpo humano se encarga de filtrar la sangre y producir orina?",
+    "options": [
+      "Los pulmones",
+      "Los riñones",
+      "El bazo",
+      "El esófago"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_031",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué animal con caparazón es famoso por su longevidad y paso lento?",
+    "options": [
+      "El caracol",
+      "El armadillo",
+      "La tortuga",
+      "El erizo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_032",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuál es el océano más grande y profundo de la Tierra?",
+    "options": [
+      "El océano Atlántico",
+      "El océano Índico",
+      "El océano Ártico",
+      "El océano Pacífico"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_033",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué instrumento médico se usa para medir la temperatura corporal?",
+    "options": [
+      "El termómetro",
+      "El barómetro",
+      "El estetoscopio",
+      "El tensiómetro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_034",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué fenómeno luminoso de colores aparece en el cielo tras llover cuando sale el sol?",
+    "options": [
+      "La aurora boreal",
+      "El arcoíris",
+      "El relámpago",
+      "El eclipse"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_035",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué animal produce lana para hacer abrigos?",
+    "options": [
+      "El caballo",
+      "La vaca",
+      "La oveja",
+      "El cerdo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_036",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cómo se llaman los animales que se alimentan exclusivamente de plantas?",
+    "options": [
+      "Carnívoros",
+      "Omnívoros",
+      "Insectívoros",
+      "Herbívoros"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_037",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cómo se llaman los animales que se alimentan de carne de otros animales?",
+    "options": [
+      "Carnívoros",
+      "Herbívoros",
+      "Frugívoros",
+      "Granívoros"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_038",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuántos días tarda aproximadamente la Tierra en dar una vuelta completa al Sol?",
+    "options": [
+      "30 días",
+      "365 días",
+      "24 horas",
+      "100 días"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_039",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuántas horas tarda la Tierra en dar un giro completo sobre su propio eje?",
+    "options": [
+      "12 horas",
+      "48 horas",
+      "24 horas",
+      "365 horas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_040",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué estación del año es generalmente la más calurosa?",
+    "options": [
+      "El invierno",
+      "El otoño",
+      "La primavera",
+      "El verano"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_041",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué estación del año se caracteriza por la caída de las hojas de los árboles?",
+    "options": [
+      "El otoño",
+      "La primavera",
+      "El verano",
+      "El invierno"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_042",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué animal blanco habita en el gélido Polo Norte ártico?",
+    "options": [
+      "El pingüino emperador",
+      "El oso polar",
+      "El koala",
+      "El canguro"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_043",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué tipo de animal pone huevos con cáscara dura y tiene plumas?",
+    "options": [
+      "Los mamíferos",
+      "Los anfibios",
+      "Las aves",
+      "Los peces"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_044",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Qué sentido humano reside en la piel y nos permite sentir texturas y temperaturas?",
+    "options": [
+      "El olfato",
+      "El gusto",
+      "El oído",
+      "El tacto"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_045",
+    "difficulty": "easy",
+    "category": "science",
+    "question": "¿Cuál es el estado de la materia del vapor de agua?",
+    "options": [
+      "Gaseoso",
+      "Líquido",
+      "Sólido",
+      "Cristalino"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_046",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país europeo se encuentra la famosa Torre Eiffel?",
+    "options": [
+      "Italia",
+      "Francia",
+      "España",
+      "Alemania"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_047",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país de América del Sur se encuentra la ciudad de Río de Janeiro?",
+    "options": [
+      "Argentina",
+      "Chile",
+      "Brasil",
+      "Colombia"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_048",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de España?",
+    "options": [
+      "Barcelona",
+      "Sevilla",
+      "Valencia",
+      "Madrid"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_049",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué continente se encuentra el país de Egipto y el río Nilo?",
+    "options": [
+      "África",
+      "Asia",
+      "Europa",
+      "América"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_050",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué enorme monumento de piedra defensivo cruza el norte de China?",
+    "options": [
+      "El Coliseo",
+      "La Gran Muralla China",
+      "El Taj Mahal",
+      "Stonehenge"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_051",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es el país más grande del mundo en extensión territorial?",
+    "options": [
+      "Canadá",
+      "Estados Unidos",
+      "Rusia",
+      "China"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_052",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la antigua ciudadela inca de Machu Picchu?",
+    "options": [
+      "Bolivia",
+      "Ecuador",
+      "México",
+      "Perú"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_053",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de Francia?",
+    "options": [
+      "París",
+      "Lyon",
+      "Marsella",
+      "Niza"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_054",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué famoso canal interoceánico une el océano Atlántico con el Pacífico en Centroamérica?",
+    "options": [
+      "El Canal de Suez",
+      "El Canal de Panamá",
+      "El Canal de Corinto",
+      "El Canal de la Mancha"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_055",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentran las tres famosas Grandes Pirámides de Guiza?",
+    "options": [
+      "Grecia",
+      "Turquía",
+      "Egipto",
+      "Marruecos"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_056",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Italia, famosa por el Vaticano y el Coliseo?",
+    "options": [
+      "Milán",
+      "Venecia",
+      "Florencia",
+      "Roma"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_057",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué continente es conocido por albergar a los canguros y koalas?",
+    "options": [
+      "Oceanía",
+      "Europa",
+      "América",
+      "Asia"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_058",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país de Europa se encuentra la ciudad de Londres y el Big Ben?",
+    "options": [
+      "Irlanda",
+      "Reino Unido",
+      "Francia",
+      "Bélgica"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_059",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es el idioma oficial más hablado en México y Argentina?",
+    "options": [
+      "Portugués",
+      "Inglés",
+      "Español",
+      "Francés"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_060",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa Estatua de la Libertad?",
+    "options": [
+      "Canadá",
+      "Australia",
+      "Inglaterra",
+      "Estados Unidos"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_061",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Alemania?",
+    "options": [
+      "Berlín",
+      "Múnich",
+      "Frankfurt",
+      "Hamburgo"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_062",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué continente se encuentra la cordillera del Himalaya con el monte Everest?",
+    "options": [
+      "Europa",
+      "Asia",
+      "África",
+      "Oceanía"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_063",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué país de América del Norte limita al sur con México?",
+    "options": [
+      "Canadá",
+      "Guatemala",
+      "Estados Unidos",
+      "Cuba"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_064",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país asiático se encuentra la ciudad de Tokio?",
+    "options": [
+      "China",
+      "Corea del Sur",
+      "Tailandia",
+      "Japón"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_065",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de la República Argentina?",
+    "options": [
+      "Buenos Aires",
+      "Córdoba",
+      "Rosario",
+      "Mendoza"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_066",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué país sudamericano tiene forma alargada y estrecha bordeando el océano Pacífico?",
+    "options": [
+      "Perú",
+      "Chile",
+      "Paraguay",
+      "Uruguay"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_067",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de los Estados Unidos de América?",
+    "options": [
+      "Nueva York",
+      "Los Ángeles",
+      "Washington D. C.",
+      "Chicago"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_068",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa Torre inclinada de Pisa?",
+    "options": [
+      "España",
+      "Portugal",
+      "Grecia",
+      "Italia"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_069",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué país es famoso por sus molinos de viento, tulipanes y canales en Ámsterdam?",
+    "options": [
+      "Países Bajos",
+      "Bélgica",
+      "Dinamarca",
+      "Suiza"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_070",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es el desierto cálido más grande y famoso del mundo?",
+    "options": [
+      "El Atacama",
+      "El Sahara",
+      "El Gobi",
+      "El Mojave"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_071",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué moneda común se utiliza en países como España, Francia y Alemania?",
+    "options": [
+      "El Dólar",
+      "La Libra",
+      "El Euro",
+      "El Yen"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_072",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Colombia?",
+    "options": [
+      "Medellín",
+      "Cali",
+      "Cartagena",
+      "Bogotá"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_073",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país sudamericano se originó el baile del tango?",
+    "options": [
+      "Argentina",
+      "Brasil",
+      "Perú",
+      "Venezuela"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_074",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué océano se encuentra entre América y Europa?",
+    "options": [
+      "El océano Índico",
+      "El océano Atlántico",
+      "El océano Ártico",
+      "El océano Antártico"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_075",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Chile?",
+    "options": [
+      "Valparaíso",
+      "Concepción",
+      "Santiago",
+      "Antofagasta"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_076",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentra el famoso monumento Taj Mahal?",
+    "options": [
+      "Pakistán",
+      "Egipto",
+      "Indonesia",
+      "India"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_077",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es el río más largo de Europa que desemboca en el mar Caspio?",
+    "options": [
+      "El Volga",
+      "El Danubio",
+      "El Rin",
+      "El Sena"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_078",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué país tiene forma geográfica de bota en el mapa de Europa?",
+    "options": [
+      "Grecia",
+      "Italia",
+      "Portugal",
+      "Noruega"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_079",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Rusia?",
+    "options": [
+      "San Petersburgo",
+      "Kiev",
+      "Moscú",
+      "Minsk"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_080",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la ciudad de Toronto y las Cataratas del Niágara?",
+    "options": [
+      "Estados Unidos",
+      "Australia",
+      "Nueva Zelanda",
+      "Canadá"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_081",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Portugal?",
+    "options": [
+      "Lisboa",
+      "Oporto",
+      "Coímbra",
+      "Faro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_082",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se celebra anualmente la fiesta del Oktoberfest en Múnich?",
+    "options": [
+      "Austria",
+      "Alemania",
+      "Suiza",
+      "Bélgica"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_083",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Perú?",
+    "options": [
+      "Cusco",
+      "Arequipa",
+      "Lima",
+      "Trujillo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_084",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿Qué país es conocido por la bandera blanca con un círculo rojo en el centro?",
+    "options": [
+      "Corea del Sur",
+      "China",
+      "Canadá",
+      "Japón"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_085",
+    "difficulty": "easy",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa Fontana di Trevi?",
+    "options": [
+      "Italia",
+      "España",
+      "Francia",
+      "Grecia"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_086",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué superhéroe multimillonario utiliza una armadura tecnológica de alta gama en Marvel?",
+    "options": [
+      "Capitán América",
+      "Iron Man",
+      "Hulk",
+      "Thor"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_087",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué famoso joven mago asiste al colegio Hogwarts de Magia y Hechicería?",
+    "options": [
+      "Percy Jackson",
+      "Frodo",
+      "Harry Potter",
+      "Gandalf"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_088",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el muñeco vaquero que protagoniza la saga de películas 'Toy Story'?",
+    "options": [
+      "Buzz Lightyear",
+      "Rex",
+      "Jessie",
+      "Woody"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_089",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué actor interpretó al Capitán Jack Sparrow en la saga 'Piratas del Caribe'?",
+    "options": [
+      "Johnny Depp",
+      "Orlando Bloom",
+      "Brad Pitt",
+      "Tom Cruise"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_090",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Quién es el padre de Luke Skywalker revelado en la trilogía original de Star Wars?",
+    "options": [
+      "Obi-Wan Kenobi",
+      "Darth Vader",
+      "Yoda",
+      "Palpatine"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_091",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el ogro verde protagonista de las películas de DreamWorks?",
+    "options": [
+      "Fiona",
+      "Burro",
+      "Shrek",
+      "Lord Farquaad"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_092",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué princesa de Disney pierde una zapatilla de cristal al huir del baile a medianoche?",
+    "options": [
+      "Blancanieves",
+      "Bella",
+      "Ariel",
+      "Cenicienta"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_093",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿En qué película animada un pez payaso llamado Marlin cruza el océano para buscar a su hijo?",
+    "options": [
+      "Buscando a Nemo",
+      "El espantatiburones",
+      "Madagascar",
+      "Rango"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_094",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué monstruo gigante japonés parecido a un reptil emerge del mar rugiendo?",
+    "options": [
+      "King Kong",
+      "Godzilla",
+      "Kraken",
+      "Megalodón"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_095",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama la reina de las nieves con poderes de hielo en la película 'Frozen'?",
+    "options": [
+      "Anna",
+      "Rapunzel",
+      "Elsa",
+      "Mérida"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_096",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Quién es el archienemigo de Batman caracterizado con pelo verde y risa de payaso?",
+    "options": [
+      "El Pingüino",
+      "El Acertijo",
+      "Dos Caras",
+      "El Joker"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_097",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué superhéroe de Marvel es un dios nórdico y porta un poderoso martillo?",
+    "options": [
+      "Thor",
+      "Loki",
+      "Odin",
+      "Hawkeye"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_098",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué actor encarnó al arqueólogo aventurero Indiana Jones en sus películas originales?",
+    "options": [
+      "Mel Gibson",
+      "Harrison Ford",
+      "Sean Connery",
+      "Bruce Willis"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_099",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el auto DeLorean que viaja en el tiempo en 'Volver al Futuro' gracias a qué doctor?",
+    "options": [
+      "Dr. Frankenstein",
+      "Dr. Strange",
+      "Doc Brown",
+      "Dr. No"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_100",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué animal es Simba en la película animada 'El Rey León'?",
+    "options": [
+      "Un tigre",
+      "Un leopardo",
+      "Un mono",
+      "Un león"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_101",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué superhéroe arácnido de Marvel vive en Nueva York y trepa paredes?",
+    "options": [
+      "Spider-Man",
+      "Daredevil",
+      "Deadpool",
+      "Ant-Man"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_102",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cuál es el nombre del muñeco de nieve parlante y simpático de 'Frozen'?",
+    "options": [
+      "Sven",
+      "Olaf",
+      "Kristoff",
+      "Marshmallow"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_103",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el pequeño extraterrestre que quiere llamar a su casa en la película de Spielberg?",
+    "options": [
+      "Alf",
+      "Yoda",
+      "E.T.",
+      "Groot"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_104",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué princesa de Disney vive bajo el mar y tiene una cola de sirena?",
+    "options": [
+      "Jasmín",
+      "Pocahontas",
+      "Tiana",
+      "Ariel"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_105",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué actor protagonizó la película 'Misión Imposible' realizando sus propias escenas de acción?",
+    "options": [
+      "Tom Cruise",
+      "Keanu Reeves",
+      "Will Smith",
+      "Matt Damon"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_106",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Quién es el robot alienígena amarillo que se transforma en automóvil en 'Transformers'?",
+    "options": [
+      "Optimus Prime",
+      "Bumblebee",
+      "Megatron",
+      "Starscream"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_107",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué personaje de animación vive en una piña debajo del mar?",
+    "options": [
+      "Patricio",
+      "Calamardo",
+      "Bob Esponja",
+      "Arenita"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_108",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿En qué película animada de Pixar los autos tienen vida propia y compiten en carreras?",
+    "options": [
+      "Planes",
+      "Turbo",
+      "Robots",
+      "Cars"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_109",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué superhéroe de DC Comics tiene visión láser, superfuerza y vuela con una capa roja?",
+    "options": [
+      "Superman",
+      "Flash",
+      "Aquaman",
+      "Cyborg"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_110",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el barco transatlántico real cuyo hundimiento inspiró la famosa película de James Cameron?",
+    "options": [
+      "Britannic",
+      "Titanic",
+      "Olympic",
+      "Queen Mary"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_111",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Quién es el villano púrpura de Marvel que buscaba reunir las seis Gemas del Infinito?",
+    "options": [
+      "Ultron",
+      "Hela",
+      "Thanos",
+      "Kang"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_112",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué personaje animado de Disney tiene orejas redondas negras y viste pantalones rojos con botones blancos?",
+    "options": [
+      "Pato Donald",
+      "Goofy",
+      "Pluto",
+      "Mickey Mouse"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_113",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué felino naranja glotón y perezoso adora comer lasaña y odia los lunes?",
+    "options": [
+      "Garfield",
+      "Silvestre",
+      "Tom",
+      "Felix"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_114",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el fiel mayordomo británico de Bruce Wayne en las historias de Batman?",
+    "options": [
+      "Robin",
+      "Alfred",
+      "Gordon",
+      "Lucius"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_115",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué animal de madera cobra vida y le crece la nariz cuando miente en el cuento de Disney?",
+    "options": [
+      "Gepetto",
+      "Pepe Grillo",
+      "Pinocho",
+      "Fígaro"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_116",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el perro detective de dibujos animados que viaja con Shaggy en la Máquina del Misterio?",
+    "options": [
+      "Coraje",
+      "Snoopy",
+      "Pluto",
+      "Scooby-Doo"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_117",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué película animada cuenta la historia de una rata llamada Remy que sueña con ser chef en París?",
+    "options": [
+      "Ratatouille",
+      "Bichos",
+      "Wall-E",
+      "Up"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_118",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿En qué película animada un anciano viaja en una casa levantada por miles de globos de helio?",
+    "options": [
+      "Monsters Inc",
+      "Up",
+      "Coco",
+      "Soul"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_119",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué superhéroe se transforma en un gigante verde cuando se enfurece?",
+    "options": [
+      "La Mole",
+      "Coloso",
+      "Hulk",
+      "Venom"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_120",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué famoso monstruo creado con partes de cuerpos es revivido por electricidad en una novela clásica?",
+    "options": [
+      "Drácula",
+      "La Momia",
+      "El Hombre Lobo",
+      "Frankenstein"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_121",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Cómo se llama el mejor amigo de Shrek que no para de hablar y es de cuatro patas?",
+    "options": [
+      "Burro",
+      "Gato con Botas",
+      "Pinocho",
+      "Jengi"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_122",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué actor interpretó al boxeador Rocky Balboa en la célebre saga cinematográfica?",
+    "options": [
+      "Arnold Schwarzenegger",
+      "Sylvester Stallone",
+      "Jean-Claude Van Damme",
+      "Chuck Norris"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_123",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué película de Pixar trata sobre monstruos que generan energía asustando niños en puertas mágicas?",
+    "options": [
+      "Toy Story",
+      "Los Increíbles",
+      "Monsters, Inc.",
+      "Brave"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_124",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Quién es la princesa de Disney que vive con siete enanitos en el bosque?",
+    "options": [
+      "Bella",
+      "Cenicienta",
+      "Aurora",
+      "Blancanieves"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_125",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué vehículo vuela y usa el Murciélago de Ciudad Gótica para patrullar?",
+    "options": [
+      "El Batmóvil / Batiavión",
+      "El Halcón",
+      "La Nave X",
+      "El DeLorean"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_126",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué agente secreto británico tiene la licencia 007 para matar?",
+    "options": [
+      "Jason Bourne",
+      "James Bond",
+      "Ethan Hunt",
+      "John Wick"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_127",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué actor dio vida a Neo en la saga de ciencia ficción 'Matrix'?",
+    "options": [
+      "Laurence Fishburne",
+      "Nicolas Cage",
+      "Keanu Reeves",
+      "Brad Pitt"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_128",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué personaje de Disney duerme profundamente tras pincharse el dedo con un huso?",
+    "options": [
+      "Rapunzel",
+      "Tiana",
+      "Mulan",
+      "La Bella Durmiente"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_129",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Quién es el archienemigo de Superman, un millonario calvo y despiadado?",
+    "options": [
+      "Lex Luthor",
+      "General Zod",
+      "Brainiac",
+      "Doomsday"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_130",
+    "difficulty": "easy",
+    "category": "movies",
+    "question": "¿Qué superhéroe velocista viste de rojo con un rayo amarillo en el pecho?",
+    "options": [
+      "Linterna Verde",
+      "Flash",
+      "Flecha Verde",
+      "Shazam"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_131",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué fontanero con bigote y gorra roja es la mascota oficial de Nintendo?",
+    "options": [
+      "Luigi",
+      "Wario",
+      "Mario",
+      "Toad"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_132",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué erizo azul supersónico es la mascota histórica de la compañía Sega?",
+    "options": [
+      "Tails",
+      "Knuckles",
+      "Shadow",
+      "Sonic"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_133",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama la princesa del reino Champiñón que Mario rescata constantemente?",
+    "options": [
+      "Peach",
+      "Zelda",
+      "Daisy",
+      "Rosalina"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_134",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿En qué popular juego de construcción y supervivencia los jugadores extraen bloques y fabrican herramientas?",
+    "options": [
+      "Fortnite",
+      "Minecraft",
+      "Roblox",
+      "Terraria"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_135",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama la pequeña criatura amarilla eléctrica que es el compañero de Ash en Pokémon?",
+    "options": [
+      "Charmander",
+      "Bulbasaur",
+      "Pikachu",
+      "Squirtle"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_136",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego arcade clásico de los 80 consistía en una bola amarilla que comía puntos y huía de fantasmas?",
+    "options": [
+      "Space Invaders",
+      "Galaga",
+      "Donkey Kong",
+      "Pac-Man"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_137",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama el hermano de Mario que viste de verde y usa una aspiradora para cazar fantasmas?",
+    "options": [
+      "Luigi",
+      "Waluigi",
+      "Yoshi",
+      "Bowser"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_138",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿En qué juego de battle royale los jugadores caen de un autobús volador y construyen muros?",
+    "options": [
+      "PUBG",
+      "Fortnite",
+      "Apex Legends",
+      "Call of Duty"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_139",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué famoso juego de puzles soviético de los 80 consiste en encajar piezas geométricas que caen?",
+    "options": [
+      "Puyo Puyo",
+      "Dr. Mario",
+      "Tetris",
+      "Columns"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_140",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama el gorila gigante de Nintendo que lanza barriles?",
+    "options": [
+      "King K. Rool",
+      "Diddy Kong",
+      "Cranky Kong",
+      "Donkey Kong"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_141",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué compañía japonesa creó la consola PlayStation en los años 90?",
+    "options": [
+      "Sony",
+      "Nintendo",
+      "Microsoft",
+      "Sega"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_142",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué guerrero con espada viste túnica verde en la saga 'The Legend of Zelda'?",
+    "options": [
+      "Ganon",
+      "Link",
+      "Zelda",
+      "Sheik"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_143",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama el dragón de fuego inicial de primera generación en Pokémon?",
+    "options": [
+      "Blastoise",
+      "Venusaur",
+      "Charizard",
+      "Dragonite"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_144",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué consola de sobremesa de Microsoft compite históricamente con PlayStation?",
+    "options": [
+      "Wii",
+      "Atari",
+      "GameCube",
+      "Xbox"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_145",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué heroína y arqueóloga británica es la protagonista de la saga 'Tomb Raider'?",
+    "options": [
+      "Lara Croft",
+      "Jill Valentine",
+      "Samus Aran",
+      "Bayonetta"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_146",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿En qué juego de carreras de Nintendo los personajes compiten arrojando caparazones y plátanos?",
+    "options": [
+      "F-Zero",
+      "Mario Kart",
+      "Need for Speed",
+      "Gran Turismo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_147",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama el dinosaurio verde amigable que sirve de montura a Mario?",
+    "options": [
+      "Bowser",
+      "Koopa",
+      "Yoshi",
+      "Birdo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_148",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de lucha callejera de Capcom incluye a personajes como Ryu, Ken y Chun-Li?",
+    "options": [
+      "Mortal Kombat",
+      "Tekken",
+      "King of Fighters",
+      "Street Fighter"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_149",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de lucha sangriento incluye los famosos movimientos 'Fatality'?",
+    "options": [
+      "Mortal Kombat",
+      "Street Fighter",
+      "Super Smash Bros",
+      "Fatal Fury"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_150",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué criatura fantasma roja, rosa, azul y naranja persigue a Pac-Man en los laberintos?",
+    "options": [
+      "Monstruos",
+      "Fantasmas",
+      "Zombis",
+      "Extraterrestres"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_151",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama la pequeña consola portátil que revolucionó el juego en 1989 gracias a Nintendo?",
+    "options": [
+      "PSP",
+      "Game Gear",
+      "Game Boy",
+      "Atari Lynx"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_152",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué famosa aplicación de mensajería para móviles fue adquirida por Facebook en 2014?",
+    "options": [
+      "Telegram",
+      "Line",
+      "WeChat",
+      "WhatsApp"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_153",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de cartas de mesa incluye cartas de 'Cambio de sentido', '+2' y '+4'?",
+    "options": [
+      "UNO",
+      "Monopoly",
+      "Póker",
+      "Blackjack"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_154",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿En qué juego de mesa compras propiedades, casas y hoteles como Park Place?",
+    "options": [
+      "Clue",
+      "Monopoly",
+      "Risk",
+      "Scrabble"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_155",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de mesa consiste en adivinar quién asesinó a una víctima, en qué habitación y con qué arma?",
+    "options": [
+      "Monopoly",
+      "Ajedrez",
+      "Cluedo / Clue",
+      "Damas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_156",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué red social de videos cortos musicales se volvió enormemente popular a partir de 2019?",
+    "options": [
+      "Vine",
+      "MySpace",
+      "Tumblr",
+      "TikTok"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_157",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿En qué juego de teléfono los pájaros se lanzan con una resortera contra cerdos verdes?",
+    "options": [
+      "Angry Birds",
+      "Candy Crush",
+      "Flappy Bird",
+      "Fruit Ninja"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_158",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de móvil consiste en alinear caramelos de colores para hacerlos explotar?",
+    "options": [
+      "Bejeweled",
+      "Candy Crush",
+      "Subway Surfers",
+      "Temple Run"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_159",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama el erizo negro rival de Sonic con zapatillas propulsoras?",
+    "options": [
+      "Knuckles",
+      "Silver",
+      "Shadow",
+      "Metal Sonic"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_160",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué personaje azul con armadura y cañón en el brazo dispara a los Robot Masters en Capcom?",
+    "options": [
+      "Protoman",
+      "Zero",
+      "Sigma",
+      "Mega Man"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_161",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué héroe con armadura de combate espacial protagoniza la saga 'Halo'?",
+    "options": [
+      "Master Chief",
+      "Marcus Fenix",
+      "Doomguy",
+      "Kratos"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_162",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué personaje con espada y tatuaje rojo sobre la piel es el protagonista de 'God of War'?",
+    "options": [
+      "Atreus",
+      "Kratos",
+      "Ares",
+      "Zeus"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_163",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué animal de compañía es Pikachu según su especie?",
+    "options": [
+      "Un pájaro",
+      "Un perro",
+      "Un ratón eléctrico",
+      "Un pez"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_164",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué vehículo utiliza Batman para moverse a toda velocidad por las calles?",
+    "options": [
+      "La Moto X",
+      "El DeLorean",
+      "El Transformer",
+      "El Batimóvil"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_165",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de mesa milenario se juega con 16 piezas blancas y 16 negras en un tablero de 64 casillas?",
+    "options": [
+      "Ajedrez",
+      "Damas",
+      "Go",
+      "Backgammon"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_166",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué personaje de videojuego es un zorro de dos colas amigo inseparable de Sonic?",
+    "options": [
+      "Knuckles",
+      "Tails",
+      "Amy",
+      "Cream"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_167",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Cómo se llama el villano con forma de tortuga con púas que secuestra a Peach en Mario?",
+    "options": [
+      "Wario",
+      "King Boo",
+      "Bowser",
+      "Kamek"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_168",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué saga de juegos de acción en mundo abierto tiene como entregas Vice City y San Andreas?",
+    "options": [
+      "Saints Row",
+      "Watch Dogs",
+      "Mafia",
+      "Grand Theft Auto (GTA)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_169",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué instrumento de juego usas en las consolas para mover al personaje con palancas y botones?",
+    "options": [
+      "El mando / joystick",
+      "El teclado",
+      "El mouse",
+      "La palanca mecánica"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_170",
+    "difficulty": "easy",
+    "category": "gaming",
+    "question": "¿Qué juego de cartas tradicional utiliza 4 palos: picas, corazones, tréboles y diamantes?",
+    "options": [
+      "La baraja española",
+      "La baraja francesa / Póker",
+      "El Tarot",
+      "El Dominó"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_171",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué mítica banda británica liderada por Freddie Mercury cantó 'Bohemian Rhapsody'?",
+    "options": [
+      "The Beatles",
+      "The Rolling Stones",
+      "Queen",
+      "Led Zeppelin"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_172",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Quién es conocido mundialmente como 'El Rey del Pop' y cantó 'Thriller'?",
+    "options": [
+      "Prince",
+      "Elvis Presley",
+      "Stevie Wonder",
+      "Michael Jackson"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_173",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué instrumento musical tiene 88 teclas blancas y negras?",
+    "options": [
+      "El piano",
+      "El acordeón",
+      "El órgano",
+      "El xilófono"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_174",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿De qué país era originario el legendario cuarteto de rock 'The Beatles' (Liverpool)?",
+    "options": [
+      "Estados Unidos",
+      "Reino Unido",
+      "Australia",
+      "Canadá"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_175",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Quién es conocido popularmente como 'El Rey del Rock and Roll'?",
+    "options": [
+      "John Lennon",
+      "Chuck Berry",
+      "Elvis Presley",
+      "Bob Dylan"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_176",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué instrumento de percusión consiste en varios tambores y platillos que se tocan con baquetas?",
+    "options": [
+      "La guitarra",
+      "El violín",
+      "El saxofón",
+      "La batería"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_177",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué cantante colombiana es famosa por éxitos mundiales como 'Hips Don't Lie' y 'Waka Waka'?",
+    "options": [
+      "Shakira",
+      "Karol G",
+      "Rosalía",
+      "Thalía"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_178",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué cantante de pop interpretó 'Like a Virgin' y es conocida como la Reina del Pop?",
+    "options": [
+      "Britney Spears",
+      "Madonna",
+      "Lady Gaga",
+      "Whitney Houston"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_179",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué famoso grupo de pop sueco de los 70 cantaba 'Dancing Queen' y 'Mamma Mia'?",
+    "options": [
+      "Boney M.",
+      "Bee Gees",
+      "ABBA",
+      "A-ha"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_180",
+    "difficulty": "easy",
+    "category": "music",
+    "question": "¿Qué instrumento de viento de metal con boquilla y tres pistones tocan músicos de jazz como Louis Armstrong?",
+    "options": [
+      "La flauta",
+      "El clarinete",
+      "El trombón",
+      "La trompeta"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_181",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Cuántos jugadores por equipo están en el campo al inicio de un partido de fútbol reglamentario?",
+    "options": [
+      "11",
+      "9",
+      "7",
+      "15"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_182",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿En qué deporte los jugadores anotan puntos encestando un balón en una canasta elevada?",
+    "options": [
+      "Voleibol",
+      "Baloncesto",
+      "Balonmano",
+      "Béisbol"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_183",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Cada cuántos años se celebran normalmente los Juegos Olímpicos de Verano?",
+    "options": [
+      "Cada 2 años",
+      "Cada 5 años",
+      "Cada 4 años",
+      "Cada año"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_184",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué futbolista argentino zurdo ganó la Copa del Mundo en Qatar 2022 con el dorsal 10?",
+    "options": [
+      "Diego Maradona",
+      "Ángel Di María",
+      "Sergio Agüero",
+      "Lionel Messi"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_185",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué futbolista portugués es célebre por su grito '¡Siuuu!' y vestir el dorsal 7?",
+    "options": [
+      "Cristiano Ronaldo",
+      "Luis Figo",
+      "Bruno Fernandes",
+      "Pepe"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_186",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿En qué deporte se utiliza una raqueta para golpear una pelota amarilla sobre una red?",
+    "options": [
+      "Golf",
+      "Tenis",
+      "Fútbol",
+      "Boxeo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_187",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué deporte se juega en un cuadrilátero donde los atletas usan guantes acolchados para golpear?",
+    "options": [
+      "Karate",
+      "Judo",
+      "Boxeo",
+      "Taekwondo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_188",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué país ha ganado más Mundiales de Fútbol en la historia (un total de 5)?",
+    "options": [
+      "Alemania",
+      "Italia",
+      "Argentina",
+      "Brasil"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_189",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿En qué deporte los atletas compiten en autos de alta tecnología en pistas como Mónaco o Monza?",
+    "options": [
+      "Fórmula 1",
+      "Rally",
+      "Motocross",
+      "NASCAR"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_190",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Cuántos minutos dura el tiempo reglamentario de un partido de fútbol tradicional?",
+    "options": [
+      "60 minutos",
+      "90 minutos",
+      "80 minutos",
+      "100 minutos"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_191",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué deporte sobre hielo consiste en deslizar un disco de goma con bastones hacia la portería?",
+    "options": [
+      "Curling",
+      "Patinaje",
+      "Hockey sobre hielo",
+      "Bobsleigh"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_192",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿En qué deporte se golpea una pequeña pelota blanca con palos para meterla en hoyos?",
+    "options": [
+      "Críquet",
+      "Rugby",
+      "Béisbol",
+      "Golf"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_193",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué deporte se juega en el agua nadando en piscinas olímpicas de 50 metros?",
+    "options": [
+      "Natación",
+      "Waterpolo",
+      "Remo",
+      "Surf"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_194",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Qué torneo de tenis se juega tradicionalmente sobre césped en Londres?",
+    "options": [
+      "Roland Garros",
+      "Wimbledon",
+      "US Open",
+      "Abierto de Australia"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_195",
+    "difficulty": "easy",
+    "category": "sports",
+    "question": "¿Cuántos aros de diferentes colores componen el símbolo oficial de los Juegos Olímpicos?",
+    "options": [
+      "4 aros",
+      "6 aros",
+      "5 aros",
+      "7 aros"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_196",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Quién fue el famoso líder de la civilización francesa que se convirtió en emperador y conquistó gran parte de Europa?",
+    "options": [
+      "Luis XIV",
+      "Carlomagno",
+      "Julio César",
+      "Napoleón Bonaparte"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_197",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué civilización antigua construyó acueductos, calzadas de piedra y el Coliseo?",
+    "options": [
+      "Los romanos",
+      "Los vikingos",
+      "Los mayas",
+      "Los mongoles"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_198",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿En qué siglo ocurrió la llegada de Cristóbal Colón a América (1492)?",
+    "options": [
+      "Siglo XVIII",
+      "Siglo XV",
+      "Siglo XII",
+      "Siglo XX"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_199",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué emperador y general romano fue asesinado en los Idus de marzo en el Senado?",
+    "options": [
+      "Nerón",
+      "Calígula",
+      "Julio César",
+      "Augusto"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_200",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué civilización antigua rendía culto a faraones y momificaba a sus muertos en tumbas monumentales?",
+    "options": [
+      "Los griegos",
+      "Los persas",
+      "Los celtas",
+      "Los egipcios"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_201",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué gran conflicto bélico mundial finalizó en el año 1945?",
+    "options": [
+      "La Segunda Guerra Mundial",
+      "La Primera Guerra Mundial",
+      "La Guerra Fría",
+      "La Guerra de Secesión"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_202",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Quién pintó la famosísima pintura de la Mona Lisa con su enigmática sonrisa?",
+    "options": [
+      "Pablo Picasso",
+      "Leonardo da Vinci",
+      "Vincent van Gogh",
+      "Miguel Ángel"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_203",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué inventor es famoso por patentar la bombilla incandescente de uso comercial?",
+    "options": [
+      "Nikola Tesla",
+      "Alexander Graham Bell",
+      "Thomas Edison",
+      "Albert Einstein"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_204",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué físico formuló la famosa teoría de la relatividad (E = mc²)?",
+    "options": [
+      "Isaac Newton",
+      "Galileo Galilei",
+      "Stephen Hawking",
+      "Albert Einstein"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_205",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué máquina inventada por los hermanos Wright en 1903 permitió volar por primera vez a motor?",
+    "options": [
+      "El aeroplano / avión",
+      "El helicóptero",
+      "El globo aerostático",
+      "El submarino"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_206",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué muro cayó en Alemania en 1989 marcando el fin de la división de la ciudad?",
+    "options": [
+      "La Muralla de Adriano",
+      "El Muro de Berlín",
+      "El Muro de Constantinopla",
+      "El Muro del Atlántico"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_207",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué monumento de bronce verde fue un regalo de Francia a los Estados Unidos?",
+    "options": [
+      "El Monumento a Washington",
+      "El Monte Rushmore",
+      "La Estatua de la Libertad",
+      "La Campana de la Libertad"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_208",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué barco fue el más grande de su época y chocó contra un iceberg en 1912?",
+    "options": [
+      "El Lusitania",
+      "El Bismarck",
+      "El Santa María",
+      "El Titanic"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_209",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué civilización inventó los Juegos Olímpicos en la antigüedad?",
+    "options": [
+      "Los griegos",
+      "Los egipcios",
+      "Los romanos",
+      "Los persas"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_210",
+    "difficulty": "easy",
+    "category": "history",
+    "question": "¿Qué famoso dramaturgo inglés escribió 'Romeo y Julieta' y 'Hamlet'?",
+    "options": [
+      "Charles Dickens",
+      "William Shakespeare",
+      "Oscar Wilde",
+      "Arthur Conan Doyle"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_211",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué salsa italiana verde tradicional se elabora con albahaca, piñones, ajo, queso y aceite de oliva?",
+    "options": [
+      "Boloñesa",
+      "Carbonara",
+      "Pesto",
+      "Bechamel"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_212",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿De qué país es originario el plato típico de sushi elaborado con arroz avinagrado y pescado?",
+    "options": [
+      "China",
+      "Corea",
+      "Vietnam",
+      "Japón"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_213",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué famoso personaje de cómic vive en Metrópolis y oculta su identidad como el tímido reportero Clark Kent?",
+    "options": [
+      "Superman",
+      "Batman",
+      "Flash",
+      "Aquaman"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_214",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué cereal es el ingrediente base principal para elaborar el pan blanco tradicional?",
+    "options": [
+      "El arroz",
+      "El trigo",
+      "El maíz",
+      "La avena"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_215",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué fruta cítrica de color amarillo es famosa por su característico sabor ácido?",
+    "options": [
+      "La naranja",
+      "El plátano",
+      "El limón",
+      "La manzana"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_216",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿En qué fiesta tradicional de octubre los niños se disfrazan y piden dulces con la frase '¿Truco o trato?'?",
+    "options": [
+      "Navidad",
+      "Pascua",
+      "San Valentín",
+      "Halloween"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_217",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué bebida caliente aromática se prepara por infusión a partir de granos tostados y molidos?",
+    "options": [
+      "Café",
+      "Té",
+      "Chocolate",
+      "Mate"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_218",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué instrumento de cuerda frotada con arco es el más pequeño y agudo de su familia?",
+    "options": [
+      "El violonchelo",
+      "El violín",
+      "El contrabajo",
+      "La viola"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_219",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué dulce frío y cremoso se sirve típicamente en cucuruchos de galleta durante el verano?",
+    "options": [
+      "El pastel",
+      "El flan",
+      "El helado",
+      "El turrón"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_220",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué famoso ratón de Disney viste pantalón rojo y tiene de mascota a un perro llamado Pluto?",
+    "options": [
+      "Jerry",
+      "Speedy Gonzales",
+      "Mighty Mouse",
+      "Mickey Mouse"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_221",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué vegetal de color naranja es conocido popularmente por ser el alimento favorito de los conejos?",
+    "options": [
+      "La zanahoria",
+      "El tomate",
+      "La lechuga",
+      "El pepino"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_222",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué animal marino con forma de estrella puede regenerar sus brazos si los pierde?",
+    "options": [
+      "El cangrejo",
+      "La estrella de mar",
+      "El erizo",
+      "La medusa"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_223",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué juego tradicional de mesa se juega lanzando fichas rectangulares con puntos del 0 al 6?",
+    "options": [
+      "El ajedrez",
+      "Las damas",
+      "El dominó",
+      "El parchís"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_224",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué personaje de cuento infantil viste una capa roja y lleva una cesta de comida a su abuelita?",
+    "options": [
+      "Cenicienta",
+      "Rapunzel",
+      "Blancanieves",
+      "Caperucita Roja"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_225",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Cómo se llama el muñeco de nieve que cobra vida mágicamente en el invierno?",
+    "options": [
+      "Frosty",
+      "Olaf",
+      "Casper",
+      "Jack Frost"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_226",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué vehículo de dos ruedas sin motor avanza gracias al pedaleo de las piernas?",
+    "options": [
+      "La motocicleta",
+      "La bicicleta",
+      "El patinete eléctrico",
+      "El monopatín"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_227",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué dulce esponjoso y azucarado se asa a menudo en fogatas clavado en una varilla?",
+    "options": [
+      "El chocolate",
+      "La galleta",
+      "El malvavisco / Nube",
+      "El caramelo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_228",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué aparato electrodoméstico utilizamos en la cocina para conservar los alimentos fríos?",
+    "options": [
+      "El microondas",
+      "El horno",
+      "La tostadora",
+      "El frigorífico / Nevera"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_229",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué día de la semana sigue inmediatamente al viernes?",
+    "options": [
+      "Sábado",
+      "Domingo",
+      "Jueves",
+      "Lunes"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_230",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Cuántos meses tiene un año completo?",
+    "options": [
+      "10",
+      "12",
+      "14",
+      "24"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_231",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué color resulta de mezclar pintura azul con pintura amarilla?",
+    "options": [
+      "Naranja",
+      "Morado",
+      "Verde",
+      "Marrón"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_232",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué color resulta de mezclar pintura roja con pintura blanca?",
+    "options": [
+      "Naranja",
+      "Gris",
+      "Violeta",
+      "Rosa"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_233",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué animal doméstico proporciona huevos frescos en las granjas?",
+    "options": [
+      "La gallina",
+      "La vaca",
+      "La oveja",
+      "El cerdo"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_234",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué insecto diurno pasa por una fase de capullo y tiene grandes alas con coloridos patrones?",
+    "options": [
+      "La mosca",
+      "La mariposa",
+      "El escarabajo",
+      "La polilla"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_235",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿En qué deporte de invierno los atletas se deslizan por la nieve sobre dos tablas fijadas a las botas?",
+    "options": [
+      "Snowboard",
+      "Patinaje",
+      "Esquí",
+      "Trineo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_236",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué gran felino sin rayas es conocido como el rey de la selva y tiene una abundante melena?",
+    "options": [
+      "El guepardo",
+      "El leopardo",
+      "El lince",
+      "El león"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_237",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué instrumento de viento se toca soplando a través de una boquilla con bisel y tiene varios agujeros?",
+    "options": [
+      "La flauta",
+      "El tambor",
+      "La trompeta",
+      "El violín"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_238",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué película de Disney cuenta la historia de un ciervo joven que crece en el bosque junto a Tambor?",
+    "options": [
+      "Dumbo",
+      "Bambi",
+      "Tarzán",
+      "Hércules"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_239",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué juego de tablero clásico español consiste en llevar 4 fichas de tu color a la meta usando un dado?",
+    "options": [
+      "La oca",
+      "El ajedrez",
+      "El parchís",
+      "Las damas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_240",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Cómo se llama la flor amarilla que gira durante el día orientándose hacia el Sol?",
+    "options": [
+      "La rosa",
+      "El tulipán",
+      "La margarita",
+      "El girasol"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_241",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué fruta roja con pequeñas semillas en el exterior es típica de la primavera?",
+    "options": [
+      "La fresa",
+      "La cereza",
+      "La manzana",
+      "La uva"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_242",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué bebida se obtiene al exprimir naranjas frescas?",
+    "options": [
+      "Limonada",
+      "Zumo de naranja",
+      "Mosto",
+      "Sidra"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_243",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué prenda de vestir llevamos en las manos para protegernos del frío en invierno?",
+    "options": [
+      "Los calcetines",
+      "La bufanda",
+      "Los guantes",
+      "El gorro"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_244",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué instrumento de escritura contiene una mina de grafito que se puede borrar con goma?",
+    "options": [
+      "El bolígrafo",
+      "La pluma",
+      "El rotulador",
+      "El lápiz"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_245",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué moneda se utiliza de forma oficial en el Reino Unido?",
+    "options": [
+      "La libra esterlina",
+      "El euro",
+      "El dólar",
+      "El franco"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_246",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué animal de cuello largo y dos jorobas se adapta perfectamente a la vida en el desierto?",
+    "options": [
+      "El caballo",
+      "El camello",
+      "La cebra",
+      "La llama"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "easy_247",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué estación del año tiene los días más cortos y noches más largas, con nieve y frío?",
+    "options": [
+      "El verano",
+      "El otoño",
+      "El invierno",
+      "La primavera"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "easy_248",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué superhéroe de Marvel combate el crimen con un escudo redondo indestructible con una estrella?",
+    "options": [
+      "Iron Man",
+      "Thor",
+      "Hawkeye",
+      "El Capitán América"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "easy_249",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué personaje de historietas creado por Quino es una niña argentina reflexiva que odia la sopa?",
+    "options": [
+      "Mafalda",
+      "Susanita",
+      "Mónica",
+      "Lulú"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "easy_250",
+    "difficulty": "easy",
+    "category": "culture",
+    "question": "¿Qué tipo de calzado con cuchilla metálica se utiliza para deslizarse sobre pistas de hielo?",
+    "options": [
+      "Botas de esquí",
+      "Patines de hielo",
+      "Zapatillas",
+      "Zuecos"
+    ],
+    "correctIndex": 1
+  }
+]

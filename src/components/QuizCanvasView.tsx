@@ -1,62 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { useGame, MYSTERY_SLOTS_DEFINITIONS, MysterySlotDef } from "../context/GameContext";
+import { useGame } from "../context/GameContext";
 import { useStageDimensions } from "../context/StageContext";
 import { HeaderHUD } from "./HeaderHUD";
-import { SpriteIcon, IconName } from "./SpriteIcon";
+import { SpriteIcon } from "./SpriteIcon";
+import { LifelineActivationModal } from "./LifelineActivationModal";
+import { OFFICIAL_10_LIFELINES, LifelineDef } from "../types/lifeline";
 import { soundService } from "../services/soundService";
-import { Clock, Sparkles, Gift, Shield, Info, X, Lock, HelpCircle } from "lucide-react";
-
-interface ComodinInfo {
-  key: string;
-  name: string;
-  shortName: string;
-  icon: IconName;
-  whatItDoes: string;
-  whenToUse: string;
-}
-
-const OFFICIAL_COMODINES_INFO: ComodinInfo[] = [
-  {
-    key: "fiftyFifty",
-    name: "50 / 50",
-    shortName: "50/50",
-    icon: "fiftyFifty",
-    whatItDoes: "Elimina dos opciones incorrectas de la pantalla. Quedan únicamente dos respuestas posibles para elegir.",
-    whenToUse: "En cualquier pregunta antes de responder, si dudas entre varias opciones.",
-  },
-  {
-    key: "skip",
-    name: "SALTAR PREGUNTA",
-    shortName: "SALTAR",
-    icon: "skip",
-    whatItDoes: "Salta la pregunta actual sin perder vida y continúa con otra pregunta nueva. (No cuenta como acierto para la ruleta).",
-    whenToUse: "Cuando desconozcas por completo el tema y prefieras no arriesgar un corazón.",
-  },
-  {
-    key: "shield",
-    name: "ESCUDO PROTECTOR",
-    shortName: "ESCUDO",
-    icon: "shield",
-    whatItDoes: "Si respondes incorrectamente: la respuesta sigue siendo incorrecta pero NO pierdes vida y puedes volver a responder la MISMA pregunta.",
-    whenToUse: "Actívalo antes de contestar cuando quieras una red de seguridad contra fallos.",
-  },
-  {
-    key: "correctAnswer",
-    name: "RESPUESTA CORRECTA (PISTA)",
-    shortName: "PISTA",
-    icon: "correctAnswer",
-    whatItDoes: "Marca visualmente con resplandor dorado cuál de las 4 opciones es la correcta. El jugador debe pulsarla.",
-    whenToUse: "En preguntas de alta dificultad o cuando te quede solo 1 vida. Se desbloquea en la Ruleta.",
-  },
-  {
-    key: "extraLife",
-    name: "VIDA EXTRA (+1 CORAZÓN)",
-    shortName: "+1 VIDA",
-    icon: "extraLife",
-    whatItDoes: "Añade +1 corazón a tu contador de vidas. Nunca puede superar el límite máximo de 5 corazones.",
-    whenToUse: "En cualquier momento que tengas menos de 5 corazones. Se desbloquea en la Ruleta.",
-  },
-];
+import { Clock, Gift, Shield, Info, Lock, Zap, RefreshCw, Snowflake } from "lucide-react";
 
 export const QuizCanvasView: React.FC = () => {
   const {
@@ -67,17 +17,23 @@ export const QuizCanvasView: React.FC = () => {
     selectedAnswerIndex,
     isAnswerSubmitted,
     isAnswerCorrect,
+    isQuestionTransitioning,
     lifelines,
-    unlockedMysteryIndices,
-    useFiftyFifty,
-    useSkip,
-    useShield,
-    useCorrectAnswerHighlight,
-    useExtraLife,
-    useMysteryBooster,
+    getLifelineCount,
+    activeModalLifeline,
+    openLifelineModal,
+    closeLifelineModal,
+    confirmActivateLifeline,
+    isTimerPaused,
     hiddenOptionIndices,
     highlightedCorrectOption,
     shieldActive,
+    megaShieldCharges,
+    secondChanceActive,
+    doubleScoreActive,
+    timeFreezeSecondsRemaining,
+    setTimeFreezeSecondsRemaining,
+    extraTimeSecondsAdded,
   } = useGame();
 
   const {
@@ -88,11 +44,9 @@ export const QuizCanvasView: React.FC = () => {
     contentQuestionHeight,
     contentAnswersHeight,
     contentGapQuestionAnswers,
-    contentGapAnswersJokers,
     answersSideInset,
     answersGapX,
     answersGapY,
-    jokerAreaHeight,
     jokerCardHeight,
     jokerGap,
     jokerPaddingX,
@@ -102,13 +56,20 @@ export const QuizCanvasView: React.FC = () => {
 
   const [timeLeft, setTimeLeft] = useState<number>(20);
   const [showParticles, setShowParticles] = useState<boolean>(false);
-  const [activeInfoModal, setActiveInfoModal] = useState<ComodinInfo | MysterySlotDef | null>(null);
+  const [activeInfoModal, setActiveInfoModal] = useState<LifelineDef | null>(null);
 
   // Reiniciar temporizador al cambiar la pregunta
   useEffect(() => {
     setTimeLeft(20);
     setShowParticles(false);
   }, [currentQuestion?.id]);
+
+  // Aplicar tiempo extra inmediatamente si se añade
+  useEffect(() => {
+    if (extraTimeSecondsAdded > 0) {
+      setTimeLeft((prev) => Math.min(prev + extraTimeSecondsAdded, 30));
+    }
+  }, [extraTimeSecondsAdded]);
 
   useEffect(() => {
     if (isAnswerSubmitted && isAnswerCorrect) {
@@ -118,26 +79,34 @@ export const QuizCanvasView: React.FC = () => {
     }
   }, [isAnswerSubmitted, isAnswerCorrect]);
 
-  // Watchdog de seguridad (garantiza que nunca se quede congelado)
+  // Watchdog de seguridad
   useEffect(() => {
     if (!isAnswerSubmitted) return;
 
     const watchdog = setTimeout(() => {
-      if (isAnswerSubmitted && !shieldActive) {
+      if (isAnswerSubmitted && !shieldActive && megaShieldCharges === 0 && !secondChanceActive) {
         advanceToNextQuestion();
       }
     }, 2500);
 
     return () => clearTimeout(watchdog);
-  }, [isAnswerSubmitted, shieldActive, advanceToNextQuestion]);
+  }, [isAnswerSubmitted, shieldActive, megaShieldCharges, secondChanceActive, advanceToNextQuestion]);
 
   const isPlayingPhase = phase === "PLAYING" || phase === "BONUS_ROUND";
 
-  // Temporizador rígido
+  // Temporizador principal con soporte de Congelar Tiempo y Pausa Total en Modales
   useEffect(() => {
-    if (!isPlayingPhase || isAnswerSubmitted || !currentQuestion) return;
+    if (!isPlayingPhase || isAnswerSubmitted || !currentQuestion || isTimerPaused || isQuestionTransitioning) {
+      return;
+    }
 
     const timer = setInterval(() => {
+      // Si el tiempo está congelado por el comodín "Congelar Tiempo"
+      if (timeFreezeSecondsRemaining > 0) {
+        setTimeFreezeSecondsRemaining((prev) => Math.max(prev - 1, 0));
+        return;
+      }
+
       setTimeLeft((prev) => {
         if (prev <= 1) {
           clearInterval(timer);
@@ -154,17 +123,25 @@ export const QuizCanvasView: React.FC = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [currentQuestion?.id, isPlayingPhase, isAnswerSubmitted]);
+  }, [
+    currentQuestion?.id,
+    isPlayingPhase,
+    isAnswerSubmitted,
+    isTimerPaused,
+    isQuestionTransitioning,
+    timeFreezeSecondsRemaining,
+    setTimeFreezeSecondsRemaining,
+  ]);
 
-  // Agotamiento del tiempo (pierde 1 vida si no hay escudo)
+  // Agotamiento del tiempo
   useEffect(() => {
-    if (timeLeft === 0 && !isAnswerSubmitted && isPlayingPhase) {
+    if (timeLeft === 0 && !isAnswerSubmitted && isPlayingPhase && !isTimerPaused && !isQuestionTransitioning) {
       soundService.playIncorrectSound();
       handleAnswerSelection(-1);
     }
-  }, [timeLeft, isAnswerSubmitted, isPlayingPhase, handleAnswerSelection]);
+  }, [timeLeft, isAnswerSubmitted, isPlayingPhase, isTimerPaused, isQuestionTransitioning, handleAnswerSelection]);
 
-  const isInteractionDisabled = isAnswerSubmitted || !isPlayingPhase;
+  const isInteractionDisabled = isAnswerSubmitted || !isPlayingPhase || isTimerPaused || isQuestionTransitioning;
 
   const handleSelectOption = (index: number) => {
     if (isInteractionDisabled || hiddenOptionIndices.includes(index)) return;
@@ -174,12 +151,15 @@ export const QuizCanvasView: React.FC = () => {
 
   if (!currentQuestion) return null;
 
-  const isTimeCritical = timeLeft <= 5 && timeLeft > 0 && isPlayingPhase && !isAnswerSubmitted;
+  const isTimeCritical = timeLeft <= 5 && timeLeft > 0 && isPlayingPhase && !isAnswerSubmitted && timeFreezeSecondsRemaining === 0;
 
   let timerBadgeColor = "bg-[#0d2a57] border-2 border-emerald-400 text-emerald-300 shadow-[0_0_15px_rgba(16,185,129,0.45)]";
   let timerBarGradient = "bg-gradient-to-r from-emerald-500 via-green-400 to-emerald-400";
 
-  if (timeLeft <= 10 && timeLeft > 5) {
+  if (timeFreezeSecondsRemaining > 0) {
+    timerBadgeColor = "bg-[#0a2f4d] border-2 border-cyan-400 text-cyan-200 shadow-[0_0_20px_rgba(34,211,238,0.7)] animate-pulse";
+    timerBarGradient = "bg-gradient-to-r from-cyan-400 via-teal-300 to-cyan-400";
+  } else if (timeLeft <= 10 && timeLeft > 5) {
     timerBadgeColor = "bg-[#45280b] border-2 border-amber-400 text-amber-300 shadow-[0_0_15px_rgba(245,158,11,0.5)]";
     timerBarGradient = "bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-400";
   } else if (timeLeft <= 5) {
@@ -187,7 +167,7 @@ export const QuizCanvasView: React.FC = () => {
     timerBarGradient = "bg-gradient-to-r from-red-600 via-rose-500 to-red-500 animate-pulse";
   }
 
-  // Tipografía adaptativa precisa para la tarjeta de pregunta
+  // Tipografía adaptativa precisa
   const getQuestionFontSize = (text: string) => {
     const len = text.trim().length;
     if (len <= 45) return Math.max(Math.round(20 * fontScale), 15);
@@ -196,7 +176,6 @@ export const QuizCanvasView: React.FC = () => {
     return Math.max(Math.round(13.5 * fontScale), 11.5);
   };
 
-  // Tipografía adaptativa precisa para las opciones de respuesta
   const getOptionFontSize = (text: string) => {
     const len = text.trim().length;
     if (len <= 8) return Math.max(Math.round(20 * fontScale), 15);
@@ -207,62 +186,11 @@ export const QuizCanvasView: React.FC = () => {
   };
 
   const qFontSize = getQuestionFontSize(currentQuestion.question);
-  const jokerIconSize = Math.max(Math.round(24 * iconScale), 16);
+  const jokerIconSize = Math.max(Math.round(22 * iconScale), 15);
 
-  // -----------------------------------------------------------------
-  // FILA 1: 5 COMODINES (3 desbloqueados iniciales, 2 bloqueados visibles)
-  // -----------------------------------------------------------------
-  const row1Slots = [
-    {
-      info: OFFICIAL_COMODINES_INFO[0], // 50/50
-      count: lifelines.fiftyFiftyCount,
-      action: useFiftyFifty,
-      isUnlocked: true,
-      isAvailable: lifelines.fiftyFiftyCount > 0 && !isInteractionDisabled,
-    },
-    {
-      info: OFFICIAL_COMODINES_INFO[1], // SALTAR
-      count: lifelines.skipCount,
-      action: useSkip,
-      isUnlocked: true,
-      isAvailable: lifelines.skipCount > 0 && !isInteractionDisabled,
-    },
-    {
-      info: OFFICIAL_COMODINES_INFO[2], // ESCUDO
-      count: lifelines.shieldCount,
-      action: useShield,
-      isUnlocked: true,
-      isAvailable: lifelines.shieldCount > 0 && !isInteractionDisabled && !shieldActive,
-    },
-    {
-      info: OFFICIAL_COMODINES_INFO[3], // PISTA (Bloqueado visible)
-      count: lifelines.correctAnswerCount,
-      action: useCorrectAnswerHighlight,
-      isUnlocked: lifelines.correctAnswerCount > 0,
-      isAvailable: lifelines.correctAnswerCount > 0 && !isInteractionDisabled && highlightedCorrectOption === null,
-    },
-    {
-      info: OFFICIAL_COMODINES_INFO[4], // +1 VIDA (Bloqueado visible)
-      count: lifelines.extraLifeCount,
-      action: useExtraLife,
-      isUnlocked: lifelines.extraLifeCount > 0,
-      isAvailable: lifelines.extraLifeCount > 0 && !isInteractionDisabled,
-    },
-  ];
-
-  // -----------------------------------------------------------------
-  // FILA 2: 5 COMODINES MISTERIOSOS (Bloqueados inicialmente, identidad oculta '?')
-  // -----------------------------------------------------------------
-  const row2Slots = MYSTERY_SLOTS_DEFINITIONS.map((def, idx) => {
-    const isUnlocked = unlockedMysteryIndices.includes(idx);
-    return {
-      def,
-      idx,
-      isUnlocked,
-      action: () => useMysteryBooster(idx),
-      isAvailable: isUnlocked && !isInteractionDisabled,
-    };
-  });
+  // División de los 10 comodines de acción en Fila 1 (0 a 4) y Fila 2 (5 a 9)
+  const row1Lifelines = OFFICIAL_10_LIFELINES.slice(0, 5);
+  const row2Lifelines = OFFICIAL_10_LIFELINES.slice(5, 10);
 
   return (
     <div
@@ -278,70 +206,40 @@ export const QuizCanvasView: React.FC = () => {
 
       {showParticles && (
         <div className="absolute inset-0 pointer-events-none z-40 overflow-hidden flex items-center justify-center bg-emerald-500/15">
-          <div className="relative z-50 flex items-center justify-center gap-2 animate-bounce">
-            <Sparkles size={Math.round(32 * iconScale)} className="text-yellow-300 animate-spin" />
-            <span
-              style={{ fontSize: `${Math.round(28 * fontScale)}px` }}
-              className="font-black text-amber-300 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)] tracking-widest uppercase"
-            >
-              ¡CORRECTO!
-            </span>
-            <Sparkles size={Math.round(32 * iconScale)} className="text-yellow-300 animate-spin" />
-          </div>
+          <div className="w-48 h-48 rounded-full bg-yellow-400/20 filter blur-2xl animate-ping" />
         </div>
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* CARTEL INFORMATIVO DEL COMODÍN                                */}
+      {/* MODAL DE ACTIVACIÓN DEL COMODÍN CON PAUSA DE TIEMPO           */}
       {/* ------------------------------------------------------------- */}
+      {activeModalLifeline && (
+        <LifelineActivationModal
+          lifeline={activeModalLifeline}
+          onConfirm={confirmActivateLifeline}
+          onCancel={closeLifelineModal}
+        />
+      )}
+
+      {/* MODAL INFORMATIVO (ℹ️) */}
       {activeInfoModal && (
-        <div className="absolute inset-0 z-50 bg-slate-950/90 flex items-center justify-center p-4">
-          <div
-            style={{ width: `${Math.min(Math.round(stageWidth * 0.88), 380)}px` }}
-            className="bg-blue-950 border-2 border-amber-400 rounded-3xl p-4 sm:p-5 shadow-2xl relative text-center"
-          >
-            <button
-              onClick={() => setActiveInfoModal(null)}
-              className="absolute top-3 right-3 text-slate-400 hover:text-white p-1 cursor-pointer"
-              aria-label="Cerrar Cartel"
-            >
-              <X size={18} />
-            </button>
-
-            <div
-              style={{ width: `${Math.round(52 * iconScale)}px`, height: `${Math.round(52 * iconScale)}px` }}
-              className="bg-[#132352] border-2 border-amber-400 rounded-2xl flex items-center justify-center mx-auto mb-2.5 shadow-md"
-            >
-              <SpriteIcon name={activeInfoModal.icon} size={Math.round(34 * iconScale)} />
+        <div className="absolute inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/90 backdrop-blur-sm select-none">
+          <div className="w-[340px] max-w-full bg-blue-950 border-2 border-amber-400 rounded-3xl p-5 text-center shadow-2xl relative">
+            <div className="p-2.5 bg-blue-900/90 border border-amber-400/50 rounded-2xl inline-block mx-auto mb-2">
+              <SpriteIcon name={activeInfoModal.icon} size={40} />
             </div>
-
-            <h3
-              style={{ fontSize: `${Math.max(Math.round(18 * fontScale), 14)}px` }}
-              className="font-black text-amber-300 uppercase tracking-wide mb-2.5"
-            >
+            <h3 className="font-black text-amber-300 text-base uppercase mb-2">
               {activeInfoModal.name}
             </h3>
-
-            <div className="space-y-2 text-left bg-blue-900/60 p-3 rounded-2xl border border-blue-700/60 text-xs">
-              <div>
-                <span className="block font-black text-amber-400 uppercase tracking-wider text-[11px] mb-0.5">
-                  📌 ¿Qué hace?
-                </span>
-                <p className="text-slate-200 leading-relaxed text-[11px] sm:text-xs">{activeInfoModal.whatItDoes}</p>
-              </div>
-
-              <div>
-                <span className="block font-black text-amber-400 uppercase tracking-wider text-[11px] mb-0.5">
-                  ⚡ ¿Cuándo se puede utilizar?
-                </span>
-                <p className="text-slate-200 leading-relaxed text-[11px] sm:text-xs">{activeInfoModal.whenToUse}</p>
-              </div>
+            <p className="text-slate-200 text-xs leading-relaxed mb-3">
+              {activeInfoModal.description}
+            </p>
+            <div className="text-[11px] text-amber-200/90 font-bold mb-4 bg-blue-900/40 p-2 rounded-xl">
+              💡 Cuándo usar: {activeInfoModal.whenToUse}
             </div>
-
             <button
               onClick={() => setActiveInfoModal(null)}
-              style={{ fontSize: `${Math.max(Math.round(12 * fontScale), 11)}px` }}
-              className="mt-3 w-full py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black uppercase tracking-wider hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+              className="w-full py-2 rounded-xl bg-gradient-to-r from-amber-500 to-yellow-500 text-slate-950 font-black uppercase text-xs hover:brightness-110 active:scale-95 transition-all cursor-pointer"
             >
               Entendido
             </button>
@@ -350,7 +248,7 @@ export const QuizCanvasView: React.FC = () => {
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* 1. HUD SUPERIOR (Aprox 13% de stageHeight)                   */}
+      {/* 1. HUD SUPERIOR (Vidas, Ronda, Progreso Ruleta, Puntos)       */}
       {/* ------------------------------------------------------------- */}
       <HeaderHUD />
 
@@ -363,13 +261,12 @@ export const QuizCanvasView: React.FC = () => {
           className="w-full shrink-0 bg-gradient-to-r from-amber-500 via-yellow-400 to-amber-500 text-slate-950 font-black tracking-wider uppercase flex items-center justify-center gap-1.5 shadow-md border-b border-amber-600 animate-pulse z-10"
         >
           <Gift size={12} />
-          <span>¡RONDA BONUS DE PREGUNTAS FÁCILES!</span>
-          <Sparkles size={12} />
+          <span>¡RONDA ESPECIAL DE PREGUNTAS FÁCILES!</span>
         </div>
       )}
 
       {/* ------------------------------------------------------------- */}
-      {/* 2. BARRA DE TIEMPO (Aprox 7% de stageHeight)                 */}
+      {/* 2. BARRA DE TIEMPO Y MODIFICADORES ACTIVOS                    */}
       {/* ------------------------------------------------------------- */}
       <div
         style={{ height: `${timerHeight}px` }}
@@ -387,23 +284,44 @@ export const QuizCanvasView: React.FC = () => {
           <span>{timeLeft}s</span>
         </div>
 
-        {/* Barra de progreso */}
+        {/* Barra de progreso y badges de comodines activos */}
         <div className="flex-1 flex flex-col justify-center">
           <div
-            style={{ fontSize: `${Math.max(10 * fontScale, 8)}px` }}
+            style={{ fontSize: `${Math.max(9.5 * fontScale, 8)}px` }}
             className="flex items-center justify-between font-extrabold uppercase text-amber-200 mb-0.5 drop-shadow"
           >
             <span className="flex items-center gap-1">
-              <Clock size={Math.round(12 * iconScale)} className={timeLeft <= 5 ? "text-red-400" : "text-amber-400"} />
+              <Clock size={Math.round(11 * iconScale)} className={timeLeft <= 5 ? "text-red-400" : "text-amber-400"} />
               Tiempo {!isPlayingPhase && "(EN PAUSA)"}
             </span>
-            <div className="flex items-center gap-1.5">
-              {shieldActive && (
-                <span className="text-[9px] text-blue-300 font-bold flex items-center gap-0.5 bg-blue-900/90 px-1.5 py-0.2 rounded-full border border-blue-400 animate-pulse">
-                  <Shield size={10} /> Escudo Activo
+
+            {/* Badges de Modificadores Mecánicos Activos */}
+            <div className="flex items-center gap-1 flex-wrap">
+              {timeFreezeSecondsRemaining > 0 && (
+                <span className="text-[8.5px] text-cyan-200 font-black flex items-center gap-0.5 bg-cyan-950/90 px-1.5 py-0.2 rounded-full border border-cyan-400 animate-pulse">
+                  <Snowflake size={9} /> Congelado {timeFreezeSecondsRemaining}s
                 </span>
               )}
-              <span className="text-slate-300 font-bold tabular-nums font-mono">20s máx</span>
+              {megaShieldCharges > 0 && (
+                <span className="text-[8.5px] text-amber-300 font-black flex items-center gap-0.5 bg-purple-950/90 px-1.5 py-0.2 rounded-full border border-purple-400 animate-pulse">
+                  <Shield size={9} /> Mega Escudo (x{megaShieldCharges})
+                </span>
+              )}
+              {shieldActive && megaShieldCharges === 0 && (
+                <span className="text-[8.5px] text-blue-300 font-black flex items-center gap-0.5 bg-blue-950/90 px-1.5 py-0.2 rounded-full border border-blue-400 animate-pulse">
+                  <Shield size={9} /> Escudo Activo
+                </span>
+              )}
+              {secondChanceActive && (
+                <span className="text-[8.5px] text-emerald-300 font-black flex items-center gap-0.5 bg-emerald-950/90 px-1.5 py-0.2 rounded-full border border-emerald-400 animate-pulse">
+                  <RefreshCw size={9} /> 2da Oportunidad
+                </span>
+              )}
+              {doubleScoreActive && (
+                <span className="text-[8.5px] text-yellow-300 font-black flex items-center gap-0.5 bg-yellow-950/90 px-1.5 py-0.2 rounded-full border border-yellow-400 animate-pulse">
+                  <Zap size={9} /> 2X Puntos
+                </span>
+              )}
             </div>
           </div>
           <div
@@ -419,14 +337,16 @@ export const QuizCanvasView: React.FC = () => {
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* 3. ÁREA CENTRAL: PREGUNTA + GAP + RESPUESTAS (contentHeight)  */}
-      {/* Con separación vertical clara y insets laterales en respuestas*/}
+      {/* 3. ÁREA CENTRAL: PREGUNTA + RESPUESTAS                        */}
+      {/* Con transición visual suave entre preguntas                    */}
       {/* ------------------------------------------------------------- */}
       <div
         style={{ height: `${contentHeight}px` }}
-        className="w-full flex flex-col justify-between shrink-0 z-10"
+        className={`w-full flex flex-col justify-between shrink-0 z-10 transition-opacity duration-200 ${
+          isQuestionTransitioning ? "opacity-30 scale-[0.99]" : "opacity-100 scale-100"
+        }`}
       >
-        {/* TARJETA DE PREGUNTA (COMPACTA Y SIN ESPACIOS VACÍOS INNECESARIOS) */}
+        {/* TARJETA DE PREGUNTA */}
         <div
           style={{
             height: `${contentQuestionHeight}px`,
@@ -451,10 +371,10 @@ export const QuizCanvasView: React.FC = () => {
           </div>
         </div>
 
-        {/* GAP VISUAL CLARO ENTRE PREGUNTA Y RESPUESTAS */}
+        {/* GAP VISUAL */}
         <div style={{ height: `${contentGapQuestionAnswers}px` }} className="shrink-0" />
 
-        {/* CUADRÍCULA DE RESPUESTAS 2x2 (CON INSET LATERAL, GAPS Y PADDING OPTIMIZADO) */}
+        {/* CUADRÍCULA DE RESPUESTAS 2x2 */}
         <div
           style={{
             height: `${contentAnswersHeight}px`,
@@ -526,36 +446,20 @@ export const QuizCanvasView: React.FC = () => {
             );
           })}
         </div>
-
-        {/* GAP VISUAL CLARO ENTRE RESPUESTAS Y COMODINES */}
-        <div style={{ height: `${contentGapAnswersJokers}px` }} className="shrink-0" />
       </div>
 
       {/* ------------------------------------------------------------- */}
-      {/* 4. ZONA DE COMODINES: 10 ESPACIOS EN 5 COLUMNAS × 2 FILAS      */}
-      {/* ANCLADA AL FONDO (Aprox 25% de stageHeight)                  */}
+      {/* 4. BARRA DE LOS 10 COMODINES DE ACCIÓN (2 FILAS x 5 SLOTS)     */}
       {/* ------------------------------------------------------------- */}
       <div
         style={{
-          height: `${jokerAreaHeight}px`,
           paddingLeft: `${jokerPaddingX}px`,
           paddingRight: `${jokerPaddingX}px`,
-          paddingBottom: `${jokerPaddingX}px`,
+          paddingBottom: "4px",
         }}
-        className="w-full shrink-0 bg-gradient-to-t from-[#08122d] via-[#0b183a] to-transparent border-t border-amber-500/30 z-20 flex flex-col justify-between"
+        className="w-full flex flex-col justify-end shrink-0 z-20 select-none gap-1"
       >
-        {/* Encabezado */}
-        <div
-          style={{ height: `${Math.round(stageHeight * 0.026)}px`, fontSize: `${Math.max(10 * fontScale, 8)}px` }}
-          className="flex items-center justify-between px-1 font-black uppercase text-amber-300 tracking-wider shrink-0"
-        >
-          <span>Zona de Comodines (10 Espacios)</span>
-          <span style={{ fontSize: `${Math.max(9 * fontScale, 7)}px` }} className="text-amber-400/80 font-normal">
-            Toca ℹ️ para detalles
-          </span>
-        </div>
-
-        {/* FILA 1: 5 ESPACIOS (3 DESBLOQUEADOS / 2 BLOQUEADOS VISIBLES) */}
+        {/* FILA 1: COMODINES DE ACCIÓN #1 AL #5 */}
         <div
           style={{
             display: "grid",
@@ -565,68 +469,67 @@ export const QuizCanvasView: React.FC = () => {
           }}
           className="w-full shrink-0"
         >
-          {row1Slots.map((c) => {
-            const isUnlocked = c.isUnlocked;
-            const isAvailable = c.isAvailable;
-            const isLocked = !isUnlocked || c.count <= 0;
+          {row1Lifelines.map((l) => {
+            const count = getLifelineCount(l.id);
+            const isUnlocked = count > 0;
+            const isAvailable = isUnlocked && !isInteractionDisabled;
 
-            let cardStyle = "bg-gradient-to-b from-[#1c377d] to-[#132759] border-2 border-amber-400 text-amber-300 shadow-md hover:border-yellow-300 hover:brightness-110 active:scale-95 cursor-pointer";
-            if (isLocked) {
-              cardStyle = "bg-[#091533]/90 border border-slate-700/80 text-slate-400 opacity-60 shadow-inner";
+            let cardStyle = "bg-[#0b1736]/90 border border-slate-700/80 text-slate-400 opacity-60";
+            if (isUnlocked) {
+              cardStyle = "bg-gradient-to-b from-[#18356d] via-[#152e60] to-[#0f2146] border-2 border-amber-400 text-amber-300 shadow-md hover:border-yellow-300 hover:brightness-110 active:scale-95";
             }
 
             return (
               <div
-                key={c.info.key}
+                key={l.id}
                 style={{ height: `${jokerCardHeight}px` }}
                 className={`w-full rounded-xl flex flex-col items-center justify-between p-1 relative overflow-hidden transition-all ${cardStyle}`}
               >
-                {/* Botón Cartel Informativo ℹ️ */}
+                {/* Botón Info */}
                 <button
                   onClick={(e) => {
                     e.stopPropagation();
-                    setActiveInfoModal(c.info);
+                    setActiveInfoModal(l);
                   }}
-                  className="absolute top-0.5 left-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-950/90 border border-amber-400/60 text-amber-300 flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
-                  title={`Información de ${c.info.name}`}
-                  aria-label={`Información de ${c.info.name}`}
+                  className="absolute top-0.5 left-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-950/90 border border-amber-400/80 text-amber-300 flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
+                  title={`Información de ${l.name}`}
                 >
                   <Info size={9} />
                 </button>
 
-                {/* Badge de estado */}
+                {/* Badge de contador / candado */}
                 <div className="absolute top-0.5 right-0.5 z-20">
-                  {isUnlocked && c.count > 0 ? (
+                  {isUnlocked ? (
                     <span
                       style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
                       className="font-mono font-black px-1 py-0.2 rounded-full bg-amber-400 text-slate-950 border border-amber-200 shadow"
                     >
-                      x{c.count}
+                      x{count}
                     </span>
                   ) : (
-                    <span className="flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-800/90 text-amber-300/80 border border-slate-600 shadow" title="Bloqueado (Consíguelo en la Ruleta)">
+                    <span className="flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-900/90 text-slate-500 border border-slate-700 shadow" title="Sin usos disponibles">
                       <Lock size={9} />
                     </span>
                   )}
                 </div>
 
-                {/* Área clickeable */}
+                {/* Botón de activación */}
                 <button
-                  onClick={c.action}
+                  onClick={() => openLifelineModal(l.id)}
                   disabled={!isAvailable}
                   className="w-full flex-1 flex flex-col items-center justify-center mt-1 cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none"
-                  title={c.info.name}
+                  title={l.name}
                 >
                   <SpriteIcon
-                    name={c.info.icon}
+                    name={l.icon}
                     size={jokerIconSize}
-                    className={`relative z-10 ${isLocked ? "grayscale opacity-50" : ""}`}
+                    className={`relative z-10 ${!isUnlocked ? "grayscale opacity-50" : ""}`}
                   />
                   <span
                     style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
-                    className={`font-black uppercase mt-0.5 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full ${isLocked ? "text-slate-400" : "text-amber-200"}`}
+                    className={`font-black uppercase mt-0.5 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full ${!isUnlocked ? "text-slate-400" : "text-amber-200"}`}
                   >
-                    {c.info.shortName}
+                    {l.shortName}
                   </span>
                 </button>
               </div>
@@ -634,7 +537,7 @@ export const QuizCanvasView: React.FC = () => {
           })}
         </div>
 
-        {/* FILA 2: 5 ESPACIOS MISTERIOSOS (IDENTIDAD OCULTA '?') */}
+        {/* FILA 2: COMODINES DE ACCIÓN #6 AL #10 */}
         <div
           style={{
             display: "grid",
@@ -644,87 +547,68 @@ export const QuizCanvasView: React.FC = () => {
           }}
           className="w-full shrink-0"
         >
-          {row2Slots.map((m) => {
-            const isUnlocked = m.isUnlocked;
+          {row2Lifelines.map((l) => {
+            const count = getLifelineCount(l.id);
+            const isUnlocked = count > 0;
+            const isAvailable = isUnlocked && !isInteractionDisabled;
 
-            let cardStyle = "bg-[#060e22]/90 border border-dashed border-amber-500/40 text-amber-300/60 shadow-inner";
+            let cardStyle = "bg-[#0b1736]/90 border border-slate-700/80 text-slate-400 opacity-60";
             if (isUnlocked) {
-              cardStyle = "bg-gradient-to-b from-[#1b3d73] to-[#122852] border-2 border-yellow-300 text-yellow-300 shadow-md hover:brightness-110 active:scale-95 cursor-pointer animate-pulse";
+              cardStyle = "bg-gradient-to-b from-[#18356d] via-[#152e60] to-[#0f2146] border-2 border-amber-400 text-amber-300 shadow-md hover:border-yellow-300 hover:brightness-110 active:scale-95";
             }
 
             return (
               <div
-                key={m.def.id}
+                key={l.id}
                 style={{ height: `${jokerCardHeight}px` }}
                 className={`w-full rounded-xl flex flex-col items-center justify-between p-1 relative overflow-hidden transition-all ${cardStyle}`}
               >
-                {/* Botón Info si desbloqueado */}
-                {isUnlocked ? (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setActiveInfoModal(m.def);
-                    }}
-                    className="absolute top-0.5 left-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-950/90 border border-yellow-400/80 text-yellow-300 flex items-center justify-center hover:bg-yellow-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
-                    title={`Información de ${m.def.name}`}
-                  >
-                    <Info size={9} />
-                  </button>
-                ) : (
-                  <span
-                    style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
-                    className="absolute top-0.5 left-0.5 text-amber-400/40 font-mono font-bold"
-                  >
-                    #{m.idx + 6}
-                  </span>
-                )}
+                {/* Botón Info */}
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveInfoModal(l);
+                  }}
+                  className="absolute top-0.5 left-0.5 w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-blue-950/90 border border-amber-400/80 text-amber-300 flex items-center justify-center hover:bg-amber-400 hover:text-slate-950 transition-all z-20 cursor-pointer"
+                  title={`Información de ${l.name}`}
+                >
+                  <Info size={9} />
+                </button>
 
-                {/* Badge de estado */}
+                {/* Badge de contador / candado */}
                 <div className="absolute top-0.5 right-0.5 z-20">
                   {isUnlocked ? (
                     <span
                       style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
-                      className="font-mono font-black px-1 py-0.2 rounded-full bg-yellow-400 text-slate-950 border border-yellow-200 shadow"
+                      className="font-mono font-black px-1 py-0.2 rounded-full bg-amber-400 text-slate-950 border border-amber-200 shadow"
                     >
-                      x1
+                      x{count}
                     </span>
                   ) : (
-                    <span className="flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-900/90 text-slate-500 border border-slate-700 shadow" title="Comodín Misterioso Bloqueado">
+                    <span className="flex items-center justify-center w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-slate-900/90 text-slate-500 border border-slate-700 shadow" title="Sin usos disponibles">
                       <Lock size={9} />
                     </span>
                   )}
                 </div>
 
-                {/* Contenido / Botón */}
+                {/* Botón de activación */}
                 <button
-                  onClick={m.action}
-                  disabled={!m.isAvailable}
+                  onClick={() => openLifelineModal(l.id)}
+                  disabled={!isAvailable}
                   className="w-full flex-1 flex flex-col items-center justify-center mt-1 cursor-pointer disabled:cursor-not-allowed disabled:pointer-events-none"
-                  title={isUnlocked ? m.def.name : "Comodín Misterioso"}
+                  title={l.name}
                 >
-                  {isUnlocked ? (
-                    <>
-                      <SpriteIcon name={m.def.icon} size={jokerIconSize} className="relative z-10" />
-                      <span
-                        style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
-                        className="font-black uppercase mt-0.5 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full text-yellow-200"
-                      >
-                        {m.def.shortName}
-                      </span>
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex items-center justify-center rounded-lg text-amber-400/70">
-                        <HelpCircle size={jokerIconSize} className="text-amber-400/70 animate-pulse" />
-                      </div>
-                      <span
-                        style={{ fontSize: `${Math.max(7 * fontScale, 6)}px` }}
-                        className="font-black uppercase mt-0.5 tracking-tight text-center leading-none text-slate-400"
-                      >
-                        MISTERIO
-                      </span>
-                    </>
-                  )}
+                  <SpriteIcon
+                    name={l.icon}
+                    size={jokerIconSize}
+                    className={`relative z-10 ${!isUnlocked ? "grayscale opacity-50" : ""}`}
+                  />
+                  <span
+                    style={{ fontSize: `${Math.max(8 * fontScale, 7)}px` }}
+                    className={`font-black uppercase mt-0.5 tracking-tight text-center leading-none relative z-10 drop-shadow truncate w-full ${!isUnlocked ? "text-slate-400" : "text-amber-200"}`}
+                  >
+                    {l.shortName}
+                  </span>
                 </button>
               </div>
             );

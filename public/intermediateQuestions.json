@@ -1,0 +1,3252 @@
+[
+  {
+    "id": "intermediate_001",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el reino dorado celestial gobernado por Odín en la mitología nórdica y Marvel?",
+    "options": [
+      "Asgard",
+      "Midgard",
+      "Jotunheim",
+      "Valhalla"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_002",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama la legendaria espada del Rey Arturo que le otorgó el trono de Inglaterra?",
+    "options": [
+      "Caliburn",
+      "Excalibur",
+      "Gram",
+      "Andúril"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_003",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué famosa nave espacial capitaneaban Han Solo y Chewbacca en 'Star Wars'?",
+    "options": [
+      "El Destructor Estelar",
+      "El Caza TIE",
+      "El Halcón Milenario",
+      "El Enterprise"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_004",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿En qué década se estrenó en cines la primera película de la saga 'Star Wars: Una nueva esperanza'?",
+    "options": [
+      "Años 80 (1983)",
+      "Años 60 (1967)",
+      "Años 90 (1991)",
+      "Años 70 (1977)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_005",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué actor interpretó al androide T-800 en la película 'Terminator' (1984)?",
+    "options": [
+      "Arnold Schwarzenegger",
+      "Sylvester Stallone",
+      "Bruce Willis",
+      "Dolph Lundgren"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_006",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama la nave estelar comandada por el Capitán James T. Kirk en 'Star Trek'?",
+    "options": [
+      "Millennium",
+      "USS Enterprise",
+      "Galactica",
+      "Discovery"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_007",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué consola de videojuegos de 16 bits de Sega rivalizó fuertemente con la Super Nintendo en los 90?",
+    "options": [
+      "Sega Master System",
+      "Sega Saturn",
+      "Sega Mega Drive / Genesis",
+      "Sega Dreamcast"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_008",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el mundo fantástico al que se llega a través de un armario en la saga de C.S. Lewis?",
+    "options": [
+      "Tierra Media",
+      "Oz",
+      "País de Nunca Jamás",
+      "Narnia"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_009",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué criatura mitológica con cuerpo de león y cabeza y alas de águila guarda tesoros?",
+    "options": [
+      "El Grifo",
+      "La Quimera",
+      "La Esfinge",
+      "El Minotauro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_010",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué actor encarnó al científico Marty McFly en la trilogía 'Volver al Futuro'?",
+    "options": [
+      "Christopher Lloyd",
+      "Michael J. Fox",
+      "Tom Hanks",
+      "John Cusack"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_011",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama la inteligencia artificial del traje de Iron Man creada por Tony Stark en el UCM?",
+    "options": [
+      "F.R.I.D.A.Y.",
+      "HAL 9000",
+      "J.A.R.V.I.S.",
+      "Skynet"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_012",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué banda de rock británica publicó en 1973 el legendario álbum 'The Dark Side of the Moon'?",
+    "options": [
+      "Led Zeppelin",
+      "The Who",
+      "Deep Purple",
+      "Pink Floyd"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_013",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué película de 1982 dirigida por Steven Spielberg trata sobre niños que rescatan a un extraterrestre en bicicleta voladora?",
+    "options": [
+      "E.T., el extraterrestre",
+      "Encuentros cercanos",
+      "Los Goonies",
+      "Gremlins"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_014",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama la fortaleza oscura donde reina Sauron en 'El Señor de los Anillos'?",
+    "options": [
+      "Gondor",
+      "Mordor",
+      "Rohan",
+      "Isengard"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_015",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué actriz interpretó a la princesa Leia Organa en la trilogía clásica de Star Wars?",
+    "options": [
+      "Sigourney Weaver",
+      "Natalie Portman",
+      "Carrie Fisher",
+      "Linda Hamilton"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_016",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué consola doméstica de Nintendo lanzada en 1996 introdujo el mando con stick analógico y 64 bits?",
+    "options": [
+      "Super Nintendo",
+      "GameCube",
+      "Virtual Boy",
+      "Nintendo 64"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_017",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué famoso arqueólogo del cine tiene fobia extrema a las serpientes?",
+    "options": [
+      "Indiana Jones",
+      "Rick O'Connell",
+      "Alan Grant",
+      "Benjamin Gates"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_018",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿En qué año ocurrió el legendario concierto benéfico Live Aid en Wembley y Filadelfia?",
+    "options": [
+      "1979",
+      "1985",
+      "1991",
+      "1989"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_019",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué vehículo con sirena y alerón usan los cuatro científicos de 'Los Cazafantasmas' (Ghostbusters)?",
+    "options": [
+      "Batmóvil",
+      "KITT",
+      "Ecto-1",
+      "DeLorean"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_020",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué automóvil parlante con inteligencia artificial conducía Michael Knight en la serie de los 80 'El auto fantástico'?",
+    "options": [
+      "Herbie",
+      "Christine",
+      "Optimus",
+      "K.I.T.T."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_021",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama la ciudad ficticia sumergida en el océano donde transcurre el videojuego 'BioShock'?",
+    "options": [
+      "Rapture",
+      "Columbia",
+      "Atlantis",
+      "Silent Hill"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_022",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué actriz protagonizó la película de ciencia ficción 'Alien, el octavo pasajero' (1979) como la teniente Ripley?",
+    "options": [
+      "Linda Hamilton",
+      "Sigourney Weaver",
+      "Jamie Lee Curtis",
+      "Jodie Foster"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_023",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué héroe de cómic fue creado por Stan Lee y Steve Ditko y trabaja como fotógrafo para el Daily Bugle?",
+    "options": [
+      "Clark Kent",
+      "Matt Murdock",
+      "Peter Parker / Spider-Man",
+      "Barry Allen"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_024",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cuál es el nombre del perro blanco de raza Beagle propiedad de Charlie Brown en los cómics de Peanuts?",
+    "options": [
+      "Pluto",
+      "Milú",
+      "Odie",
+      "Snoopy"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_025",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué famoso grupo de pop británico de chicas de los años 90 incluía a Geri Halliwell y Victoria Beckham?",
+    "options": [
+      "Spice Girls",
+      "Destiny's Child",
+      "TLC",
+      "All Saints"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_026",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama la capital y base de operaciones de los Elfos gobernada por Elrond en la Tierra Media?",
+    "options": [
+      "Lothlórien",
+      "Rivendel",
+      "Minas Tirith",
+      "Bree"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_027",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué dinosaurio carnívoro de brazos pequeños es el icónico antagonista de 'Parque Jurásico' (1993)?",
+    "options": [
+      "Velociraptor",
+      "Spinosaurus",
+      "Tyrannosaurus Rex",
+      "Brachiosaurus"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_028",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué superhéroe ciego de Marvel ejerce como abogado de día en Hell's Kitchen?",
+    "options": [
+      "Iron Fist",
+      "Moon Knight",
+      "Luke Cage",
+      "Daredevil"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_029",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué banda de grunge de Seattle liderada por Kurt Cobain lanzó el exitoso álbum 'Nevermind' en 1991?",
+    "options": [
+      "Nirvana",
+      "Pearl Jam",
+      "Soundgarden",
+      "Alice in Chains"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_030",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿En qué año se lanzó al mercado la consola original PlayStation de Sony en Japón?",
+    "options": [
+      "1990",
+      "1994",
+      "1998",
+      "2001"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_031",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el reino ficticio africano ultra-avanzado tecnológicamente gobernado por Black Panther?",
+    "options": [
+      "Zamunda",
+      "Genosha",
+      "Wakanda",
+      "Latveria"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_032",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué director de cine dirigió obras maestras como 'Tiburón', 'Jurassic Park' y 'La lista de Schindler'?",
+    "options": [
+      "George Lucas",
+      "James Cameron",
+      "Martin Scorsese",
+      "Steven Spielberg"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_033",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué famosa serie de televisión de los 90 seguía las vidas de seis amigos en Nueva York reunidos en el café Central Perk?",
+    "options": [
+      "Friends",
+      "Seinfeld",
+      "Frasier",
+      "How I Met Your Mother"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_034",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué criatura mágica mitológica tiene un solo cuerno recto en la frente?",
+    "options": [
+      "El Pegaso",
+      "El Unicornio",
+      "El Centauro",
+      "El Hipogrifo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_035",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el robot asesino líquido capaz de cambiar de forma en 'Terminator 2: el juicio final'?",
+    "options": [
+      "T-800",
+      "T-X",
+      "T-1000",
+      "Sentinela"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_036",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué espada de luz láser usan los caballeros Jedi y los Sith en Star Wars?",
+    "options": [
+      "Espada de plasma",
+      "Katana láser",
+      "Vara de energía",
+      "Sable de luz (Lightsaber)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_037",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué juego de rol de tablero de 1974 popularizó el uso de dados de 20 caras (D20)?",
+    "options": [
+      "Dungeons & Dragons (D&D)",
+      "Warhammer",
+      "Call of Cthulhu",
+      "Vampiro"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_038",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué superhéroe de Marvel obtiene sus poderes al ser picado por una araña radiactiva?",
+    "options": [
+      "Ant-Man",
+      "Spider-Man",
+      "Wasp",
+      "Scorpion"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_039",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué cineasta dirigió 'Pulp Fiction', 'Reservoir Dogs' y 'Kill Bill'?",
+    "options": [
+      "David Fincher",
+      "Christopher Nolan",
+      "Quentin Tarantino",
+      "Stanley Kubrick"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_040",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el fiel mayordomo robótico que acompaña a R2-D2 en la saga Star Wars?",
+    "options": [
+      "BB-8",
+      "K-2SO",
+      "IG-11",
+      "C-3PO"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_041",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué famoso agente secreto de ficción trabaja para la agencia británica MI6 con licencia para matar?",
+    "options": [
+      "James Bond",
+      "George Smiley",
+      "Johnny English",
+      "Jack Ryan"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_042",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué superhéroe de DC Comics patrulla las calles de Metrópolis y trabaja como reportero en el Daily Planet?",
+    "options": [
+      "Batman",
+      "Superman",
+      "Linterna Verde",
+      "Flecha Verde"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_043",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué personaje de anime es un guerrero saiyajin criado en la Tierra en busca de las Esferas del Dragón?",
+    "options": [
+      "Vegeta",
+      "Piccolo",
+      "Goku",
+      "Gohan"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_044",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el barco pirata maldito capitaneado por Hector Barbossa en 'Piratas del Caribe'?",
+    "options": [
+      "El Holandés Errante",
+      "El Venganza de la Reina Ana",
+      "El Interceptor",
+      "La Perla Negra"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_045",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué célebre juego de cartas intercambiables creado por Richard Garfield en 1993 fue el primero de su tipo?",
+    "options": [
+      "Magic: The Gathering",
+      "Yu-Gi-Oh!",
+      "Pokémon TCG",
+      "Hearthstone"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_046",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el pequeño dragón verde que ayuda a Mulan en la película de Disney?",
+    "options": [
+      "Cri-Kee",
+      "Mushu",
+      "Khan",
+      "Shan Yu"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_047",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué banda de hard rock australiana compuso himnos como 'Highway to Hell' y 'Back in Black'?",
+    "options": [
+      "Guns N' Roses",
+      "Aerosmith",
+      "AC/DC",
+      "Kiss"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_048",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Cómo se llama el castillo escuela donde estudian los magos en el universo de Harry Potter?",
+    "options": [
+      "Beauxbatons",
+      "Durmstrang",
+      "Ilvermorny",
+      "Hogwarts"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_049",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué actor protagonizó la saga de acción 'Duro de Matar' (Die Hard) como el policía John McClane?",
+    "options": [
+      "Bruce Willis",
+      "Mel Gibson",
+      "Kurt Russell",
+      "Nicolas Cage"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_050",
+    "difficulty": "intermediate",
+    "category": "pop_culture",
+    "question": "¿Qué monstruo mitológico con cola de serpiente convertía en piedra a quien la mirara fijamente a los ojos?",
+    "options": [
+      "Minotauro",
+      "Medusa (Gorgona)",
+      "Sirena",
+      "Arpía"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_051",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de Australia (a menudo confundida con Sídney)?",
+    "options": [
+      "Sídney",
+      "Melbourne",
+      "Canberra",
+      "Brisbane"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_052",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué río es considerado el más caudaloso y largo del mundo?",
+    "options": [
+      "El Nilo",
+      "El Yangtsé",
+      "El Misisipi",
+      "El Amazonas"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_053",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de Canadá?",
+    "options": [
+      "Ottawa",
+      "Toronto",
+      "Montreal",
+      "Vancouver"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_054",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué estrecho de agua natural separa el continente europeo del africano?",
+    "options": [
+      "El Estrecho de Bósforo",
+      "El Estrecho de Gibraltar",
+      "El Estrecho de Magallanes",
+      "El Estrecho de Bering"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_055",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa ciudad de Ámsterdam, con sus característicos canales?",
+    "options": [
+      "Bélgica",
+      "Dinamarca",
+      "Países Bajos",
+      "Suecia"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_056",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la montaña más alta del continente americano, situada en la cordillera de los Andes?",
+    "options": [
+      "El Huascarán",
+      "El Chimborazo",
+      "El Monte McKinley",
+      "El Aconcagua"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_057",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué océano se encuentra la isla de Madagascar?",
+    "options": [
+      "Océano Índico",
+      "Océano Atlántico",
+      "Océano Pacífico",
+      "Océano Antártico"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_058",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Suiza, sede del parlamento federal?",
+    "options": [
+      "Zúrich",
+      "Berna",
+      "Ginebra",
+      "Basilea"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_059",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué país escandinavo es famoso por sus espectaculares fiordos y su capital Oslo?",
+    "options": [
+      "Finlandia",
+      "Dinamarca",
+      "Noruega",
+      "Islandia"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_060",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es el lago navegable más alto del mundo, compartido por Perú y Bolivia?",
+    "options": [
+      "El lago Maracaibo",
+      "El lago Tanganica",
+      "El lago Baikal",
+      "El lago Titicaca"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_061",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de Brasil?",
+    "options": [
+      "Brasilia",
+      "Río de Janeiro",
+      "São Paulo",
+      "Salvador de Bahía"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_062",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué mar cerrado se encuentra la mayor concentración de sal donde las personas flotan sin esfuerzo?",
+    "options": [
+      "El Mar Caspio",
+      "El Mar Muerto",
+      "El Mar Negro",
+      "El Mar Rojo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_063",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Turquía?",
+    "options": [
+      "Estambul",
+      "Esmirna",
+      "Ankara",
+      "Antalya"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_064",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué cordillera montañosa separa de forma natural a España de Francia?",
+    "options": [
+      "Los Alpes",
+      "Los Cárpatos",
+      "Los Apeninos",
+      "Los Pirineos"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_065",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Nueva Zelanda?",
+    "options": [
+      "Wellington",
+      "Auckland",
+      "Christchurch",
+      "Queenstown"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_066",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué país de África tiene como capital El Cairo?",
+    "options": [
+      "Marruecos",
+      "Egipto",
+      "Sudáfrica",
+      "Kenia"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_067",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué continente se encuentra el desierto de Atacama, el más árido del planeta?",
+    "options": [
+      "África",
+      "Asia",
+      "América del Sur (Chile)",
+      "Oceanía"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_068",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de los Países Bajos según su constitución?",
+    "options": [
+      "La Haya",
+      "Róterdam",
+      "Utrecht",
+      "Ámsterdam"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_069",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué océano baña las costas orientales de África y las costas occidentales de Australia?",
+    "options": [
+      "El océano Índico",
+      "El océano Pacífico",
+      "El océano Atlántico",
+      "El océano Glacial"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_070",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la histórica ciudadela de Petra tallada en roca rosada?",
+    "options": [
+      "Egipto",
+      "Jordania",
+      "Líbano",
+      "Israel"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_071",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Grecia, cuna de la democracia?",
+    "options": [
+      "Esparta",
+      "Tesalónica",
+      "Atenas",
+      "Corinto"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_072",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué río cruza la ciudad de París pasando junto a la catedral de Notre Dame y la Torre Eiffel?",
+    "options": [
+      "El río Támesis",
+      "El río Rin",
+      "El río Danubio",
+      "El río Sena"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_073",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es el país más pequeño del mundo tanto en superficie como en población?",
+    "options": [
+      "La Ciudad del Vaticano",
+      "Mónaco",
+      "San Marino",
+      "Liechtenstein"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_074",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de Irlanda?",
+    "options": [
+      "Belfast",
+      "Dublín",
+      "Cork",
+      "Galway"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_075",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué cordillera europea se encuentra el célebre pico Mont Blanc?",
+    "options": [
+      "Los Pirineos",
+      "Los Urales",
+      "Los Alpes",
+      "Los Apeninos"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_076",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Suecia?",
+    "options": [
+      "Oslo",
+      "Helsinki",
+      "Copenhague",
+      "Estocolmo"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_077",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué canal artificial inaugurado en 1869 conecta el mar Mediterráneo con el mar Rojo?",
+    "options": [
+      "El Canal de Suez",
+      "El Canal de Panamá",
+      "El Canal de Corinto",
+      "El Canal de Kiel"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_078",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Austria, famosa por su tradición en música clásica?",
+    "options": [
+      "Salzburgo",
+      "Viena",
+      "Innsbruck",
+      "Graz"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_079",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué país de Centroamérica no tiene ejército militar desde 1948?",
+    "options": [
+      "Panamá",
+      "Guatemala",
+      "Costa Rica",
+      "Honduras"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_080",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Escocia?",
+    "options": [
+      "Glasgow",
+      "Aberdeen",
+      "Dundee",
+      "Edimburgo"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_081",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país asiático se encuentra la isla de Bali?",
+    "options": [
+      "Indonesia",
+      "Filipinas",
+      "Malasia",
+      "Tailandia"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_082",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Bélgica y sede principal de la Unión Europea?",
+    "options": [
+      "Brujas",
+      "Bruselas",
+      "Amberes",
+      "Gante"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_083",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué volcán italiano sepultó las ciudades de Pompeya y Herculano en el año 79 d.C.?",
+    "options": [
+      "El Etna",
+      "El Estrómboli",
+      "El Vesubio",
+      "El Teide"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_084",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Corea del Sur?",
+    "options": [
+      "Busan",
+      "Incheon",
+      "Pionyang",
+      "Seúl"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_085",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué gran río cruza Londres desembocando en el mar del Norte?",
+    "options": [
+      "El río Támesis",
+      "El río Sena",
+      "El río Rin",
+      "El río Severn"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_086",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Noruega?",
+    "options": [
+      "Bergen",
+      "Oslo",
+      "Trondheim",
+      "Stavanger"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_087",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué continente se encuentra el monte Kilimanjaro?",
+    "options": [
+      "Asia",
+      "América",
+      "África (Tanzania)",
+      "Oceanía"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_088",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Dinamarca?",
+    "options": [
+      "Aarhus",
+      "Odense",
+      "Aalborg",
+      "Copenhague"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_089",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué río histórico pasa por Roma, la capital italiana?",
+    "options": [
+      "El río Tíber",
+      "El río Po",
+      "El río Arno",
+      "El río Adigio"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_090",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Finlandia?",
+    "options": [
+      "Espoo",
+      "Helsinki",
+      "Tampere",
+      "Turku"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_091",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa bahía de Sídney y su teatro de la ópera?",
+    "options": [
+      "Nueva Zelanda",
+      "Sudáfrica",
+      "Australia",
+      "Canadá"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_092",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Polonia?",
+    "options": [
+      "Cracovia",
+      "Gdansk",
+      "Breslavia",
+      "Varsovia"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_093",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué país sudamericano limita con todos los demás países de Sudamérica excepto Chile y Ecuador?",
+    "options": [
+      "Brasil",
+      "Argentina",
+      "Colombia",
+      "Perú"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_094",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Marruecos?",
+    "options": [
+      "Casablanca",
+      "Rabat",
+      "Marrakech",
+      "Fez"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_095",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país se encuentra el legendario lago Ness famoso por su mito del monstruo?",
+    "options": [
+      "Irlanda",
+      "Gales",
+      "Escocia (Reino Unido)",
+      "Inglaterra"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_096",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Hungría, dividida por el río Danubio?",
+    "options": [
+      "Praga",
+      "Bratislava",
+      "Bucarest",
+      "Budapest"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_097",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué mar baña las costas del este de España y el sur de Francia?",
+    "options": [
+      "El mar Mediterráneo",
+      "El mar Cantábrico",
+      "El mar del Norte",
+      "El mar Báltico"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_098",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de la República Checa?",
+    "options": [
+      "Brno",
+      "Praga",
+      "Ostrava",
+      "Pilsen"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_099",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué cordillera montañosa sirve de frontera tradicional entre Europa y Asia?",
+    "options": [
+      "Los Alpes",
+      "El Cáucaso",
+      "Los Montes Urales",
+      "Los Cárpatos"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_100",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Sudáfrica en el ámbito administrativo?",
+    "options": [
+      "Ciudad del Cabo",
+      "Johannesburgo",
+      "Durban",
+      "Pretoria"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_101",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el primer presidente de los Estados Unidos de América?",
+    "options": [
+      "George Washington",
+      "Thomas Jefferson",
+      "Abraham Lincoln",
+      "Benjamin Franklin"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_102",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año llegó el ser humano a la Luna por primera vez con la misión Apolo 11?",
+    "options": [
+      "1965",
+      "1969",
+      "1972",
+      "1959"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_103",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué emperador romano legalizó el cristianismo mediante el Edicto de Milán en el 313 d.C.?",
+    "options": [
+      "Nerón",
+      "Julio César",
+      "Constantino el Grande",
+      "Marco Aurelio"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_104",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué civilización precolombina habitaba la península de Yucatán y creó un famoso calendario astronómico?",
+    "options": [
+      "Los Aztecas",
+      "Los Incas",
+      "Los Olmecas",
+      "Los Mayas"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_105",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién escribió la célebre novela 'Cien años de soledad', obra cumbre del realismo mágico?",
+    "options": [
+      "Gabriel García Márquez",
+      "Mario Vargas Llosa",
+      "Jorge Luis Borges",
+      "Julio Cortázar"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_106",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué físico británico formuló las tres leyes fundamentales del movimiento y la ley de gravitación universal?",
+    "options": [
+      "Albert Einstein",
+      "Isaac Newton",
+      "Galileo Galilei",
+      "Michael Faraday"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_107",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué ciudad japonesa se lanzó la primera bomba atómica en agosto de 1945?",
+    "options": [
+      "Nagasaki",
+      "Tokio",
+      "Hiroshima",
+      "Osaka"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_108",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el famoso filósofo griego maestro de Platón que fue condenado a beber cicuta?",
+    "options": [
+      "Aristóteles",
+      "Pitágoras",
+      "Epicuro",
+      "Sócrates"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_109",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué barco comandado por Fernando de Magallanes y Juan Sebastián Elcano completó la primera circunnavegación de la Tierra?",
+    "options": [
+      "La nao Victoria",
+      "La Santa María",
+      "La Pinta",
+      "La Niña"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_110",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué país europeo se inició la Revolución Industrial a mediados del siglo XVIII?",
+    "options": [
+      "Francia",
+      "Gran Bretaña / Reino Unido",
+      "Alemania",
+      "España"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_111",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué famosa reina gobernó Egipto durante la dinastía ptolemaica y fue aliada de Julio César y Marco Antonio?",
+    "options": [
+      "Nefertiti",
+      "Hatshepsut",
+      "Cleopatra VII",
+      "Nefertari"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_112",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año cayó el Imperio Romano de Occidente marcando el inicio de la Edad Media?",
+    "options": [
+      "395 d.C.",
+      "1453 d.C.",
+      "312 d.C.",
+      "476 d.C."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_113",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién inventó la imprenta de tipos móviles en Europa hacia el año 1440?",
+    "options": [
+      "Johannes Gutenberg",
+      "Leonardo da Vinci",
+      "Galileo Galilei",
+      "Erasmo de Róterdam"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_114",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué líder sudafricano luchó pacíficamente contra el apartheid y fue presidente tras 27 años en prisión?",
+    "options": [
+      "Desmond Tutu",
+      "Nelson Mandela",
+      "Kofi Annan",
+      "Steve Biko"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_115",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué célebre científico polaco-francés ganó dos premios Nobel en diferentes disciplinas científicas (Física y Química)?",
+    "options": [
+      "Louis Pasteur",
+      "Rosalind Franklin",
+      "Marie Curie",
+      "Max Planck"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_116",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién lideró la expedición española que conquistó el Imperio Azteca en México en 1521?",
+    "options": [
+      "Francisco Pizarro",
+      "Pedro de Valdivia",
+      "Vasco Núñez de Balboa",
+      "Hernán Cortés"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_117",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año se firmó la Declaración de Independencia de los Estados Unidos?",
+    "options": [
+      "1776",
+      "1789",
+      "1810",
+      "1765"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_118",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién pintó la famosa bóveda de la Capilla Sixtina en el Vaticano?",
+    "options": [
+      "Rafael Sanzio",
+      "Miguel Ángel (Michelangelo)",
+      "Donatello",
+      "Leonardo da Vinci"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_119",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué civilización andina construyó una extensa red de caminos conocida como Qhapaq Ñan?",
+    "options": [
+      "Los Mayas",
+      "Los Chibchas",
+      "Los Incas",
+      "Los Nazcas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_120",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué país comenzó el movimiento artístico y cultural del Renacimiento en el siglo XIV?",
+    "options": [
+      "Francia",
+      "Inglaterra",
+      "Alemania",
+      "Italia"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_121",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué emperador francés fue derrotado definitivamente en la batalla de Waterloo en 1815?",
+    "options": [
+      "Napoleón Bonaparte",
+      "Luis XVI",
+      "Carlos X",
+      "Luis Felipe"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_122",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el líder militar cartaginés que cruzó los Alpes con elefantes de guerra para atacar Roma?",
+    "options": [
+      "Amílcar",
+      "Aníbal Barca",
+      "Asdrúbal",
+      "Escipión"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_123",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué siglo se produjo la Revolución Francesa con la toma de la Bastilla en 1789?",
+    "options": [
+      "Siglo XVII",
+      "Siglo XIX",
+      "Siglo XVIII",
+      "Siglo XVI"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_124",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué médico escocés descubrió la penicilina en 1928 revolucionando la medicina?",
+    "options": [
+      "Edward Jenner",
+      "Louis Pasteur",
+      "Robert Koch",
+      "Alexander Fleming"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_125",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué navegante portugués lideró la primera expedición europea que llegó a la India por mar en 1498?",
+    "options": [
+      "Vasco da Gama",
+      "Bartolomé Díaz",
+      "Pedro Álvares Cabral",
+      "Magallanes"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_126",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué célebre científico y astrónomo italiano perfeccionó el telescopio y apoyó el modelo heliocéntrico?",
+    "options": [
+      "Nicolás Copérnico",
+      "Galileo Galilei",
+      "Johannes Kepler",
+      "Tycho Brahe"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_127",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué tratado internacional de 1919 puso fin formal a la Primera Guerra Mundial?",
+    "options": [
+      "El Tratado de Tordesillas",
+      "El Tratado de Utrecht",
+      "El Tratado de Versalles",
+      "La Paz de Westfalia"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_128",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién escribió la obra cumbre de la literatura en español, 'Don Quijote de la Mancha'?",
+    "options": [
+      "Lope de Vega",
+      "Francisco de Quevedo",
+      "Federico García Lorca",
+      "Miguel de Cervantes"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_129",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué científico formuló la teoría de la evolución de las especies por selección natural?",
+    "options": [
+      "Charles Darwin",
+      "Gregor Mendel",
+      "Jean-Baptiste Lamarck",
+      "Alfred Wallace"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_130",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el célebre rey de Macedonia que conquistó el Imperio Persa y llegó hasta la India?",
+    "options": [
+      "Filipo II",
+      "Alejandro Magno",
+      "Pericles",
+      "Leónidas"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_131",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año se fundó la Organización de las Naciones Unidas (ONU) tras la Segunda Guerra Mundial?",
+    "options": [
+      "1919",
+      "1950",
+      "1945",
+      "1939"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_132",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué civilización antigua inventó la escritura cuneiforme en Mesopotamia?",
+    "options": [
+      "Los Asirios",
+      "Los Babilonios",
+      "Los Fenicios",
+      "Los Sumerios"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_133",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué emperador romano mandó construir el famoso muro de piedra en el norte de Britania para contener a los pictos?",
+    "options": [
+      "Adriano",
+      "Trajano",
+      "Marco Aurelio",
+      "Tito"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_134",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue la científica británica cuyas imágenes por difracción de rayos X fueron clave para descubrir la estructura del ADN?",
+    "options": [
+      "Ada Lovelace",
+      "Rosalind Franklin",
+      "Jane Goodall",
+      "Dorothy Hodgkin"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_135",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año comenzó la Primera Guerra Mundial tras el atentado de Sarajevo?",
+    "options": [
+      "1918",
+      "1912",
+      "1914",
+      "1939"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_136",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué famoso pintor impresionista neerlandés pintó 'La noche estrellada'?",
+    "options": [
+      "Claude Monet",
+      "Rembrandt",
+      "Johannes Vermeer",
+      "Vincent van Gogh"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_137",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué reina británica tuvo el reinado más largo del siglo XIX dando nombre a toda una época?",
+    "options": [
+      "La Reina Victoria",
+      "La Reina Isabel I",
+      "La Reina Ana",
+      "La Reina María"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_138",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué filósofo griego fue el maestro particular de Alejandro Magno en su juventud?",
+    "options": [
+      "Platón",
+      "Aristóteles",
+      "Sócrates",
+      "Heráclito"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_139",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué civilización mesoamericana fundó la gran ciudad lacustre de Tenochtitlan?",
+    "options": [
+      "Los Toltecas",
+      "Los Zapotecas",
+      "Los Aztecas (Mexicas)",
+      "Los Totonacas"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_140",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año ocurrió el trágico desastre nuclear en la central de Chernóbil en Ucrania?",
+    "options": [
+      "1979",
+      "1991",
+      "1982",
+      "1986"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_141",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué famosa biblioteca de la antigüedad fue el centro del saber en el Egipto ptolemaico?",
+    "options": [
+      "La Biblioteca de Alejandría",
+      "La Biblioteca de Pérgamo",
+      "La Biblioteca de Éfeso",
+      "La Biblioteca de Nínive"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_142",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién descubrió que la Tierra y los planetas giran alrededor del Sol (heliocentrismo) en el siglo XVI?",
+    "options": [
+      "Galileo Galilei",
+      "Nicolás Copérnico",
+      "Johannes Kepler",
+      "Ptolomeo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_143",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué matemático y físico griego gritó '¡Eureka!' al descubrir el principio de flotabilidad en la bañera?",
+    "options": [
+      "Euclides",
+      "Pitágoras",
+      "Arquímedes",
+      "Tales de Mileto"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_144",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el líder soviético que gobernó la URSS durante la Segunda Guerra Mundial?",
+    "options": [
+      "Vladimir Lenin",
+      "Nikita Jrushchov",
+      "Leonid Brézhnev",
+      "Iósif Stalin"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_145",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué famoso explorador veneciano viajó por la Ruta de la Seda y sirvió en la corte de Kublai Kan?",
+    "options": [
+      "Marco Polo",
+      "Américo Vespucio",
+      "Cristóbal Colón",
+      "Ibn Battuta"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_146",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año se produjo la caída del Muro de Berlín?",
+    "options": [
+      "1991",
+      "1989",
+      "1985",
+      "1975"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_147",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué orden militar y religiosa de caballeros medievales tenía su sede original en el Monte del Templo de Jerusalén?",
+    "options": [
+      "Los Hospitalarios",
+      "Los Teutónicos",
+      "Los Caballeros Templarios",
+      "Los Caballeros de Santiago"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_148",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el compositor austriaco prodigio que compuso obras como 'La flauta mágica' y 'Réquiem'?",
+    "options": [
+      "Ludwig van Beethoven",
+      "Johann Sebastian Bach",
+      "Franz Schubert",
+      "Wolfgang Amadeus Mozart"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_149",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué inventor serbio-estadounidense patentó el sistema de corriente alterna (AC) y la bobina de alta frecuencia?",
+    "options": [
+      "Nikola Tesla",
+      "Thomas Edison",
+      "Guglielmo Marconi",
+      "Alexander Graham Bell"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_150",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué presidente estadounidense abolió la esclavitud y lideró al país durante la Guerra de Secesión?",
+    "options": [
+      "Ulysses S. Grant",
+      "Abraham Lincoln",
+      "Andrew Jackson",
+      "Theodore Roosevelt"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_151",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el elemento químico más abundante en el universo?",
+    "options": [
+      "Helio",
+      "Oxígeno",
+      "Hidrógeno",
+      "Carbono"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_152",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué símbolo químico representa al elemento Oro en la tabla periódica?",
+    "options": [
+      "Ag",
+      "Fe",
+      "Cu",
+      "Au"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_153",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es la luna más grande del planeta Saturno, que cuenta con una densa atmósfera?",
+    "options": [
+      "Titán",
+      "Encélado",
+      "Mimas",
+      "Europa"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_154",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de enlace químico se forma cuando dos átomos comparten uno o más pares de electrones?",
+    "options": [
+      "Enlace iónico",
+      "Enlace covalente",
+      "Enlace metálico",
+      "Puente de hidrógeno"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_155",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es la velocidad aproximada de la luz en el vacío?",
+    "options": [
+      "150.000 km/s",
+      "1.000.000 km/s",
+      "300.000 km/s",
+      "30.000 km/s"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_156",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué gas compone aproximadamente el 78% del volumen de la atmósfera terrestre?",
+    "options": [
+      "Oxígeno",
+      "Argón",
+      "Dióxido de carbono",
+      "Nitrógeno"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_157",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué órgano del cuerpo humano produce la hormona insulina para regular el azúcar en sangre?",
+    "options": [
+      "El páncreas",
+      "El hígado",
+      "La tiroides",
+      "El bazo"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_158",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el hueso más largo y resistente del cuerpo humano, ubicado en el muslo?",
+    "options": [
+      "La tibia",
+      "El fémur",
+      "El húmero",
+      "El peroné"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_159",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cómo se llama la galaxia en forma de espiral en la que se encuentra nuestro sistema solar?",
+    "options": [
+      "Andrómeda",
+      "El Sombrero",
+      "La Vía Láctea",
+      "Triángulo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_160",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué partícula subatómica tiene carga eléctrica negativa y orbita alrededor del núcleo del átomo?",
+    "options": [
+      "El protón",
+      "El neutrón",
+      "El positrón",
+      "El electrón"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_161",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de lente óptica es más gruesa en el centro que en los bordes y hace converger los rayos de luz?",
+    "options": [
+      "Lente convergente (convexa)",
+      "Lente divergente (cóncava)",
+      "Lente plana",
+      "Lente prismática"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_162",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué unidad del Sistema Internacional mide la frecuencia de las ondas electromagnéticas o sonoras?",
+    "options": [
+      "Decibelio (dB)",
+      "Hertzio (Hz)",
+      "Vatio (W)",
+      "Julio (J)"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_163",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el mineral natural más duro conocido según la escala de Mohs (dureza 10)?",
+    "options": [
+      "El corindón",
+      "El cuarzo",
+      "El diamante",
+      "El topacio"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_164",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué órgano de la célula es conocido como la 'central energética' porque genera la mayor parte de ATP?",
+    "options": [
+      "El ribosoma",
+      "El aparato de Golgi",
+      "El lisosoma",
+      "La mitocondria"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_165",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué elemento químico de la tabla periódica tiene el símbolo 'Fe'?",
+    "options": [
+      "Hierro",
+      "Fósforo",
+      "Flúor",
+      "Francio"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_166",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el planeta del sistema solar que posee los anillos más visibles y extensos?",
+    "options": [
+      "Júpiter",
+      "Saturno",
+      "Urano",
+      "Neptuno"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_167",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cómo se llama el proceso biológico por el cual una oruga se transforma en mariposa?",
+    "options": [
+      "Ecdisis",
+      "Mitosis",
+      "Metamorfosis",
+      "Polinización"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_168",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué capa de la atmósfera terrestre absorbe la mayor parte de la radiación ultravioleta dañina del Sol?",
+    "options": [
+      "La ionosfera",
+      "La troposfera",
+      "La mesosfera",
+      "La capa de ozono"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_169",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué pigmento verde presente en las plantas es responsable de absorber la luz para la fotosíntesis?",
+    "options": [
+      "Clorofila",
+      "Caroteno",
+      "Antocianina",
+      "Xantofila"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_170",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de sangre humana es conocida como el donante universal para glóbulos rojos?",
+    "options": [
+      "AB positivo (AB+)",
+      "O negativo (O-)",
+      "A positivo (A+)",
+      "B negativo (B-)"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_171",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué escala sismológica de magnitud mide la energía liberada por los terremotos?",
+    "options": [
+      "Escala de Beaufort",
+      "Escala de Fujita",
+      "Escala de Richter",
+      "Escala de Mohs"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_172",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el reptil vivo más grande del mundo en peso y longitud?",
+    "options": [
+      "El dragón de Komodo",
+      "La anaconda verde",
+      "La tortuga laúd",
+      "El cocodrilo marino"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_173",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué metal es líquido a temperatura ambiente estándar?",
+    "options": [
+      "El mercurio",
+      "El plomo",
+      "El estaño",
+      "El galio"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_174",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el mamífero volador por excelencia capaz de usar ecolocalización?",
+    "options": [
+      "La ardilla voladora",
+      "El murciélago",
+      "El colibrí",
+      "El lémur volador"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_175",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué parte de la flor masculina produce los granos de polen?",
+    "options": [
+      "El pistilo",
+      "El sépalo",
+      "Las anteras (estambre)",
+      "El estigma"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_176",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué planeta del sistema solar gira sobre su eje de costado (inclinación axial de casi 98°)?",
+    "options": [
+      "Neptuno",
+      "Saturno",
+      "Mercurio",
+      "Urano"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_177",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué símbolo químico representa a la Plata en la tabla periódica?",
+    "options": [
+      "Ag",
+      "Au",
+      "Pt",
+      "Pb"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_178",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué órgano humano tiene la capacidad única de regenerar parte de su tejido tras una pérdida parcial?",
+    "options": [
+      "El corazón",
+      "El hígado",
+      "El riñón",
+      "El pulmón"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_179",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de roca se forma por el enfriamiento y solidificación del magma volcánico?",
+    "options": [
+      "Roca sedimentaria",
+      "Roca metamórfica",
+      "Roca ígnea (magmática)",
+      "Roca calcárea"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_180",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué elemento químico tiene el número atómico 6 y es la base de toda la química orgánica viva?",
+    "options": [
+      "El oxígeno",
+      "El nitrógeno",
+      "El silicio",
+      "El carbono"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_181",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el ave más grande del mundo en la actualidad?",
+    "options": [
+      "El avestruz",
+      "El cóndor andino",
+      "El albatros viajero",
+      "El emú"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_182",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué parte del ojo humano regula la cantidad de luz que entra contrayéndose o dilatándose?",
+    "options": [
+      "La córnea",
+      "La pupila / iris",
+      "La retina",
+      "El cristalino"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_183",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué instrumento astronómico lanzado en 1990 orbita la Tierra enviando imágenes profundas del cosmos?",
+    "options": [
+      "El telescopio Kepler",
+      "El radiotelescopio Arecibo",
+      "El telescopio Hubble",
+      "El rover Curiosity"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_184",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué glándula endocrina en forma de mariposa en el cuello regula el metabolismo general del cuerpo?",
+    "options": [
+      "La hipófisis",
+      "Las suprarrenales",
+      "El timo",
+      "La tiroides"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_185",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué animal marino invertebrado gigante posee los ojos más grandes del reino animal?",
+    "options": [
+      "El calamar gigante",
+      "La ballena azul",
+      "El tiburón blanco",
+      "La manta raya"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_186",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cómo se llama el movimiento de las placas de la corteza terrestre que origina sismos y montañas?",
+    "options": [
+      "Deriva eólica",
+      "Tectónica de placas",
+      "Subducción magnética",
+      "Isostasia"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_187",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué científico descubrió las leyes de la herencia genética experimentando con plantas de guisantes?",
+    "options": [
+      "Charles Darwin",
+      "Thomas Morgan",
+      "Gregor Mendel",
+      "Louis Pasteur"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_188",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de radiación electromagnética tiene longitudes de onda justo más cortas que la luz violeta visible?",
+    "options": [
+      "Rayos infrarrojos",
+      "Microondas",
+      "Ondas de radio",
+      "Radiación ultravioleta (UV)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_189",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué gas de efecto invernadero es liberado en gran medida por la quema de combustibles fósiles?",
+    "options": [
+      "Dióxido de carbono (CO₂)",
+      "Helio",
+      "Argón",
+      "Oxígeno"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_190",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué planeta del sistema solar es el más cercano al Sol y no tiene atmósfera sustancial?",
+    "options": [
+      "Venus",
+      "Mercurio",
+      "Marte",
+      "La Tierra"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_191",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es la principal proteína que compone el cabello, las uñas y las plumas en los animales?",
+    "options": [
+      "Colágeno",
+      "Miosina",
+      "Queratina",
+      "Actina"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_192",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de carga eléctrica poseen los neutrones dentro del núcleo de un átomo?",
+    "options": [
+      "Carga positiva",
+      "Carga negativa",
+      "Carga variable",
+      "Carga neutra (cero)"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_193",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el árbol más alto del mundo, capaz de superar los 115 metros de altura en California?",
+    "options": [
+      "La secuoya roja (Hyperion)",
+      "El eucalipto gigante",
+      "El roble milenario",
+      "El baobab"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_194",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cómo se llama el proceso de división celular que da lugar a dos células hijas genéticamente idénticas?",
+    "options": [
+      "Meiosis",
+      "Mitosis",
+      "Bipartición",
+      "Fecundación"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_195",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué vitamina es sintetizada por la piel humana al exponerse a la luz solar?",
+    "options": [
+      "Vitamina C",
+      "Vitamina B12",
+      "Vitamina D",
+      "Vitamina A"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_196",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es la partícula subatómica responsable de la corriente eléctrica en los cables conductores?",
+    "options": [
+      "El protón",
+      "El neutrón",
+      "El fotón",
+      "El electrón"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_197",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué felino americano es el tercer felino más grande del mundo tras el tigre y el león?",
+    "options": [
+      "El jaguar",
+      "El puma",
+      "El ocelote",
+      "El guepardo"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_198",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de ondas transmiten el sonido a través del aire?",
+    "options": [
+      "Ondas electromagnéticas",
+      "Ondas mecánicas longitudinales",
+      "Ondas de luz",
+      "Ondas gravitatorias"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_199",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué órgano del oído interno con forma de caracol es el receptor principal de las ondas sonoras?",
+    "options": [
+      "El tímpano",
+      "El martillo",
+      "La cóclea",
+      "El estribo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_200",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué satélite de Júpiter cubierto de una corteza de hielo podría albergar un océano subterráneo líquido?",
+    "options": [
+      "Ío",
+      "Calisto",
+      "Ganimedes",
+      "Europa"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_201",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué actor protagonizó la película de comedia y aventuras 'La Máscara' (1994) y 'Ace Ventura'?",
+    "options": [
+      "Jim Carrey",
+      "Robin Williams",
+      "Adam Sandler",
+      "Ben Stiller"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_202",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama la espada mágica de luz que empuña Lion-O en la serie animada 'ThunderCats'?",
+    "options": [
+      "La Espada de Grayskull",
+      "La Espada del Augurio",
+      "La Espada de Omens",
+      "La Espada del Poder"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_203",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué famoso personaje de los 80 gritaba '¡Por el poder de Grayskull!' para transformarse?",
+    "options": [
+      "Skeletor",
+      "She-Ra",
+      "He-Man",
+      "Conan"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_204",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué actor protagonizó la saga de ciencia ficción 'Mad Max' en sus películas originales de 1979 a 1985?",
+    "options": [
+      "Tom Hardy",
+      "Harrison Ford",
+      "Kurt Russell",
+      "Mel Gibson"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_205",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama la pequeña ciudad de Indiana donde transcurre la serie 'Stranger Things'?",
+    "options": [
+      "Hawkins",
+      "Riverdale",
+      "Springfield",
+      "Twin Peaks"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_206",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué actor encarnó al agente Fox Mulder en la mítica serie de misterio y extraterrestres 'The X-Files'?",
+    "options": [
+      "Gillian Anderson",
+      "David Duchovny",
+      "Mitch Pileggi",
+      "Robert Patrick"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_207",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué icónico villano con máscara de hockey y machete aterroriza el campamento Crystal Lake en 'Viernes 13'?",
+    "options": [
+      "Freddy Krueger",
+      "Michael Myers",
+      "Jason Voorhees",
+      "Leatherface"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_208",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué villano del cine de terror ataca a los adolescentes en sus pesadillas usando un guante con cuchillas?",
+    "options": [
+      "Jason Voorhees",
+      "Chucky",
+      "Pinhead",
+      "Freddy Krueger"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_209",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama el pueblo ficticio donde transcurre la serie animada de 'Los Simpson'?",
+    "options": [
+      "Springfield",
+      "Quahog",
+      "South Park",
+      "Shelbyville"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_210",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué director de cine británico dirigió obras maestras del suspense como 'Psicosis', 'Vértigo' y 'Los pájaros'?",
+    "options": [
+      "Stanley Kubrick",
+      "Alfred Hitchcock",
+      "Ridley Scott",
+      "Christopher Nolan"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_211",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿En qué año se estrenó la película original 'Matrix' de las hermanas Wachowski?",
+    "options": [
+      "1995",
+      "2003",
+      "1999",
+      "1997"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_212",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama el parque temático futurista poblado por androides en la célebre película de 1973 y serie de HBO?",
+    "options": [
+      "Futureland",
+      "Delos",
+      "Cyberpark",
+      "Westworld"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_213",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué grupo de rock británico liderado por Robert Plant y Jimmy Page compuso 'Stairway to Heaven'?",
+    "options": [
+      "Led Zeppelin",
+      "Deep Purple",
+      "Black Sabbath",
+      "The Rolling Stones"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_214",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama el compañero de aventuras de Tintín, un perro fox terrier blanco?",
+    "options": [
+      "Snoopy",
+      "Milú",
+      "Idéfix",
+      "Pluto"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_215",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué banda de rock alternativo lanzó el álbum 'OK Computer' en 1997 con temas como 'Paranoid Android'?",
+    "options": [
+      "Oasis",
+      "Blur",
+      "Radiohead",
+      "Muse"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_216",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué famoso personaje de cómic belga vive en una aldea gala que resiste a los romanos gracias a una poción mágica?",
+    "options": [
+      "Tintín",
+      "Lucky Luke",
+      "Spirou",
+      "Astérix"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_217",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama el mejor amigo de Astérix que transporta menhires y tiene una fuerza sobrehumana permanente?",
+    "options": [
+      "Obélix",
+      "Panorámix",
+      "Idéfix",
+      "Asurancetúrix"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_218",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué actor interpretó al androide de datos Data en la serie 'Star Trek: La nueva generación'?",
+    "options": [
+      "Patrick Stewart",
+      "Brent Spiner",
+      "Jonathan Frakes",
+      "LeVar Burton"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_219",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Cómo se llama la nave de transporte espacial que explota al inicio de la película 'Alien'?",
+    "options": [
+      "Sulaco",
+      "Prometheus",
+      "Nostromo",
+      "Covenant"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_220",
+    "difficulty": "intermediate",
+    "category": "retro_culture",
+    "question": "¿Qué videojuego de rol de Square Enix lanzado en 1997 para PlayStation protagonizó Cloud Strife contra Sephiroth?",
+    "options": [
+      "Dragon Quest VII",
+      "Chrono Cross",
+      "Xenogears",
+      "Final Fantasy VII"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_221",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital oficial de Portugal?",
+    "options": [
+      "Lisboa",
+      "Oporto",
+      "Coímbra",
+      "Braga"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_222",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa región vinícola de Burdeos?",
+    "options": [
+      "Italia",
+      "Francia",
+      "España",
+      "Portugal"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_223",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la cascada o catarata ininterrumpida más alta del mundo, ubicada en Venezuela?",
+    "options": [
+      "Las Cataratas del Niágara",
+      "Las Cataratas de Iguazú",
+      "El Salto Ángel",
+      "Las Cataratas Victoria"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_224",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué estrecho separa la isla de Gran Bretaña de la costa de Francia?",
+    "options": [
+      "El Estrecho de Gibraltar",
+      "El Estrecho de Mesina",
+      "El Estrecho de Skagerrak",
+      "El Paso de Calais / Canal de la Mancha"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_225",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es el mar interior más grande del mundo por superficie?",
+    "options": [
+      "El Mar Caspio",
+      "El Mar Negro",
+      "El Mar Mediterráneo",
+      "El Mar Báltico"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_226",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Austria?",
+    "options": [
+      "Graz",
+      "Viena",
+      "Linz",
+      "Salzburgo"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_227",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué río histórico pasa por la ciudad alemana de Colonia y desemboca en los Países Bajos?",
+    "options": [
+      "El río Elba",
+      "El río Danubio",
+      "El río Rin",
+      "El río Óder"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_228",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿En qué país se encuentra la famosa cordillera de los Dolomitas?",
+    "options": [
+      "Suiza",
+      "Austria",
+      "Francia",
+      "Italia"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_229",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Cuál es la capital de Croacia?",
+    "options": [
+      "Zagreb",
+      "Split",
+      "Dubrovnik",
+      "Rijeka"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_230",
+    "difficulty": "intermediate",
+    "category": "geography",
+    "question": "¿Qué volcán activo es el más alto de Europa, situado en la isla de Sicilia?",
+    "options": [
+      "El Vesubio",
+      "El Etna",
+      "El Teide",
+      "El Hekla"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_231",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue el líder soviético que impulsó las reformas de la 'Perestroika' y el 'Glásnost' en los años 80?",
+    "options": [
+      "Leonid Brézhnev",
+      "Nikita Jrushchov",
+      "Mijaíl Gorbachov",
+      "Boris Yeltsin"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_232",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año se produjo el desembarco de Normandía (Día D) por parte de las fuerzas aliadas?",
+    "options": [
+      "1942",
+      "1945",
+      "1943",
+      "1944"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_233",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién fue la primera mujer en viajar al espacio exterior a bordo de la nave Vostok 6 en 1963?",
+    "options": [
+      "Valentina Tereshkova",
+      "Sally Ride",
+      "Svetlana Savítskaya",
+      "Yuri Gagarin"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_234",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año se firmó el Tratado de Tordesillas entre las coronas de Castilla y Portugal para repartirse el Nuevo Mundo?",
+    "options": [
+      "1492",
+      "1494",
+      "1500",
+      "1512"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_235",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué emperador romano ordenó la construcción del Coliseo de Roma inaugurado en el año 80 d.C.?",
+    "options": [
+      "Nerón",
+      "Trajano",
+      "Vespasiano / Tito",
+      "Augusto"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_236",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Quién escribió la célebre novela de ciencia ficción 'Fahrenheit 451' sobre un futuro donde los libros están prohibidos?",
+    "options": [
+      "George Orwell",
+      "Aldous Huxley",
+      "Isaac Asimov",
+      "Ray Bradbury"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_237",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué faraón egipcio gobernó durante más de 66 años y construyó los templos monumentales de Abu Simbel?",
+    "options": [
+      "Ramsés II",
+      "Tutankamón",
+      "Akenatón",
+      "Keops"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_238",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿En qué año tuvo lugar la Revolución Rusa que derrocó al zar Nicolás II y llevó a los bolcheviques al poder?",
+    "options": [
+      "1905",
+      "1917",
+      "1922",
+      "1914"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_239",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué célebre pintor barroco español pintó la obra maestra 'Las Meninas' en 1656?",
+    "options": [
+      "Francisco de Goya",
+      "El Greco",
+      "Diego Velázquez",
+      "Bartolomé Esteban Murillo"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_240",
+    "difficulty": "intermediate",
+    "category": "history",
+    "question": "¿Qué matemático y astrónomo alemán descubrió que las órbitas de los planetas son elípticas y no circulares?",
+    "options": [
+      "Nicolás Copérnico",
+      "Tycho Brahe",
+      "Galileo Galilei",
+      "Johannes Kepler"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_241",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué elemento químico de la tabla periódica tiene el símbolo 'Na'?",
+    "options": [
+      "Sodio",
+      "Nitrógeno",
+      "Níquel",
+      "Neón"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_242",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es la capa más externa y delgada de la estructura geológica de la Tierra?",
+    "options": [
+      "El manto",
+      "La corteza",
+      "El núcleo externo",
+      "La litosfera profunda"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_243",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de enlace molecular une a los dos átomos de hidrógeno con el oxígeno en una molécula de agua (H₂O)?",
+    "options": [
+      "Enlace iónico",
+      "Enlace metálico",
+      "Enlace covalente",
+      "Fuerza de Van der Waals"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_244",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué órgano del sistema digestivo humano almacena la bilis producida por el hígado?",
+    "options": [
+      "El bazo",
+      "El páncreas",
+      "El apéndice",
+      "La vesícula biliar"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_245",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cuál es el metal más ligero y menos denso de la tabla periódica, muy usado en baterías recargables?",
+    "options": [
+      "El litio",
+      "El aluminio",
+      "El sodio",
+      "El magnesio"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_246",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué tipo de astro estelar ultra-denso se forma tras el colapso gravitatorio de una estrella masiva del que ni la luz puede escapar?",
+    "options": [
+      "Una enana blanca",
+      "Un agujero negro",
+      "Una estrella de neutrones",
+      "Un púlsar"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "intermediate_247",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué científico británico descubrió el electrón en 1897 mediante experimentos con tubos de rayos catódicos?",
+    "options": [
+      "Ernest Rutherford",
+      "Niels Bohr",
+      "J.J. Thomson",
+      "James Chadwick"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "intermediate_248",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Cómo se llama el proceso físico por el cual un líquido pasa directamente a gas sin necesidad de hervir?",
+    "options": [
+      "Condensación",
+      "Sublimación",
+      "Fusión",
+      "Evaporación"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "intermediate_249",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué parte de la neurona se encarga de transmitir el impulso nervioso eléctrico hacia otras células?",
+    "options": [
+      "El axón",
+      "La dendrita",
+      "El soma",
+      "La sinapsis"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "intermediate_250",
+    "difficulty": "intermediate",
+    "category": "science",
+    "question": "¿Qué planeta del sistema solar posee la montaña y volcán más alto conocido, el Monte Olimpo?",
+    "options": [
+      "Venus",
+      "Marte",
+      "Mercurio",
+      "La Tierra"
+    ],
+    "correctIndex": 1
+  }
+]

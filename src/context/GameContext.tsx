@@ -1,10 +1,17 @@
 import React, { createContext, useContext, useState, useEffect, useRef } from "react";
 import { GameConfig, defaultConfig } from "../config/gameConfig";
 import { Question } from "../types/question";
-import { loadQuestionsBank, loadStarterQuestionsBank, shuffleQuestionOptions } from "../services/questionsService";
+import {
+  loadQuestionsBank,
+  loadStarterQuestionsBank,
+  loadEasyQuestionsBank,
+  loadIntermediateQuestionsBank,
+  shuffleQuestionOptions,
+} from "../services/questionsService";
 import { saveGameScore } from "../services/rankingService";
 import { soundService } from "../services/soundService";
-import { IconName } from "../components/SpriteIcon";
+import { LifelineId, LifelineDef, OFFICIAL_10_LIFELINES } from "../types/lifeline";
+import { WheelPrizeDef, OFFICIAL_WHEEL_PRIZES } from "../types/wheelReward";
 
 export type GamePhase =
   | "MENU"
@@ -19,83 +26,27 @@ export type GamePhase =
   | "ADMIN"
   | "ASSET_MANAGER";
 
-export type RoundDifficulty = "starter" | "easy" | "medium" | "hard" | "expert";
+export type RoundDifficulty = "starter" | "easy" | "intermediate" | "medium" | "hard" | "expert";
 
 /**
  * Define la dificultad de cada ronda según la progresión oficial:
- * Rondas 1, 2, 3: Starter (banco starterQuestions.json de cultura pop y reconocimiento inmediato)
- * Rondas 4, 5: Easy (banco normal)
- * Rondas 6, 7: Medium (banco normal)
- * Rondas 8, 9: Hard (banco normal)
- * Rondas 10+: Expert (banco normal)
+ * Rondas 1 a 5: STARTER (starterQuestions.json - ultra accesible)
+ * Rondas 6 a 10: EASY (easyQuestions.json - accesible para adultos, cultura pop y general)
+ * Rondas 11 a 15: INTERMEDIATE (intermediateQuestions.json - puente equilibrado antes del banco principal)
+ * Rondas 16 a 20: MEDIUM (questions.json - banco principal)
+ * Rondas 21 a 25: HARD (questions.json - banco principal)
+ * Rondas 26+: EXPERT (questions.json - banco principal)
  */
 export function getDifficultyForRound(roundNumber: number): RoundDifficulty {
-  if (roundNumber <= 3) return "starter";
-  if (roundNumber <= 5) return "easy";
-  if (roundNumber <= 7) return "medium";
-  if (roundNumber <= 9) return "hard";
+  if (roundNumber <= 5) return "starter";
+  if (roundNumber <= 10) return "easy";
+  if (roundNumber <= 15) return "intermediate";
+  if (roundNumber <= 20) return "medium";
+  if (roundNumber <= 25) return "hard";
   return "expert";
 }
 
-export interface LifelinesState {
-  fiftyFiftyCount: number;
-  skipCount: number;
-  shieldCount: number;
-  correctAnswerCount: number;
-  extraLifeCount: number;
-}
-
-export interface MysterySlotDef {
-  id: string;
-  name: string;
-  shortName: string;
-  icon: IconName;
-  whatItDoes: string;
-  whenToUse: string;
-}
-
-export const MYSTERY_SLOTS_DEFINITIONS: MysterySlotDef[] = [
-  {
-    id: "mystery_double",
-    name: "DOBLE PUNTUACIÓN",
-    shortName: "2X PUNTOS",
-    icon: "coins",
-    whatItDoes: "Duplica los puntos obtenidos al responder correctamente la pregunta activa.",
-    whenToUse: "En cualquier pregunta que conozcas con certeza la respuesta.",
-  },
-  {
-    id: "mystery_freeze",
-    name: "CONGELAR TIEMPO",
-    shortName: "PAUSA 20S",
-    icon: "hourglass",
-    whatItDoes: "Pausa el temporizador durante 20 segundos para pensar con calma la respuesta.",
-    whenToUse: "Cuando el tiempo esté en rojo (últimos 5 segundos).",
-  },
-  {
-    id: "mystery_clue",
-    name: "PISTA FOCALIZADA",
-    shortName: "PISTA",
-    icon: "target",
-    whatItDoes: "Resalta con aura dorada la respuesta correcta de la pregunta.",
-    whenToUse: "En preguntas de dificultad alta o experta.",
-  },
-  {
-    id: "mystery_shield",
-    name: "MEGA ESCUDO",
-    shortName: "ESCUDO",
-    icon: "shield",
-    whatItDoes: "Te protege contra 1 fallo sin perder corazón y te permite reintentar la misma pregunta.",
-    whenToUse: "Antes de responder cuando tengas dudas sobre la opción correcta.",
-  },
-  {
-    id: "mystery_crown",
-    name: "CORONA TRIUNFAL",
-    shortName: "+1000 PTS",
-    icon: "crown",
-    whatItDoes: "Bonificación suprema de +1.000 puntos directos para tu récord.",
-    whenToUse: "Úsalo para asegurar tu récord personal en el ranking.",
-  },
-];
+export type LifelinesState = Record<LifelineId, number>;
 
 export interface GameContextType {
   // Config
@@ -116,25 +67,43 @@ export interface GameContextType {
   lives: number;
   score: number;
   questionsAnsweredCount: number;
-  currentRound: number; // Ronda actual (inicia en 1)
-  currentRoundDifficulty: RoundDifficulty; // Dificultad de la ronda actual
-  correctAnswersForRouletteCount: number; // Cuenta exactamente: 1 -> 2 -> 3 -> Ruleta (Fin de Ronda)
+  currentRound: number;
+  currentRoundDifficulty: RoundDifficulty;
+  correctAnswersForRouletteCount: number;
 
-  // Pregunta actual
+  // Pregunta actual y transiciones
   currentQuestion: Question | null;
   hiddenOptionIndices: number[];
   highlightedCorrectOption: number | null;
-  shieldActive: boolean;
   selectedAnswerIndex: number | null;
   isAnswerSubmitted: boolean;
   isAnswerCorrect: boolean | null;
+  isQuestionTransitioning: boolean;
 
-  // 5 comodines oficiales + comodines misteriosos
+  // Modales y Pausa de Tiempo
+  activeModalLifeline: LifelineDef | null;
+  openLifelineModal: (lifelineId: LifelineId) => void;
+  closeLifelineModal: () => void;
+  confirmActivateLifeline: () => boolean;
+  isTimerPaused: boolean;
+  setTimerPaused: (paused: boolean) => void;
+
+  // Estados mecánicos de comodines activos en la pregunta
+  shieldActive: boolean;
+  megaShieldCharges: number;
+  secondChanceActive: boolean;
+  doubleScoreActive: boolean;
+  timeFreezeSecondsRemaining: number;
+  setTimeFreezeSecondsRemaining: React.Dispatch<React.SetStateAction<number>>;
+  extraTimeSecondsAdded: number;
+
+  // Los 10 Comodines de Acción
   lifelines: LifelinesState;
-  unlockedMysteryIndices: number[];
-  useMysteryBooster: (index: number) => boolean;
+  getLifelineCount: (id: LifelineId) => number;
+  activateLifelineDirectly: (id: LifelineId) => boolean;
 
-  // Flujo de Ruleta y Ronda Bonus
+  // Flujo de Ruleta y Premios
+  currentWheelPrize: WheelPrizeDef | null;
   roulettePrizeMessage: string | null;
   bonusQuestionsRemaining: number;
 
@@ -147,15 +116,8 @@ export interface GameContextType {
   resumeGame: () => void;
   quitGameToMenu: () => void;
 
-  // Uso de los 5 comodines oficiales
-  useFiftyFifty: () => boolean;
-  useSkip: () => boolean;
-  useShield: () => boolean;
-  useCorrectAnswerHighlight: () => boolean;
-  useExtraLife: () => boolean;
-
   // Ruleta
-  spinRoulette: () => { prizeType: string; label: string };
+  spinRoulette: () => WheelPrizeDef;
   claimRoulettePrizeAndContinue: () => void;
 
   // Carga
@@ -177,65 +139,84 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [score, setScore] = useState<number>(0);
   const [questionsAnsweredCount, setQuestionsAnsweredCount] = useState<number>(0);
   const [currentRound, setCurrentRound] = useState<number>(1);
-
-  // Ruleta: Cuenta exactamente 3 preguntas correctas para el cierre de ronda
   const [correctAnswersForRouletteCount, setCorrectAnswersForRouletteCount] = useState<number>(0);
 
   // Bancos de preguntas en memoria
+  const [starterQuestions, setStarterQuestions] = useState<Question[]>([]);
+  const [easyQuestions, setEasyQuestions] = useState<Question[]>([]);
+  const [intermediateQuestions, setIntermediateQuestions] = useState<Question[]>([]);
   const [normalQuestions, setNormalQuestions] = useState<Question[]>([]);
   const [bonusQuestions, setBonusQuestions] = useState<Question[]>([]);
-  const [starterQuestions, setStarterQuestions] = useState<Question[]>([]);
 
   // Pools de preguntas disponibles por dificultad para la partida
   const [unusedStarterPool, setUnusedStarterPool] = useState<Question[]>([]);
   const [unusedEasyPool, setUnusedEasyPool] = useState<Question[]>([]);
+  const [unusedIntermediatePool, setUnusedIntermediatePool] = useState<Question[]>([]);
   const [unusedMediumPool, setUnusedMediumPool] = useState<Question[]>([]);
   const [unusedHardPool, setUnusedHardPool] = useState<Question[]>([]);
   const [unusedExpertPool, setUnusedExpertPool] = useState<Question[]>([]);
 
   const [currentQuestion, setCurrentQuestion] = useState<Question | null>(null);
   const [isLoadingQuestions, setIsLoadingQuestions] = useState<boolean>(true);
+  const [isQuestionTransitioning, setIsQuestionTransitioning] = useState<boolean>(false);
 
-  // Estados de comodines y respuestas
+  // Estados de opciones y respuestas
   const [hiddenOptionIndices, setHiddenOptionIndices] = useState<number[]>([]);
   const [highlightedCorrectOption, setHighlightedCorrectOption] = useState<number | null>(null);
-  const [shieldActive, setShieldActive] = useState<boolean>(false);
-
   const [selectedAnswerIndex, setSelectedAnswerIndex] = useState<number | null>(null);
   const [isAnswerSubmitted, setIsAnswerSubmitted] = useState<boolean>(false);
   const [isAnswerCorrect, setIsAnswerCorrect] = useState<boolean | null>(null);
 
+  // Estados mecánicos de comodines en la pregunta activa
+  const [shieldActive, setShieldActive] = useState<boolean>(false);
+  const [megaShieldCharges, setMegaShieldCharges] = useState<number>(0);
+  const [secondChanceActive, setSecondChanceActive] = useState<boolean>(false);
+  const [doubleScoreActive, setDoubleScoreActive] = useState<boolean>(false);
+  const [timeFreezeSecondsRemaining, setTimeFreezeSecondsRemaining] = useState<number>(0);
+  const [extraTimeSecondsAdded, setExtraTimeSecondsAdded] = useState<number>(0);
+
+  // Modal de activación de comodines y control de pausa del temporizador
+  const [activeModalLifeline, setActiveModalLifeline] = useState<LifelineDef | null>(null);
+  const [isTimerPaused, setTimerPaused] = useState<boolean>(false);
+
   // Guard de transición contra congelamiento
   const transitionTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // ÚNICOS 5 COMODINES OFICIALES
+  // LOS 10 COMODINES DE ACCIÓN (INVENTARIO EN BARRA)
   const [lifelines, setLifelines] = useState<LifelinesState>({
-    fiftyFiftyCount: 1,
-    skipCount: 1,
-    shieldCount: 1,
-    correctAnswerCount: 0,
-    extraLifeCount: 0,
+    fiftyFifty: 1,
+    skip: 1,
+    shield: 1,
+    correctAnswer: 0,
+    freezeTime: 0,
+    megaShield: 0,
+    secondChance: 0,
+    extraTime: 0,
+    doubleScore: 0,
+    revealOption: 0,
   });
 
-  // ÍNDICES DE COMODINES MISTERIOSOS DESBLOQUEADOS (Fila 2: 0 a 4)
-  const [unlockedMysteryIndices, setUnlockedMysteryIndices] = useState<number[]>([]);
-
   // Estado de Ruleta y Bonus
+  const [currentWheelPrize, setCurrentWheelPrize] = useState<WheelPrizeDef | null>(null);
   const [roulettePrizeMessage, setRoulettePrizeMessage] = useState<string | null>(null);
   const [currentPrizeEffect, setCurrentPrizeEffect] = useState<(() => void) | null>(null);
   const [bonusQuestionsRemaining, setBonusQuestionsRemaining] = useState<number>(0);
 
-  // Carga inicial de los bancos de preguntas (Principal y Starter)
+  // Carga inicial de los 4 bancos de preguntas en el orden exacto de progresión
   useEffect(() => {
     async function init() {
       setIsLoadingQuestions(true);
-      const [bank, starterBank] = await Promise.all([
-        loadQuestionsBank(),
+      const [starterBank, easyBank, intermediateBank, mainBank] = await Promise.all([
         loadStarterQuestionsBank(),
+        loadEasyQuestionsBank(),
+        loadIntermediateQuestionsBank(),
+        loadQuestionsBank(),
       ]);
-      setNormalQuestions(bank.normalQuestions);
-      setBonusQuestions(bank.bonusQuestions);
       setStarterQuestions(starterBank);
+      setEasyQuestions(easyBank);
+      setIntermediateQuestions(intermediateBank);
+      setNormalQuestions(mainBank.normalQuestions);
+      setBonusQuestions(mainBank.bonusQuestions);
       setIsLoadingQuestions(false);
     }
     init();
@@ -270,6 +251,10 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   const currentRoundDifficulty = getDifficultyForRound(currentRound);
 
+  const getLifelineCount = (id: LifelineId): number => {
+    return lifelines[id] || 0;
+  };
+
   // =========================================================================
   // SISTEMA DE EXTRACCIÓN DINÁMICA DE PREGUNTAS POR DIFICULTAD DE RONDA
   // =========================================================================
@@ -278,6 +263,7 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     currentPoolsOverride?: {
       starter?: Question[];
       easy?: Question[];
+      intermediate?: Question[];
       medium?: Question[];
       hard?: Question[];
       expert?: Question[];
@@ -296,7 +282,11 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     } else if (diff === "easy") {
       activePool = currentPoolsOverride?.easy ?? unusedEasyPool;
       setter = (updater) => setUnusedEasyPool(updater);
-      sourceBank = normalQuestions.filter((q) => q.difficulty === "easy");
+      sourceBank = easyQuestions;
+    } else if (diff === "intermediate") {
+      activePool = currentPoolsOverride?.intermediate ?? unusedIntermediatePool;
+      setter = (updater) => setUnusedIntermediatePool(updater);
+      sourceBank = intermediateQuestions;
     } else if (diff === "medium") {
       activePool = currentPoolsOverride?.medium ?? unusedMediumPool;
       setter = (updater) => setUnusedMediumPool(updater);
@@ -311,7 +301,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       sourceBank = normalQuestions.filter((q) => q.difficulty === "expert");
     }
 
-    // Si el pool de la dificultad se agota, rellenar y mezclar sin repetir la pregunta actual
     if (!activePool || activePool.length === 0) {
       const fresh = [...sourceBank].sort(() => Math.random() - 0.5);
       activePool = fresh.filter((q) => !currentQuestion || q.id !== currentQuestion.id);
@@ -345,25 +334,42 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setCurrentRound(1);
     setCorrectAnswersForRouletteCount(0);
 
-    // Comodines iniciales
+    // Reiniciar comodines iniciales (3 desbloqueados con 1 uso, los demás en 0)
     setLifelines({
-      fiftyFiftyCount: 1,
-      skipCount: 1,
-      shieldCount: 1,
-      correctAnswerCount: 0,
-      extraLifeCount: 0,
+      fiftyFifty: 1,
+      skip: 1,
+      shield: 1,
+      correctAnswer: 0,
+      freezeTime: 0,
+      megaShield: 0,
+      secondChance: 0,
+      extraTime: 0,
+      doubleScore: 0,
+      revealOption: 0,
     });
-    setUnlockedMysteryIndices([]);
+
+    // Limpiar modificadores
+    setShieldActive(false);
+    setMegaShieldCharges(0);
+    setSecondChanceActive(false);
+    setDoubleScoreActive(false);
+    setTimeFreezeSecondsRemaining(0);
+    setExtraTimeSecondsAdded(0);
+    setActiveModalLifeline(null);
+    setTimerPaused(false);
+    setIsQuestionTransitioning(false);
 
     // Inicializar los pools barajados para cada dificultad
     const shuffledStarter = [...starterQuestions].sort(() => Math.random() - 0.5);
-    const shuffledEasy = normalQuestions.filter((q) => q.difficulty === "easy").sort(() => Math.random() - 0.5);
+    const shuffledEasy = [...easyQuestions].sort(() => Math.random() - 0.5);
+    const shuffledInt = [...intermediateQuestions].sort(() => Math.random() - 0.5);
     const shuffledMedium = normalQuestions.filter((q) => q.difficulty === "medium").sort(() => Math.random() - 0.5);
     const shuffledHard = normalQuestions.filter((q) => q.difficulty === "hard").sort(() => Math.random() - 0.5);
     const shuffledExpert = normalQuestions.filter((q) => q.difficulty === "expert").sort(() => Math.random() - 0.5);
 
     setUnusedStarterPool(shuffledStarter.slice(1));
     setUnusedEasyPool(shuffledEasy);
+    setUnusedIntermediatePool(shuffledInt);
     setUnusedMediumPool(shuffledMedium);
     setUnusedHardPool(shuffledHard);
     setUnusedExpertPool(shuffledExpert);
@@ -390,47 +396,63 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
     setSelectedAnswerIndex(null);
     setIsAnswerSubmitted(false);
     setIsAnswerCorrect(null);
+    setDoubleScoreActive(false);
+    setTimeFreezeSecondsRemaining(0);
+    setExtraTimeSecondsAdded(0);
+    setActiveModalLifeline(null);
+    setTimerPaused(false);
   };
 
   // =========================================================================
-  // AVANCE DE PREGUNTA DENTRO DE LA MISMA RONDA
+  // AVANCE DE PREGUNTA DENTRO DE LA MISMA RONDA CON TRANSICIÓN VISUAL
   // =========================================================================
   const advanceToNextQuestion = () => {
-    resetQuestionStates();
+    setIsQuestionTransitioning(true);
+    setTimerPaused(true);
 
-    // 1. Si estamos en modo BONUS (Ronda de 3 preguntas fáciles)
-    if (bonusQuestionsRemaining > 0) {
-      const remainingBonus = bonusQuestionsRemaining - 1;
-      setBonusQuestionsRemaining(remainingBonus);
+    setTimeout(() => {
+      resetQuestionStates();
 
-      if (remainingBonus > 0 && bonusQuestions.length > 0) {
-        const randomBonus = bonusQuestions[Math.floor(Math.random() * bonusQuestions.length)];
-        setCurrentQuestion(shuffleQuestionOptions(randomBonus));
-        setPhase("BONUS_ROUND");
-        return;
-      } else {
-        // Fin del bonus: continuar en la ronda actual
-        const { nextQ } = getNextQuestionForRound(currentRound);
-        setCurrentQuestion(nextQ);
-        setPhase("PLAYING");
-        return;
+      // 1. Si estamos en modo BONUS (Ronda de 3 preguntas fáciles)
+      if (bonusQuestionsRemaining > 0) {
+        const remainingBonus = bonusQuestionsRemaining - 1;
+        setBonusQuestionsRemaining(remainingBonus);
+
+        if (remainingBonus > 0 && bonusQuestions.length > 0) {
+          const randomBonus = bonusQuestions[Math.floor(Math.random() * bonusQuestions.length)];
+          setCurrentQuestion(shuffleQuestionOptions(randomBonus));
+          setPhase("BONUS_ROUND");
+          setIsQuestionTransitioning(false);
+          setTimerPaused(false);
+          return;
+        } else {
+          // Fin del bonus: continuar en la ronda actual
+          const { nextQ } = getNextQuestionForRound(currentRound);
+          setCurrentQuestion(nextQ);
+          setPhase("PLAYING");
+          setIsQuestionTransitioning(false);
+          setTimerPaused(false);
+          return;
+        }
       }
-    }
 
-    // 2. Incrementar contador global de preguntas respondidas
-    setQuestionsAnsweredCount((prev) => prev + 1);
+      // 2. Incrementar contador global de preguntas respondidas
+      setQuestionsAnsweredCount((prev) => prev + 1);
 
-    // 3. Cargar la siguiente pregunta del MISMO nivel de la ronda actual
-    const { nextQ } = getNextQuestionForRound(currentRound);
-    setCurrentQuestion(nextQ);
-    setPhase("PLAYING");
+      // 3. Cargar la siguiente pregunta del MISMO nivel de la ronda actual
+      const { nextQ } = getNextQuestionForRound(currentRound);
+      setCurrentQuestion(nextQ);
+      setPhase("PLAYING");
+      setIsQuestionTransitioning(false);
+      setTimerPaused(false);
+    }, 300);
   };
 
   // =========================================================================
   // GESTIÓN DE RESPUESTAS Y CONDICIÓN DE FIN DE RONDA (3 ACIERTOS -> RULETA)
   // =========================================================================
   const handleAnswerSelection = (optionIndex: number) => {
-    if (isAnswerSubmitted || !currentQuestion) return;
+    if (isAnswerSubmitted || !currentQuestion || isQuestionTransitioning) return;
 
     setSelectedAnswerIndex(optionIndex);
     setIsAnswerSubmitted(true);
@@ -440,22 +462,23 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     if (isCorrect) {
       soundService.playCorrectSound();
-      const pointsToAdd =
+      const basePoints =
         bonusQuestionsRemaining > 0 ? config.pointsBonusQuestionCorrect : config.pointsNormalQuestionCorrect;
+      const pointsToAdd = doubleScoreActive ? basePoints * 2 : basePoints;
       setScore((prev) => prev + pointsToAdd);
 
-      // Si no estamos en ronda bonus, verificar la condición de 3 aciertos para la Ruleta (Fin de Ronda)
+      // Si no estamos en ronda bonus, verificar la condición de 3 aciertos para la Ruleta
       if (bonusQuestionsRemaining <= 0) {
         const nextCorrectCount = correctAnswersForRouletteCount + 1;
 
         if (nextCorrectCount >= 3) {
-          // ¡3 PREGUNTAS CORRECTAS ALCANZADAS! → RULETA → FIN DE LA RONDA ACTUAL
+          // 3 ACIERTOS ALCANZADOS → RULETA → FIN DE LA RONDA ACTUAL
           setCorrectAnswersForRouletteCount(0);
 
           transitionTimeoutRef.current = setTimeout(() => {
             resetQuestionStates();
             setPhase("ROULETTE");
-          }, 1200);
+          }, 1100);
           return;
         } else {
           setCorrectAnswersForRouletteCount(nextCorrectCount);
@@ -464,14 +487,42 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
       transitionTimeoutRef.current = setTimeout(() => {
         advanceToNextQuestion();
-      }, 1200);
+      }, 1100);
     } else {
       soundService.playIncorrectSound();
 
-      // En caso de ESCUDO ACTIVO: reintentar la misma pregunta
+      // MECÁNICA 1: MEGA ESCUDO ACTIVO (absorbe hasta 2 fallos consecutivos)
+      if (megaShieldCharges > 0) {
+        transitionTimeoutRef.current = setTimeout(() => {
+          setMegaShieldCharges((c) => c - 1);
+          setIsAnswerSubmitted(false);
+          setSelectedAnswerIndex(null);
+          setIsAnswerCorrect(null);
+          if (optionIndex >= 0) {
+            setHiddenOptionIndices((prev) => [...prev, optionIndex]);
+          }
+        }, 800);
+        return;
+      }
+
+      // MECÁNICA 2: ESCUDO ACTIVO (absorbe 1 fallo y reintenta)
       if (shieldActive) {
         transitionTimeoutRef.current = setTimeout(() => {
           setShieldActive(false);
+          setIsAnswerSubmitted(false);
+          setSelectedAnswerIndex(null);
+          setIsAnswerCorrect(null);
+          if (optionIndex >= 0) {
+            setHiddenOptionIndices((prev) => [...prev, optionIndex]);
+          }
+        }, 800);
+        return;
+      }
+
+      // MECÁNICA 3: SEGUNDA OPORTUNIDAD ACTIVA
+      if (secondChanceActive) {
+        transitionTimeoutRef.current = setTimeout(() => {
+          setSecondChanceActive(false);
           setIsAnswerSubmitted(false);
           setSelectedAnswerIndex(null);
           setIsAnswerCorrect(null);
@@ -487,7 +538,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setLives(newLives);
 
       if (newLives <= 0) {
-        // Fin de partida inmediato si no quedan vidas (sin ruleta)
         transitionTimeoutRef.current = setTimeout(() => {
           resetQuestionStates();
           saveGameScore({ playerName, score, questionsAnswered: questionsAnsweredCount });
@@ -499,183 +549,134 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       // Si quedan vidas, la ronda continúa con otra pregunta de la misma dificultad
       transitionTimeoutRef.current = setTimeout(() => {
         advanceToNextQuestion();
-      }, 1200);
+      }, 1100);
     }
   };
 
   // =========================================================================
-  // USO DE COMODINES OFICIALES
+  // APERTURA Y CONTROL DEL MODAL DE COMODINES (PAUSA TOTAL DEL TEMPORIZADOR)
   // =========================================================================
-  const useFiftyFifty = (): boolean => {
-    if (lifelines.fiftyFiftyCount <= 0 || isAnswerSubmitted || !currentQuestion) return false;
-    soundService.playLifelineSound();
+  const openLifelineModal = (lifelineId: LifelineId) => {
+    if (isAnswerSubmitted || !currentQuestion || isQuestionTransitioning) return;
+    if ((lifelines[lifelineId] || 0) <= 0) return;
 
-    const correctIdx = currentQuestion.correctIndex;
-    const incorrectIndices = [0, 1, 2, 3].filter((idx) => idx !== correctIdx);
-    const shuffledIncorrect = incorrectIndices.sort(() => Math.random() - 0.5);
-    const toHide = shuffledIncorrect.slice(0, 2);
+    const def = OFFICIAL_10_LIFELINES.find((l) => l.id === lifelineId);
+    if (!def) return;
 
-    setHiddenOptionIndices(toHide);
-    setLifelines((prev) => ({ ...prev, fiftyFiftyCount: prev.fiftyFiftyCount - 1 }));
-    return true;
+    soundService.playClickSound();
+    setTimerPaused(true);
+    setActiveModalLifeline(def);
   };
 
-  const useSkip = (): boolean => {
-    if (lifelines.skipCount <= 0 || isAnswerSubmitted || !currentQuestion) return false;
-    soundService.playLifelineSound();
-    setLifelines((prev) => ({ ...prev, skipCount: prev.skipCount - 1 }));
-    advanceToNextQuestion();
-    return true;
+  const closeLifelineModal = () => {
+    setActiveModalLifeline(null);
+    setTimerPaused(false);
   };
 
-  const useShield = (): boolean => {
-    if (lifelines.shieldCount <= 0 || isAnswerSubmitted || shieldActive) return false;
-    soundService.playLifelineSound();
-    setShieldActive(true);
-    setLifelines((prev) => ({ ...prev, shieldCount: prev.shieldCount - 1 }));
-    return true;
+  const confirmActivateLifeline = (): boolean => {
+    if (!activeModalLifeline) return false;
+    const id = activeModalLifeline.id;
+    const success = activateLifelineDirectly(id);
+    setActiveModalLifeline(null);
+    setTimerPaused(false);
+    return success;
   };
 
-  const useCorrectAnswerHighlight = (): boolean => {
-    if (lifelines.correctAnswerCount <= 0 || isAnswerSubmitted || !currentQuestion) return false;
-    soundService.playCorrectSound();
-    setHighlightedCorrectOption(currentQuestion.correctIndex);
-    setLifelines((prev) => ({ ...prev, correctAnswerCount: prev.correctAnswerCount - 1 }));
-    return true;
-  };
+  // =========================================================================
+  // EJECUCIÓN DIRECTA DE LOS 10 COMODINES DE ACCIÓN
+  // =========================================================================
+  const activateLifelineDirectly = (id: LifelineId): boolean => {
+    if (isAnswerSubmitted || !currentQuestion) return false;
+    if ((lifelines[id] || 0) <= 0) return false;
 
-  const useExtraLife = (): boolean => {
-    if (lifelines.extraLifeCount <= 0 || lives >= 5) return false;
-    soundService.playLifelineSound();
-    setLives((l) => Math.min(l + 1, 5));
-    setLifelines((prev) => ({ ...prev, extraLifeCount: prev.extraLifeCount - 1 }));
-    return true;
-  };
-
-  const useMysteryBooster = (mysteryIndex: number): boolean => {
-    if (!unlockedMysteryIndices.includes(mysteryIndex) || isAnswerSubmitted) return false;
     soundService.playLifelineSound();
 
-    switch (mysteryIndex) {
-      case 0: // Doble Puntos
-        setScore((s) => s + 200);
+    switch (id) {
+      case "fiftyFifty": {
+        const correctIdx = currentQuestion.correctIndex;
+        const incorrectIndices = [0, 1, 2, 3].filter(
+          (idx) => idx !== correctIdx && !hiddenOptionIndices.includes(idx)
+        );
+        const shuffledIncorrect = incorrectIndices.sort(() => Math.random() - 0.5);
+        const toHide = shuffledIncorrect.slice(0, 2);
+        setHiddenOptionIndices((prev) => [...prev, ...toHide]);
         break;
-      case 1: // Congelar Tiempo
-        break;
-      case 2: // Pista Focalizada
-        if (currentQuestion) {
-          setHighlightedCorrectOption(currentQuestion.correctIndex);
-        }
-        break;
-      case 3: // Mega Escudo
+      }
+
+      case "skip": {
+        setLifelines((prev) => ({ ...prev, skip: Math.max(prev.skip - 1, 0) }));
+        advanceToNextQuestion();
+        return true;
+      }
+
+      case "shield": {
         setShieldActive(true);
         break;
-      case 4: // Corona Triunfal (+1000 PTS)
-        setScore((s) => s + 1000);
+      }
+
+      case "correctAnswer": {
+        setHighlightedCorrectOption(currentQuestion.correctIndex);
         break;
+      }
+
+      case "freezeTime": {
+        setTimeFreezeSecondsRemaining(15);
+        break;
+      }
+
+      case "megaShield": {
+        setMegaShieldCharges((c) => Math.max(c, 2));
+        break;
+      }
+
+      case "secondChance": {
+        setSecondChanceActive(true);
+        break;
+      }
+
+      case "extraTime": {
+        setExtraTimeSecondsAdded((prev) => prev + 15);
+        break;
+      }
+
+      case "doubleScore": {
+        setDoubleScoreActive(true);
+        break;
+      }
+
+      case "revealOption": {
+        const correctIdx = currentQuestion.correctIndex;
+        const incorrectIndices = [0, 1, 2, 3].filter(
+          (idx) => idx !== correctIdx && !hiddenOptionIndices.includes(idx)
+        );
+        if (incorrectIndices.length > 0) {
+          const randomIndex = incorrectIndices[Math.floor(Math.random() * incorrectIndices.length)];
+          setHiddenOptionIndices((prev) => [...prev, randomIndex]);
+        }
+        break;
+      }
+
       default:
         break;
     }
 
-    setUnlockedMysteryIndices((prev) => prev.filter((idx) => idx !== mysteryIndex));
+    setLifelines((prev) => ({
+      ...prev,
+      [id]: Math.max((prev[id] || 0) - 1, 0),
+    }));
+
     return true;
   };
 
   // =========================================================================
-  // RULETA Y PREMIOS OFICIALES (PROBABILIDADES PONDERADAS)
+  // RULETA Y SELECCIÓN PONDERADA DE PREMIOS (100% CONSOLIDADO)
   // =========================================================================
-  const spinRoulette = () => {
-    interface WeightedPrize {
-      type: string;
-      label: string;
-      weight: number;
-      effect: () => void;
-    }
-
-    const prizeTable: WeightedPrize[] = [
-      // Premios de Puntos (70% de probabilidad total)
-      {
-        type: "POINTS_SMALL",
-        label: "+150 Puntos",
-        weight: 25,
-        effect: () => setScore((s) => s + 150),
-      },
-      {
-        type: "POINTS_MEDIUM",
-        label: "+350 Puntos",
-        weight: 22,
-        effect: () => setScore((s) => s + 350),
-      },
-      {
-        type: "POINTS_LARGE",
-        label: "+750 Puntos",
-        weight: 15,
-        effect: () => setScore((s) => s + 750),
-      },
-      {
-        type: "POINTS_EPIC",
-        label: "+1.500 Puntos Supremos",
-        weight: 8,
-        effect: () => setScore((s) => s + 1500),
-      },
-
-      // Premios Especiales y Comodines (30% de probabilidad total)
-      {
-        type: "EXTRA_LIFE",
-        label: "+1 Vida Extra",
-        weight: 8,
-        effect: () => setLives((l) => Math.min(l + 1, 5)),
-      },
-      {
-        type: "FIFTY_FIFTY",
-        label: "Comodín 50/50",
-        weight: 4,
-        effect: () => setLifelines((prev) => ({ ...prev, fiftyFiftyCount: prev.fiftyFiftyCount + 1 })),
-      },
-      {
-        type: "SHIELD",
-        label: "Comodín Escudo",
-        weight: 4,
-        effect: () => setLifelines((prev) => ({ ...prev, shieldCount: prev.shieldCount + 1 })),
-      },
-      {
-        type: "CORRECT_ANSWER",
-        label: "Comodín Pista (Desbloqueado)",
-        weight: 4,
-        effect: () => setLifelines((prev) => ({ ...prev, correctAnswerCount: prev.correctAnswerCount + 1 })),
-      },
-      {
-        type: "SKIP",
-        label: "Comodín Saltar Pregunta",
-        weight: 4,
-        effect: () => setLifelines((prev) => ({ ...prev, skipCount: prev.skipCount + 1 })),
-      },
-      {
-        type: "MYSTERY_LIFELINE",
-        label: "¡Comodín Misterioso Desbloqueado!",
-        weight: 4,
-        effect: () => {
-          setUnlockedMysteryIndices((prev) => {
-            const nextSlot = [0, 1, 2, 3, 4].find((idx) => !prev.includes(idx));
-            return nextSlot !== undefined ? [...prev, nextSlot] : prev;
-          });
-        },
-      },
-      {
-        type: "BONUS_ROUND",
-        label: "Ronda de Preguntas Fáciles (3 Preguntas)",
-        weight: 2,
-        effect: () => {
-          setBonusQuestionsRemaining(3);
-        },
-      },
-    ];
-
-    const totalWeight = prizeTable.reduce((sum, p) => sum + p.weight, 0);
+  const spinRoulette = (): WheelPrizeDef => {
+    const totalWeight = OFFICIAL_WHEEL_PRIZES.reduce((sum, p) => sum + p.weight, 0); // 100
     let randomNum = Math.random() * totalWeight;
 
-    let selected = prizeTable[0];
-    for (const prize of prizeTable) {
+    let selected: WheelPrizeDef = OFFICIAL_WHEEL_PRIZES[0];
+    for (const prize of OFFICIAL_WHEEL_PRIZES) {
       if (randomNum < prize.weight) {
         selected = prize;
         break;
@@ -683,36 +684,47 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
       randomNum -= prize.weight;
     }
 
-    setRoulettePrizeMessage(selected.label);
-    setCurrentPrizeEffect(() => selected.effect);
+    setCurrentWheelPrize(selected);
+    setRoulettePrizeMessage(selected.name);
 
-    return { prizeType: selected.type, label: selected.label };
+    setCurrentPrizeEffect(() => () => {
+      if (selected.category === "points" && selected.pointsValue) {
+        setScore((s) => s + selected.pointsValue!);
+      } else if (selected.category === "life" && selected.livesValue) {
+        setLives((l) => Math.min(l + selected.livesValue!, 5));
+      } else if (selected.category === "lifeline" && selected.lifelineId) {
+        const lid = selected.lifelineId as LifelineId;
+        setLifelines((prev) => ({
+          ...prev,
+          [lid]: (prev[lid] || 0) + (selected.lifelineAmount || 1),
+        }));
+      } else if (selected.category === "special") {
+        setBonusQuestionsRemaining(3);
+      }
+    });
+
+    return selected;
   };
 
   // =========================================================================
   // RECLAMAR PREMIO DE RULETA Y COMENZAR LA SIGUIENTE RONDA
   // =========================================================================
   const claimRoulettePrizeAndContinue = () => {
-    // 1. Aplicar efecto del premio de la ruleta
     if (currentPrizeEffect) {
       currentPrizeEffect();
       setCurrentPrizeEffect(null);
     }
 
-    // 2. Reiniciar contador de aciertos de ruleta a 0 para la nueva ronda
     setCorrectAnswersForRouletteCount(0);
 
-    // 3. Incrementar el número de ronda (Checkpoint completado)
     const nextRoundNumber = currentRound + 1;
     setCurrentRound(nextRoundNumber);
 
-    // 4. Si se activó la ronda bonus, presentarla
-    if (bonusQuestionsRemaining > 0 && bonusQuestions.length > 0) {
+    if (currentWheelPrize?.category === "special" || (bonusQuestionsRemaining > 0 && bonusQuestions.length > 0)) {
       const randomBonus = bonusQuestions[Math.floor(Math.random() * bonusQuestions.length)];
       setCurrentQuestion(shuffleQuestionOptions(randomBonus));
       setPhase("BONUS_ROUND");
     } else {
-      // 5. Comenzar la siguiente ronda con preguntas de su nuevo nivel de dificultad
       const { nextQ } = getNextQuestionForRound(nextRoundNumber);
       setCurrentQuestion(nextQ);
       resetQuestionStates();
@@ -757,13 +769,27 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         currentQuestion,
         hiddenOptionIndices,
         highlightedCorrectOption,
-        shieldActive,
         selectedAnswerIndex,
         isAnswerSubmitted,
         isAnswerCorrect,
+        isQuestionTransitioning,
+        activeModalLifeline,
+        openLifelineModal,
+        closeLifelineModal,
+        confirmActivateLifeline,
+        isTimerPaused,
+        setTimerPaused,
+        shieldActive,
+        megaShieldCharges,
+        secondChanceActive,
+        doubleScoreActive,
+        timeFreezeSecondsRemaining,
+        setTimeFreezeSecondsRemaining,
+        extraTimeSecondsAdded,
         lifelines,
-        unlockedMysteryIndices,
-        useMysteryBooster,
+        getLifelineCount,
+        activateLifelineDirectly,
+        currentWheelPrize,
         roulettePrizeMessage,
         bonusQuestionsRemaining,
         startNewGameSession,
@@ -773,11 +799,6 @@ export const GameProvider: React.FC<{ children: React.ReactNode }> = ({ children
         pauseGame,
         resumeGame,
         quitGameToMenu,
-        useFiftyFifty,
-        useSkip,
-        useShield,
-        useCorrectAnswerHighlight,
-        useExtraLife,
         spinRoulette,
         claimRoulettePrizeAndContinue,
         isLoadingQuestions,
